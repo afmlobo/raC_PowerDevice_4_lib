@@ -1,0 +1,29 @@
+Name: raC_PowerDevice_4_lib
+Type: ObjectLibraryProjectFolder
+Children:
+- File: Items/Items.yaml
+- File: Types/Types.yaml
+- File: Translations/Translations.yaml
+- Name: Localization
+  Type: PropertyGroup
+- Name: Authentication
+  Type: PropertyGroup
+- Name: PasswordPolicy
+  Type: PasswordPolicy
+  Children:
+  - Name: MaximumPasswordAge
+    Type: BaseDataVariableType
+    DataType: UInt16
+  - Name: EnforcePasswordHistory
+    Type: BaseDataVariableType
+    DataType: Byte
+    Value: 1
+  - Name: MinimumPasswordAge
+    Type: BaseDataVariableType
+    DataType: UInt16
+  - Name: MinimumPasswordLength
+    Type: BaseDataVariableType
+    DataType: Byte
+    Value: 8
+- Name: AlarmConfiguration
+  Type: PropertyGroup

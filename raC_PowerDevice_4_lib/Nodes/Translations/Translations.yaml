@@ -1,0 +1,19 @@
+Name: Translations
+Type: FolderType
+Children:
+- Name: LocalizationDictionary1
+  Type: LocalizationDictionary
+  DataType: String
+  ValueRank: OneOrMoreDimensions
+  ArrayDimensions: [0,0]
+  Value: 
+   {
+    "Type": 12,
+    "Dimensions": [4,2],
+    "Body": [
+     "Key","en-US",
+     "Graphic Symbol base element","Graphic Symbol base element",
+     "Set to false to turn off navigation","Set to false to turn off navigation",
+     "ISAStyleSheetsEngineeringUnitsDescription","Engineering units, footnotes"
+    ]
+   }
