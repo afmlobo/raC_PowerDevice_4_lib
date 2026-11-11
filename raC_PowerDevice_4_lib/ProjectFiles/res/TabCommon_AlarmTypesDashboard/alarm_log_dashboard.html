@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Log Dashboard</title>
+    <link rel="stylesheet" href="../ISA_style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--display-bg);
+            color: var(--title-fg);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .location-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .time-info {
+            text-align: right;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .time-info > div {
+            margin: 3px 0;
+            font-size: 14px;
+        }
+
+        .aggregation-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.95);
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-weight: 500;
+            margin-top: 6px;
+            display: inline-block;
+            font-size: 13px;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            overflow-y: auto;
+            padding: 32px;
+        }
+
+        .kpi-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .kpi-card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--data-fg);
+            transition: all 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .kpi-card.critical {
+            border-left-color: var(--urgent-alarm);
+        }
+
+        .kpi-card.warning {
+            border-left-color: var(--medium-alarm);
+        }
+
+        .kpi-card.info {
+            border-left-color: var(--data-fg);
+        }
+
+        .kpi-label {
+            font-size: 12px;
+            color: var(--label-fg);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .kpi-value {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--data-fg);
+            margin-bottom: 8px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .kpi-subtext {
+            font-size: 13px;
+            color: var(--eng-unit-fg);
+            margin-bottom: 12px;
+        }
+
+        .kpi-trend {
+            font-size: 13px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--separator-line);
+            font-weight: 600;
+        }
+
+        .trend-up {
+            color: var(--urgent-alarm);
+        }
+
+        .trend-down {
+            color: var(--state-good);
+        }
+
+        .trend-neutral {
+            color: var(--eng-unit-fg);
+        }
+
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .chart-container {
+            background: var(--card-bg);
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--title-fg);
+            margin-bottom: 24px;
+        }
+
+        .chart {
+            width: 100%;
+            height: 300px;
+        }
+
+        .table-section {
+            background: var(--card-bg);
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--title-fg);
+            margin-bottom: 24px;
+        }
+
+        .alarm-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .alarm-table th {
+            background: var(--grouping-box);
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--title-fg);
+            border-bottom: 2px solid var(--data-fg);
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .alarm-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--separator-line);
+            font-size: 13px;
+        }
+
+        .alarm-table tbody tr:hover {
+            background: var(--grouping-box);
+        }
+
+        .severity-critical {
+            color: var(--urgent-alarm);
+            font-weight: bold;
+        }
+
+        .severity-warning {
+            color: var(--medium-alarm);
+            font-weight: bold;
+        }
+
+        .severity-info {
+            color: var(--data-fg);
+            font-weight: bold;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--eng-unit-fg);
+            font-size: 14px;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--data-fg);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .last-updated {
+            text-align: right;
+            font-size: 13px;
+            color: var(--eng-unit-fg);
+            margin-top: 15px;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: var(--eng-unit-fg);
+            font-size: 14px;
+        }
+
+        .severity-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            background: var(--grouping-box);
+        }
+
+        .severity-badge.critical {
+            background: #ffe0e0;
+            color: var(--urgent-alarm);
+        }
+
+        .severity-badge.warning {
+            background: #fff8ed;
+            color: #3f3f3f;
+        }
+
+        .severity-badge.info {
+            background: #e8ecf5;
+            color: var(--data-fg);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .kpi-card, .chart-container, .table-section {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+
+            .kpi-section {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .content-wrapper {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div>
+                <div class="breadcrumb" id="breadcrumb">
+                    <span class="breadcrumb-item"><i class="fa-solid fa-building"></i> Loading...</span>
+                </div>
+                <div class="location-title" id="locationTitle">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Alarm Log Dashboard
+                </div>
+            </div>
+            <div class="time-info">
+                <div id="timeRange">Initializing...</div>
+                <div id="lastUpdated">Last Update: Loading...</div>
+                <div class="aggregation-badge">
+                    <i class="fa-solid fa-bell"></i> <span id="deviceCount">Devices Aggregated</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="kpi-section">
+                <div class="kpi-card">
+                    <div class="kpi-label">Total Alarms</div>
+                    <div class="kpi-value" id="totalAlarms">0</div>
+                    <div class="kpi-subtext" id="totalAlarmsSubtext">No data</div>
+                    <div class="kpi-trend" id="totalAlarmsTrend"></div>
+                </div>
+
+                <div class="kpi-card critical">
+                    <div class="kpi-label">Critical</div>
+                    <div class="kpi-value" id="criticalCount">0</div>
+                    <div class="kpi-subtext">Alerts</div>
+                    <div class="kpi-trend trend-neutral" id="criticalTrend"></div>
+                </div>
+
+                <div class="kpi-card warning">
+                    <div class="kpi-label">Warnings</div>
+                    <div class="kpi-value" id="warningCount">0</div>
+                    <div class="kpi-subtext">Alerts</div>
+                    <div class="kpi-trend trend-neutral" id="warningTrend"></div>
+                </div>
+
+                <div class="kpi-card info">
+                    <div class="kpi-label">Info</div>
+                    <div class="kpi-value" id="infoCount">0</div>
+                    <div class="kpi-subtext">Alerts</div>
+                    <div class="kpi-trend trend-neutral" id="infoTrend"></div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-label">Top Alarm Device</div>
+                    <div class="kpi-value" style="font-size: 24px;" id="topDevice">N/A</div>
+                    <div class="kpi-subtext" id="topDeviceCount">0 alarms</div>
+                </div>
+            </div>
+
+            <div class="charts-section">
+                <div class="chart-container">
+                    <div class="chart-title"><span id="alarmsByTypeTitle">Alarms by Type</span></div>
+                    <div class="chart" id="alarmsByTypeChart"></div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title"><span id="severityDistributionTitle">Severity Distribution</span></div>
+                    <div class="chart" id="severityDistributionChart"></div>
+                </div>
+            </div>
+
+            <div class="chart-container" style="margin-bottom: 32px;">
+                <div class="chart-title"><span id="alarmTrendTitle">Alarm Trend</span></div>
+                <div class="chart" id="alarmTrendChart" style="height: 350px;"></div>
+            </div>
+
+            <div class="table-section">
+                <div class="table-title"><i class="fa-solid fa-list"></i> Recent Alarms (Last 100)</div>
+                <div id="alarmTableContainer">
+                    <div class="no-data">Loading alarm data...</div>
+                </div>
+                <div class="last-updated" id="lastUpdated"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../all.min.js"></script>
+    <script src="js_AlarmLogDashboard.js"></script>
+    <script src="../echarts.min.js"></script>
+</body>
+</html>
