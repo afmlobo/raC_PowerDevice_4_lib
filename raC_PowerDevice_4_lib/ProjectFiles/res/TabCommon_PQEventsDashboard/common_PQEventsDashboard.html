@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Quality Events Dashboard</title>
+    <link rel="stylesheet" href="../ISA_style.css">
+    <script type="text/javascript" src="../echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--display-bg);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .location-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .last-update {
+            text-align: right;
+            opacity: 0.9;
+        }
+
+        .last-update-time {
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .time-info {
+            text-align: right;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .time-info > div {
+            margin: 3px 0;
+            font-size: 14px;
+        }
+
+        .aggregation-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.95);
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-weight: 500;
+            margin-top: 6px;
+            display: inline-block;
+            font-size: 13px;
+        }
+
+        .summary-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 28px;
+            margin: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .summary-table th,
+        .summary-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--separator-line);
+        }
+
+        .summary-table th {
+            background-color: var(--grouping-box);
+            color: var(--title-fg);
+            font-weight: 600;
+            border-bottom: 2px solid var(--data-fg);
+        }
+
+        .summary-table tbody tr:hover {
+            background-color: var(--grouping-box);
+        }
+
+        .trend-chart {
+            width: 150px;
+            height: 40px;
+            display: inline-block;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            background-color: var(--data-fg);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .action-btn:hover {
+            background-color: #364a8f;
+            box-shadow: 0 4px 12px rgba(71, 92, 167, 0.25);
+        }
+
+        .waveform-icon {
+            color: var(--data-fg);
+            margin-left: 5px;
+            font-size: 14px;
+        }
+
+        .dashboard-content {
+            padding: 32px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .chart-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .chart-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .chart-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--title-fg);
+            margin-bottom: 24px;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 350px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .events-table-container {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 32px 32px 32px;
+        }
+
+        .events-table-container h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--title-fg);
+            margin-bottom: 24px;
+        }
+
+        #eventTable {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #eventTable th,
+        #eventTable td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
+        }
+
+        #eventTable th {
+            background-color: var(--grouping-box);
+            color: var(--title-fg);
+            font-weight: 600;
+            border-bottom: 2px solid var(--data-fg);
+            position: sticky;
+            top: 0;
+        }
+
+        #eventTable tbody tr:hover {
+            background-color: var(--grouping-box);
+        }
+
+        .waveform-message {
+            color: var(--data-fg);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        #last-updated {
+            display: block;
+            text-align: right;
+            font-size: 13px;
+            color: var(--eng-unit-fg);
+            margin-top: 15px;
+        }
+
+        .loading {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--data-fg);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .empty-state {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            color: var(--eng-unit-fg);
+            margin: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .summary-section, .chart-section, .chart-card, .events-table-container, .empty-state {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div>
+                <div class="breadcrumb" id="breadcrumb">
+                    <span class="breadcrumb-item"><i class="fa-solid fa-building"></i> Loading...</span>
+                </div>
+                <div class="location-title" id="locationTitle">
+                    <i class="fa-solid fa-chart-column"></i> PQ Events Dashboard
+                </div>
+            </div>
+            <div class="time-info">
+                <div id="timeRange">Initializing...</div>
+                <div id="lastUpdate">Last Update: --</div>
+                <div class="aggregation-badge">
+                    <i class="fa-solid fa-magnifying-glass"></i> <span id="aggregationText">Data Aggregated</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <table class="summary-table" id="summaryTable">
+                <thead>
+                    <tr>
+                        <th>Event Type</th>
+                        <th>Sub Event</th>
+                        <th>Total Count</th>
+                        <th>Latest Occurrence</th>
+                        <th>Avg Duration (ms)</th>
+                        <th>Trend</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div id="noData" class="empty-state" style="display:none; margin: 0; padding: 40px;">No Power Quality Events Found</div>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="chart-section">
+                <div class="chart-title"><i class="fa-solid fa-chart-line"></i> Event Frequency Over Time</div>
+                <div class="chart-container" id="eventFrequencyChart"></div>
+            </div>
+
+            <div class="chart-section">
+                <div class="chart-title"><i class="fa-solid fa-stopwatch"></i> Average Event Duration by Sub Event</div>
+                <div class="chart-container" id="eventDurationChart"></div>
+            </div>
+
+            <div class="chart-section">
+                <div class="chart-title"><i class="fa-solid fa-chart-pie"></i> Event Types Distribution</div>
+                <div class="chart-container" id="eventTypesChart"></div>
+            </div>
+        </div>
+
+        <div class="events-table-container">
+            <h3><i class="fa-solid fa-list"></i> Recent Power Quality Events</h3>
+            <table id="eventTable">
+                <thead>
+                    <tr>
+                        <th>Record ID</th>
+                        <th>Device</th>
+                        <th>Event Type</th>
+                        <th>Sub Event</th>
+                        <th>Timestamp</th>
+                        <th>Duration (ms)</th>
+                        <th>Trip Point</th>
+                        <th>Min/Max Value</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <span id="last-updated"></span>
+        </div>
+    </div>
+
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <h3>Loading Power Quality Events...</h3>
+    </div>
+
+    <script type="text/javascript" src="../all.min.js"></script>
+    <script src="js_common_PQEventsDashboard.js"></script>
+</body>
+</html>

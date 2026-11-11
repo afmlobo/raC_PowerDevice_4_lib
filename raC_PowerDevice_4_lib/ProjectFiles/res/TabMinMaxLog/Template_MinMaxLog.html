@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Electrical Parameters Min/Max Dashboard</title>
+    <link rel="stylesheet" href="../ISA_style.css">
+    <style>
+        * { box-sizing: border-box; }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .control-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background: var(--card-bg);
+            color: var(--label-fg);
+            font-weight: 500;
+        }
+
+        .control-btn.active {
+            background: var(--data-fg);
+            color: white;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .chart-container {
+            background: var(--grouping-box);
+            border-radius: 8px;
+            border: 1px solid var(--equipment-border);
+            padding: 20px;
+        }
+
+        .chart {
+            height: 400px;
+            width: 100%;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .data-table th, .data-table td {
+            padding: 8px;
+            border: 1px solid var(--equipment-border);
+            text-align: left;
+            color: var(--label-fg);
+        }
+
+        .data-table th {
+            background: var(--grouping-box);
+            font-weight: 600;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: var(--card-bg);
+        }
+
+        #loading {
+            text-align: center;
+            font-size: 16px;
+            color: var(--label-fg);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body data-device-name="{{deviceName}}">
+    <div class="controls">
+        <button class="control-btn active" data-type="voltage">Voltage</button>
+        <button class="control-btn" data-type="current">Current</button>
+        <button class="control-btn" data-type="power">Power</button>
+        <button class="control-btn" data-type="lines">L1, L2, L3</button>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="chart-container">
+            <div id="minMaxChart" class="chart"></div>
+        </div>
+        <div class="chart-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Min Value</th>
+                        <th>Min Timestamp</th>
+                        <th>Max Value</th>
+                        <th>Max Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="parameterTable"></tbody>
+            </table>
+        </div>
+    </div>
+    <div id="loading">Loading...</div>
+    <script src="../echarts.min.js"></script>
+    <script src="js_FetchMinMaxLog.js"></script>
+</body>
+</html>

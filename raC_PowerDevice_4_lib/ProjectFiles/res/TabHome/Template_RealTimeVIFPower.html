@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Power Quality Dashboard - {{deviceName}}</title>
+    <link rel="stylesheet" href="../ISA_style.css">
+    <style>
+        * { box-sizing: border-box; }
+
+        .dashboard-container {
+            width: 100%;
+            margin: 0;
+        }
+
+        .card:hover { box-shadow: none; }
+
+        .card-header {
+            padding: 0;
+        }
+
+        .card-header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding-top: 0px;
+            padding-right: 12px;
+            padding-bottom: 12px;
+            padding-left: 0px;
+        }
+
+        .status {
+            font-size: 0.75rem;
+            color: var(--label-fg);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .status-dot.good { background: var(--state-good); }
+        .status-dot.error { background: var(--urgent-alarm); animation: none; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+        }
+
+        .left-panel {
+            flex: 0 0 30%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .summary-card {
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid var(--equipment-border);
+            background: var(--grouping-box);
+        }
+
+        .summary-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: var(--title-fg);
+        }
+
+        .metric-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+        }
+
+        .metric-card {
+            background: var(--grouping-box);
+            border-radius: 6px;
+            padding: 12px;
+            border: 1px solid var(--equipment-border);
+            text-align: center;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--label-fg);
+            margin-bottom: 4px;
+        }
+
+        .metric-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--data-fg);
+        }
+
+        .metric-unit {
+            font-size: 0.75rem;
+            color: var(--eng-unit-fg);
+        }
+
+        .gauge-panel {
+            background: var(--grouping-box);
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid var(--equipment-border);
+            flex: 1;
+        }
+
+        .gauge-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: var(--title-fg);
+        }
+
+        .gauge-charts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .gauge-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gauge-chart {
+            width: 100%;
+            height: 180px;
+        }
+
+        .lead-lag-label {
+            font-size: 0.75rem;
+            color: var(--data-fg);
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        .gauge-label {
+            margin-top: 4px;
+            font-size: 0.875rem;
+            color: var(--label-fg);
+            text-align: center;
+        }
+
+        .right-panel {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            background: var(--grouping-box);
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid var(--equipment-border);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--equipment-border);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            color: var(--label-fg);
+        }
+
+        .tab.active {
+            background: var(--data-fg);
+            color: white;
+            border-color: var(--data-fg);
+        }
+
+        .tab-content {
+            display: none;
+            flex: 1;
+        }
+
+        .tab-content.active {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .chart-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--title-fg);
+        }
+
+        .chart-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .chart-controls button {
+            background: var(--card-bg);
+            border: 1px solid var(--equipment-border);
+            border-radius: 4px;
+            padding: 6px 12px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            color: var(--label-fg);
+        }
+
+        .chart-controls button:hover {
+            background: var(--data-fg);
+            color: white;
+            border-color: var(--data-fg);
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid var(--equipment-border);
+        }
+
+        .power-charts-row {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            margin-bottom: 16px;
+            align-items: stretch;
+        }
+
+        .power-pie-container {
+            flex: 0 0 30%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .power-bar-container {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .frequency-charts {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            justify-content: space-between;
+        }
+
+        .frequency-gauge-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .frequency-gauge {
+            width: 100%;
+            height: 300px;
+        }
+
+        .frequency-label {
+            margin-top: 8px;
+            font-size: 0.875rem;
+            color: var(--label-fg);
+            text-align: center;
+        }
+
+        .table-container {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid var(--equipment-border);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+
+        .data-table th, .data-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid var(--separator-line);
+        }
+
+        .data-table th {
+            background: var(--grouping-box);
+            font-weight: 600;
+            color: var(--title-fg);
+        }
+
+        .data-table td {
+            color: var(--label-fg);
+        }
+
+        .footer {
+            margin-top: 20px;
+            padding: 10px;
+            background: var(--grouping-box);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: var(--label-fg);
+            text-align: center;
+            border: 1px solid var(--equipment-border);
+        }
+
+        @media (max-width: 768px) {
+            .card-content { flex-direction: column; }
+            .left-panel, .right-panel { flex: 0 0 100%; }
+            .metric-cards { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+            .gauge-charts { grid-template-columns: 1fr; }
+            .gauge-chart { height: 150px; }
+            .chart-container { height: 200px; }
+            .power-charts-row { flex-direction: column; }
+            .power-pie-container, .power-bar-container { flex: 0 0 100%; }
+            .frequency-charts { flex-direction: column; gap: 24px; }
+            .frequency-gauge { height: 200px; }
+        }
+    </style>
+</head>
+<body data-device-name="{{deviceName}}">
+    <div class="dashboard-container">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <div class="card-title">Real-Time Power Quality Dashboard</div>
+                    <div class="card-subtitle">Monitoring Voltage, Current, Power, and Frequency</div>
+                </div>
+                <div class="status">
+                    <span id="status-dot"></span>
+                    <span id="last-updated"></span>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="left-panel">
+                    <div class="summary-card">
+                        <div class="summary-title">Key Metrics</div>
+                        <div class="metric-cards" id="metrics-field">
+                            <!-- Metric fields populated by JS -->
+                        </div>
+                    </div>
+                    <div class="gauge-panel">
+                        <div class="gauge-title">Power Factor</div>
+                        <div class="gauge-charts">
+                            <div class="gauge-container">
+                                <div id="gauge-l1-pf" class="gauge-chart"></div>
+                                <div class="lead-lag-label" id="lead-lag-l1"></div>
+                                <div class="gauge-label">L1 PF</div>                                
+                            </div>
+                            <div class="gauge-container">
+                                <div id="gauge-l2-pf" class="gauge-chart"></div>
+                                <div class="lead-lag-label" id="lead-lag-l2"></div>
+                                <div class="gauge-label">L2 PF</div>                                
+                            </div>
+                            <div class="gauge-container">
+                                <div id="gauge-l3-pf" class="gauge-chart"></div>                                
+                                <div class="lead-lag-label" id="lead-lag-l3"></div>
+                                <div class="gauge-label">L3 PF</div>
+                            </div>
+                            <div class="gauge-container">
+                                <div id="gauge-total-pf" class="gauge-chart"></div>
+                                <div class="lead-lag-label" id="lead-lag-total"></div>
+                                <div class="gauge-label">Total PF</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-panel">
+                    <div class="tabs">
+                        <div class="tab" data-tab="voltages">Voltages</div>
+                        <div class="tab" data-tab="currents">Currents</div>
+                        <div class="tab" data-tab="power">Power</div>
+                        <div class="tab" data-tab="frequency">Frequency</div>
+                    </div>
+                    <div class="tab-content" id="voltages">
+                        <div class="chart-header">
+                            <div class="chart-title">Voltage Metrics</div>
+                            <div class="chart-controls">
+                                <button id="toggle-voltages">Switch to Line</button>
+                            </div>
+                        </div>
+                        <div id="voltages-chart" class="chart-container"></div>
+                        <div class="table-container">
+                            <table class="data-table" id="voltages-table">
+                                <thead><tr><th>Metric</th><th>Value (Volts)</th></tr></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="currents">
+                        <div class="chart-header">
+                            <div class="chart-title">Current Metrics</div>
+                            <div class="chart-controls">
+                                <button id="toggle-currents">Switch to Line</button>
+                            </div>
+                        </div>
+                        <div id="currents-chart" class="chart-container"></div>
+                        <div class="table-container">
+                            <table class="data-table" id="currents-table">
+                                <thead><tr><th>Metric</th><th>Value (Amps)</th></tr></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="power">
+                        <div class="power-charts-row">
+                            <div class="power-pie-container">
+                                <div class="chart-header">
+                                    <div class="chart-title">Power Distribution (kW)</div>
+                                </div>
+                                <div id="power-pie-chart" class="chart-container"></div>
+                            </div>
+                            <div class="power-bar-container">
+                                <div class="chart-header">
+                                    <div class="chart-title">Total Power Metrics</div>
+                                    <div class="chart-controls">
+                                        <button id="toggle-power">Switch to Line</button>
+                                    </div>
+                                </div>
+                                <div id="power-bar-chart" class="chart-container"></div>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table" id="power-table">
+                                <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="frequency">
+                        <div class="chart-header">
+                            <div class="chart-title">Frequency Metrics</div>
+                        </div>
+                        <div class="frequency-charts">
+                            <div class="frequency-gauge-container">
+                                <div id="frequency-gauge" class="frequency-gauge"></div>
+                                <div class="frequency-label">Frequency Hz</div>
+                            </div>
+                            <div class="frequency-gauge-container">
+                                <div id="avg-frequency-gauge" class="frequency-gauge"></div>
+                                <div class="frequency-label">Avg Frequency Hz</div>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table" id="frequency-table">
+                                <thead><tr><th>Metric</th><th>Value (Hz)</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Frequency Hz</td><td id="freq-value"></td></tr>
+                                    <tr><td>Avg Frequency Hz</td><td id="avg-freq-value"></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer" id="footer">
+            <!-- Footer metadata populated by JS -->
+        </div>
+    <script src="../echarts.min.js"></script>
+    <script src="js_FetchRealTimeVIFPower.js"></script>    
+</body>
+</html>

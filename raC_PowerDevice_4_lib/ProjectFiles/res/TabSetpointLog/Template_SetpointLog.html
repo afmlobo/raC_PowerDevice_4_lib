@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setpoint Log Dashboard</title>
+    <link rel="stylesheet" href="../ISA_style.css">
+    <style>
+        * { box-sizing: border-box; }
+
+        .container {
+            background: var(--grouping-box);
+            border-radius: 8px;
+            border: 1px solid var(--equipment-border);
+            padding: 20px;
+            max-width: 100%;
+            overflow-x: auto;
+            margin: 20px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            border: 1px solid var(--equipment-border);
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--label-fg);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 14px;
+            table-layout: auto;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid var(--equipment-border);
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: var(--label-fg);
+        }
+
+        th {
+            background: var(--data-fg);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            position: sticky;
+            top: 50px;
+            z-index: 900;
+        }
+
+        th:hover {
+            background: var(--card-bg-hover);
+        }
+
+        tr:nth-child(even) {
+            background: var(--card-bg);
+        }
+
+        tr:hover {
+            background: var(--card-bg-hover);
+        }
+
+        tr:hover td {
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        .pagination {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pagination button {
+            padding: 8px 12px;
+            border: 1px solid var(--equipment-border);
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+            color: var(--label-fg);
+        }
+
+        .pagination button:hover {
+            background: var(--card-bg-hover);
+        }
+
+        .pagination button:disabled {
+            background: var(--card-bg);
+            cursor: not-allowed;
+        }
+
+        .pagination span {
+            color: var(--label-fg);
+        }
+
+        #loading {
+            text-align: center;
+            font-size: 16px;
+            color: var(--label-fg);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body data-device-name="{{deviceName}}">
+    <div class="container">
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Search...">
+        </div>
+        <div id="tableContainer"></div>
+        <div class="pagination" id="pagination"></div>
+    </div>
+    <div id="loading">Loading...</div>
+    <script src="js_FetchSetpointLog.js"></script>
+</body>
+</html>

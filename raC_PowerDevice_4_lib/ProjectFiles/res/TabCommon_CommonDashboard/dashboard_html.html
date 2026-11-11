@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Monitoring Dashboard</title>
+    <link rel="stylesheet" href="../ISA_style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--display-bg);
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .dashboard-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .location-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-badge {
+            background: #4caf50;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .last-update {
+            text-align: right;
+            opacity: 0.9;
+        }
+
+        .last-update-time {
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            padding: 32px;
+            background: var(--grouping-box);
+        }
+
+        .kpi-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--equipment-border);
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--card-color), var(--card-color-light));
+        }
+
+        .kpi-card.devices { --card-color: #2196f3; --card-color-light: #64b5f6; }
+        .kpi-card.energy { --card-color: #4caf50; --card-color-light: #81c784; }
+        .kpi-card.alarms { --card-color: #ff9800; --card-color-light: #ffb74d; }
+        .kpi-card.pq { --card-color: #9c27b0; --card-color-light: #ba68c8; }
+
+        .kpi-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .kpi-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background: linear-gradient(135deg, var(--card-color), var(--card-color-light));
+            color: white;
+        }
+
+        .kpi-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--label-fg);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .kpi-value {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--data-fg);
+            margin: 8px 0;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .kpi-subtitle {
+            font-size: 14px;
+            color: var(--eng-unit-fg);
+            margin-bottom: 12px;
+        }
+
+        .kpi-trend {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .kpi-trend.up { color: var(--state-good); }
+        .kpi-trend.down { color: var(--urgent-alarm); }
+        .kpi-trend.neutral { color: var(--eng-unit-fg); }
+
+        .dashboard-content {
+            padding: 32px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .chart-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--equipment-border);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .chart-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .range-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--grouping-box);
+            padding: 4px;
+            border-radius: 999px;
+        }
+
+        .range-btn {
+            border: none;
+            background: transparent;
+            color: var(--label-fg);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .range-btn:hover:not(.active):not(:disabled) {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .range-btn.active {
+            background: var(--data-fg);
+            color: white;
+            box-shadow: 0 4px 12px rgba(71, 92, 167, 0.25);
+        }
+
+        .range-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .chart-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--title-fg);
+        }
+
+        .chart-container {
+            height: 350px;
+            background: var(--grouping-box);
+            border-radius: 12px;
+            padding: 24px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .no-data-message {
+            color: var(--eng-unit-fg);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+        }
+
+        .panel {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--equipment-border);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .panel-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--title-fg);
+        }
+
+        .alarm-summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .alarm-badge {
+            padding: 12px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        .alarm-badge.critical {
+            background: #ffe0e0;
+            color: var(--urgent-alarm);
+        }
+
+        .alarm-badge.warning {
+            background: #fffacc;
+            color: #b8a615;
+        }
+
+        .alarm-badge.info {
+            background: #e8ecf5;
+            color: var(--data-fg);
+        }
+
+        .alarm-count {
+            font-size: 24px;
+        }
+
+        .alarm-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .alarm-item {
+            padding: 16px;
+            border-radius: 12px;
+            border-left: 4px solid;
+            background: var(--grouping-box);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .alarm-item:hover {
+            background: #dcdcdc;
+            transform: translateX(4px);
+        }
+
+        .alarm-item.critical { border-left-color: var(--urgent-alarm); }
+        .alarm-item.warning { border-left-color: var(--medium-alarm); }
+        .alarm-item.info { border-left-color: var(--data-fg); }
+
+        .alarm-info {
+            flex: 1;
+        }
+
+        .alarm-time {
+            font-size: 12px;
+            color: var(--eng-unit-fg);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .alarm-message {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--title-fg);
+            margin-bottom: 2px;
+        }
+
+        .alarm-location {
+            font-size: 13px;
+            color: var(--eng-unit-fg);
+        }
+
+        .alarm-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-btn {
+            padding: 6px 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .action-btn.ack {
+            background: #e8ecf5;
+            color: var(--data-fg);
+        }
+
+        .action-btn.ack:hover {
+            background: var(--data-fg);
+            color: white;
+        }
+
+        .pq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .pq-item {
+            padding: 16px;
+            border-radius: 12px;
+            background: var(--grouping-box);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .pq-item:hover {
+            background: #dcdcdc;
+        }
+
+        .pq-type {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pq-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .pq-icon.voltage { background: #ffebee; }
+        .pq-icon.thd { background: #e8eaf6; }
+        .pq-icon.frequency { background: #e0f2f1; }
+
+        .pq-details {
+            flex: 1;
+        }
+
+        .pq-name {
+            font-weight: 600;
+            color: var(--title-fg);
+            margin-bottom: 2px;
+        }
+
+        .pq-time {
+            font-size: 13px;
+            color: var(--eng-unit-fg);
+        }
+
+        .pq-occurrence {
+            font-size: 12px;
+            color: var(--eng-unit-fg);
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        .pq-count {
+            background: var(--data-fg);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 32px;
+            color: var(--eng-unit-fg);
+        }
+
+        @media (max-width: 1024px) {
+            .kpi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .bottom-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .chart-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .range-toggle {
+                flex-wrap: wrap;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .kpi-card, .chart-section, .panel {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Loading Overlay Styles */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            backdrop-filter: blur(2px);
+        }
+
+        .loading-overlay.show {
+            display: flex;
+        }
+
+        .spinner-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #e0e0e0;
+            border-top: 4px solid #2196f3;
+            border-right: 4px solid #1976d2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: #64748b;
+            letter-spacing: 0.3px;
+        }
+
+        /* Skeleton Loader for KPI Cards */
+        .kpi-card.skeleton {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .kpi-card.skeleton .kpi-value {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+            color: transparent;
+        }
+
+        .kpi-card.skeleton .kpi-subtitle {
+            background: #f0f0f0;
+            color: transparent;
+            border-radius: 4px;
+            height: 14px;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner-container">
+            <div class="spinner"></div>
+            <div class="loading-text">Loading dashboard...</div>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div>
+                <div class="breadcrumb" id="breadcrumb">
+                    <span class="breadcrumb-item"><i class="fa-solid fa-building"></i> Loading...</span>
+                </div>
+                <div class="location-title" id="locationTitle">
+                    <i class="fa-solid fa-location-dot"></i> Dashboard
+                    <span class="status-badge">
+                        <span style="width: 8px; height: 8px; background: white; border-radius: 50%; display: inline-block;"></span>
+                        Live
+                    </span>
+                </div>
+            </div>
+            <div class="last-update">
+                <div style="font-size: 14px;"><i class="fa-solid fa-arrows-rotate"></i> Auto-refresh</div>
+                <div class="last-update-time" id="lastUpdated">Last updated: Loading...</div>
+            </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card devices">
+                <div class="kpi-header">
+                    <div class="kpi-icon"><i class="fa-solid fa-plug"></i></div>
+                    <div class="kpi-title">Active Devices</div>
+                </div>
+                <div class="kpi-value" id="activeDevicesValue">0</div>
+                <div class="kpi-subtitle" id="activeDevicesSubtext">Loading...</div>
+                <div class="kpi-trend neutral" id="activeDevicesTrend">
+                    ⟳ Loading...
+                </div>
+            </div>
+
+            <div class="kpi-card energy">
+                <div class="kpi-header">
+                    <div class="kpi-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="kpi-title">Energy Today</div>
+                </div>
+                <div class="kpi-value" id="energyValue">0</div>
+                <div class="kpi-subtitle" id="energySubtext">Loading...</div>
+                <div class="kpi-trend neutral" id="energyTrend">
+                    ⟳ Loading...
+                </div>
+            </div>
+
+            <div class="kpi-card alarms">
+                <div class="kpi-header">
+                    <div class="kpi-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <div class="kpi-title">Active Alarms</div>
+                </div>
+                <div class="kpi-value" id="alarmsValue">0</div>
+                <div class="kpi-subtitle" id="alarmsSubtext">Loading...</div>
+            </div>
+
+            <div class="kpi-card pq">
+                <div class="kpi-header">
+                    <div class="kpi-icon"><i class="fa-solid fa-chart-column"></i></div>
+                    <div class="kpi-title">Power Quality Today</div>
+                </div>
+                <div class="kpi-value" id="pqValue">0%</div>
+                <div class="kpi-subtitle" id="pqSubtext">Loading...</div>
+                <div class="kpi-trend neutral" id="pqTrend">
+                    ⟳ Loading...
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="dashboard-content">
+            <!-- Chart Section -->
+            <div class="chart-section">
+                <div class="chart-header">
+                    <div class="chart-title" id="chartTitle"><i class="fa-solid fa-bolt"></i> Energy Consumption Trend</div>
+                    <div class="chart-controls">
+                        <div class="range-toggle" id="energyRangeToggle">
+                            <button class="range-btn active" data-range="24hours" type="button">24 Hours</button>
+                            <button class="range-btn" data-range="7days" type="button">7 Days</button>
+                            <button class="range-btn" data-range="30days" type="button">30 Days</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container" id="chartContainer">
+                    <div class="no-data-message">No energy trend data available</div>
+                </div>
+            </div>
+
+            <!-- Bottom Grid -->
+            <div class="bottom-grid">
+                <!-- Alarms Panel -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><i class="fa-solid fa-bell"></i> Active Alarms</div>
+                    </div>
+
+                    <div class="alarm-summary">
+                        <div class="alarm-badge critical">
+                            <span><i class="fa-solid fa-circle" style="color: #d32f2f;"></i> Critical</span>
+                            <span class="alarm-count" id="criticalCount">0</span>
+                        </div>
+                        <div class="alarm-badge warning">
+                            <span><i class="fa-solid fa-circle" style="color: #f57c00;"></i> Warning</span>
+                            <span class="alarm-count" id="warningCount">0</span>
+                        </div>
+                        <div class="alarm-badge info">
+                            <span><i class="fa-solid fa-circle" style="color: #1976d2;"></i> Info</span>
+                            <span class="alarm-count" id="infoCount">0</span>
+                        </div>
+                    </div>
+
+                    <div class="alarm-list" id="alarmList">
+                        <div class="empty-state">No active alarms</div>
+                    </div>
+                </div>
+
+                <!-- PQ Events Panel -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="panel-title"><i class="fa-solid fa-chart-line"></i> Top 5 Power Quality Event Types (Last 24 Hours)</div>
+                    </div>
+
+                    <div class="pq-list" id="pqList">
+                        <div class="empty-state">No power quality events</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../all.min.js"></script>
+    <script src="dashboard.js"></script>
+    <script type="text/javascript" src="../echarts.min.js"></script>
+</body>
+</html>

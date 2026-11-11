@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'; connect-src 'self'">
+    <title>Live Energy and Demand Dashboard - {{deviceName}}</title>
+    <link rel="stylesheet" href="../ISA_style.css">
+    <style>
+      .card-content {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .charts-container {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 24px;
+        width: 100%;
+        align-items: flex-start;
+      }
+
+      #bar-chart {
+        width: 60%;
+        height: 300px;
+        min-width: 300px;
+      }
+
+      #pf-gauge {
+        width: 40%;
+        height: 300px;
+        min-width: 200px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 16px;
+      }
+
+      .grid-value {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--data-fg);
+        text-align: center;
+      }
+
+      .grid-label {
+        font-size: 0.875rem;
+        color: var(--label-fg);
+        text-align: center;
+      }
+
+      .secondary-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin-top: 16px;
+      }
+
+      .column {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .group-box {
+        background: var(--grouping-box);
+        border: 1px solid var(--equipment-border);
+        border-radius: 8px;
+        padding: 16px;
+      }
+
+      .group-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--title-fg);
+        margin-bottom: 12px;
+      }
+
+      .secondary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 12px;
+      }
+
+      .secondary-item {
+        background: var(--grouping-box);
+        border: 1px solid var(--equipment-border);
+        border-radius: 6px;
+        padding: 12px;
+        text-align: center;
+      }
+
+      .secondary-value {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--data-fg);
+      }
+
+      .secondary-label {
+        font-size: 0.75rem;
+        color: var(--label-fg);
+      }
+
+      .status {
+        font-size: 0.75rem;
+        color: var(--label-fg);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-right: 6px;
+        background: #475CA7;
+      }
+
+      .status-dot.pulse {
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+
+        50% {
+          transform: scale(1.2);
+          opacity: 0.7;
+        }
+
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .grid-item:hover,
+      .secondary-item:hover {
+        box-shadow: none;
+      }
+
+      @media (max-width: 800px) {
+        .charts-container {
+          flex-wrap: wrap;
+        }
+
+        #bar-chart,
+        #pf-gauge {
+          width: 100%;
+        }
+
+        .secondary-section {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body data-device-name="{{deviceName}}">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Live Energy and Demand Dashboard</div>
+          <div class="card-subtitle">Monitoring Power Flow & Efficiency</div>
+        </div>
+        <div class="status">
+          <span id="status-dot" class="status-dot"></span>
+          <span id="last-updated">Last updated: --</span>
+        </div>
+      </div>
+      <div class="card-content">
+        <div class="charts-container">
+          <div id="bar-chart"></div>
+          <div id="pf-gauge"></div>
+        </div>
+        <!-- Main Data -->
+        <div class="grid" id="main-data">
+          <div class="grid-item">
+            <div class="grid-value" id="forward">0</div>
+            <div class="grid-label">Fwd Energy (kWh)</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-value" id="reverse">0</div>
+            <div class="grid-label">Rev Energy (kWh)</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-value" id="net">0</div>
+            <div class="grid-label">Net Energy (kWh)</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-value" id="kvarh-fwd">0</div>
+            <div class="grid-label">Fwd Reactive (kVARh)</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-value" id="kvarh-rev">0</div>
+            <div class="grid-label">Rev Reactive (kVARh)</div>
+          </div>
+          <div class="grid-item">
+            <div class="grid-value" id="kvarh-net">0</div>
+            <div class="grid-label">Net Reactive (kVARh)</div>
+          </div>
+        </div>
+        <!-- Secondary Section: Demand and Projection Columns -->
+        <div class="secondary-section">
+          <!-- Demand Column -->
+          <div class="column">
+            <div class="group-box">
+              <div class="group-title">Demand</div>
+              <div class="secondary-grid" id="demand-group">
+                <div class="secondary-item">
+                  <div class="secondary-value" id="kva-demand">0</div>
+                  <div class="secondary-label">Apparent Demand (kVA)</div>
+                </div>
+                <div class="secondary-item">
+                  <div class="secondary-value" id="kw-demand">0</div>
+                  <div class="secondary-label">Power Demand (kW)</div>
+                </div>
+                <div class="secondary-item">
+                  <div class="secondary-value" id="kvar-demand">0</div>
+                  <div class="secondary-label">Reactive Demand (kVAR)</div>
+                </div>
+                <div class="secondary-item">
+                  <div class="secondary-value" id="demand-amps">0</div>
+                  <div class="secondary-label">Current Demand (A)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Projection Column -->
+          <div class="column">
+            <div class="group-box">
+              <div class="group-title">Projected Demand</div>
+              <div class="secondary-grid" id="projection-group">
+                <div class="secondary-item">
+                  <div class="secondary-value" id="proj-kva-demand">0</div>
+                  <div class="secondary-label">Apparent Projection (kVA)</div>
+                </div>
+                <div class="secondary-item">
+                  <div class="secondary-value" id="proj-kw-demand">0</div>
+                  <div class="secondary-label">Power Projection (kW)</div>
+                </div>
+                <div class="secondary-item">
+                  <div class="secondary-value" id="proj-kvar-demand">0</div>
+                  <div class="secondary-label">Reactive Projection (kVAR)</div>
+                </div>
+                <div class="secondary-item">
+                  <div class="secondary-value" id="proj-amps">0</div>
+                  <div class="secondary-label">Current Projection (A)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Apparent Energy & Amp Hours Group -->
+        <div class="group-box">
+          <div class="group-title">Apparent Energy & Amp Hours</div>
+          <div class="secondary-grid" id="energy-amp-group">
+            <div class="secondary-item">
+              <div class="secondary-value" id="kvah">0</div>
+              <div class="secondary-label">Apparent Energy (kVAh)</div>
+            </div>
+            <div class="secondary-item">
+              <div class="secondary-value" id="kah">0</div>
+              <div class="secondary-label">Amp Hours (kAh)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../echarts.min.js"></script>
+    <script src="js_FetchEnergy.js"></script>
+  </body>
+</html>

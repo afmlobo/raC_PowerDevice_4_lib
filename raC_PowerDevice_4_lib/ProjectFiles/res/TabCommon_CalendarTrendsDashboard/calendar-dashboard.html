@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Trends Dashboard</title>
+    <link rel="stylesheet" href="../ISA_style.css">
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--display-bg) 0%, var(--grouping-box) 100%);
+    padding: 20px;
+    overflow-y: auto;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 24px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--data-fg);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.location-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.time-info {
+    text-align: right;
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+.time-info > div {
+    margin: 3px 0;
+    font-size: 14px;
+}
+
+.aggregation-badge {
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.95);
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-weight: 500;
+    margin-top: 6px;
+    display: inline-block;
+    font-size: 13px;
+}
+
+.dashboard-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 32px;
+}
+
+/* Header Card */
+.header-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid var(--separator-line);
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-container {
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-icon {
+    background-color: #3b82f6;
+    color: white;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1f2937;
+    margin: 0;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 0;
+}
+
+.info-card {
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.blue-card { background: var(--grouping-box); }
+.green-card { background: var(--grouping-box); }
+.purple-card { background: var(--grouping-box); }
+.orange-card { background: var(--grouping-box); }
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.info-header svg {
+    color: inherit;
+}
+
+.blue-card .info-header { color: var(--data-fg); }
+.green-card .info-header { color: var(--state-good); }
+.purple-card .info-header { color: var(--data-fg); }
+.orange-card .info-header { color: var(--medium-alarm); }
+
+.info-header span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--label-fg);
+}
+
+.info-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--title-fg);
+}
+
+/* Controls Card */
+.controls-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    border: 1px solid var(--separator-line);
+}
+
+.controls-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.button-group {
+    display: flex;
+    gap: 8px;
+}
+
+.view-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--separator-line);
+    color: var(--label-fg);
+}
+
+.view-btn:hover {
+    background-color: var(--equipment-border);
+}
+
+.view-btn.active {
+    background-color: var(--data-fg);
+    color: white;
+}
+
+.location-info {
+    font-size: 14px;
+    color: var(--eng-unit-fg);
+}
+
+/* Calendar Card */
+.calendar-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid var(--separator-line);
+}
+
+.calendar-card h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--title-fg);
+    margin-bottom: 16px;
+}
+
+.day-headers {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.day-header {
+    text-align: center;
+    font-weight: 600;
+    color: var(--eng-unit-fg);
+    padding: 8px;
+    font-size: 14px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid var(--separator-line);
+    background: var(--grouping-box);
+    display: flex;
+    flex-direction: column;
+    min-height: 100px;
+}
+
+.calendar-day:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+    border-color: var(--data-fg);
+}
+
+.calendar-day.selected {
+    box-shadow: 0 0 0 4px var(--data-fg);
+    transform: scale(1.05);
+    border-color: var(--data-fg);
+}
+
+.calendar-day.invisible {
+    visibility: hidden;
+}
+
+.calendar-day.no-data {
+    background: var(--grouping-box);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.calendar-day.no-data:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--separator-line);
+}
+
+.day-number {
+    font-weight: bold;
+    font-size: 14px;
+    color: var(--title-fg);
+    margin-bottom: 4px;
+}
+
+.day-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sparkline-container {
+    width: 100%;
+    height: 40px;
+    margin: 4px 0;
+}
+
+.day-avg {
+    font-size: 11px;
+    text-align: center;
+    color: var(--eng-unit-fg);
+    margin-top: 4px;
+}
+
+.day-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--data-fg);
+}
+
+.day-range {
+    font-size: 10px;
+    color: var(--eng-unit-fg);
+    margin-top: 2px;
+}
+
+.no-data-text {
+    font-size: 11px;
+    color: var(--eng-unit-fg);
+}
+
+/* Legend Card */
+.legend-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    margin-bottom: 24px;
+    border: 1px solid var(--separator-line);
+}
+
+.legend-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--label-fg);
+    margin-bottom: 12px;
+}
+
+.legend-content {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-chart-sample {
+    width: 80px;
+    height: 40px;
+    border: 2px solid var(--equipment-border);
+    border-radius: 4px;
+    background: var(--grouping-box);
+}
+
+.legend-value-sample {
+    width: 60px;
+    height: 32px;
+    background: var(--grouping-box);
+    border: 2px solid var(--equipment-border);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--data-fg);
+}
+
+.legend-formula {
+    font-size: 11px;
+    color: var(--eng-unit-fg);
+    font-family: monospace;
+}
+
+.legend-item span {
+    font-size: 13px;
+    color: var(--eng-unit-fg);
+}
+
+/* Info Banner */
+.info-banner {
+    background: var(--grouping-box);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 16px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.info-banner svg {
+    color: var(--data-fg);
+    flex-shrink: 0;
+}
+
+.info-banner span {
+    font-size: 13px;
+    color: var(--label-fg);
+    line-height: 1.5;
+}
+
+/* Details Card */
+.details-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid var(--separator-line);
+}
+
+.details-card.hidden {
+    display: none;
+}
+
+.details-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.details-header h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--title-fg);
+}
+
+.close-btn {
+    padding: 8px 16px;
+    background-color: var(--separator-line);
+    color: var(--label-fg);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+    background-color: var(--equipment-border);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.stat-card {
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.blue-stat { background: var(--grouping-box); }
+.green-stat { background: var(--grouping-box); }
+.purple-stat { background: var(--grouping-box); }
+.orange-stat { background: var(--grouping-box); }
+
+.stat-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--label-fg);
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.blue-stat .stat-value { color: var(--data-fg); }
+.green-stat .stat-value { color: var(--state-good); }
+.purple-stat .stat-value { color: var(--data-fg); }
+.orange-stat .stat-value { color: var(--medium-alarm); }
+
+.details-info {
+    background: var(--grouping-box);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.details-info p {
+    font-size: 13px;
+    color: var(--eng-unit-fg);
+    margin-bottom: 4px;
+}
+
+.trend-chart-container {
+    background: var(--grouping-box);
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.trend-chart-container h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--label-fg);
+    margin-bottom: 12px;
+}
+
+/* Device Selector Card */
+.device-selector-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border: 1px solid var(--separator-line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.device-selector-card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--title-fg);
+    margin-bottom: 0;
+    min-width: 100px;
+}
+
+.device-selector {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.device-btn {
+    padding: 10px 20px;
+    border: 2px solid var(--equipment-border);
+    background: var(--grouping-box);
+    color: var(--label-fg);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.device-btn:hover {
+    border-color: var(--data-fg);
+    background: var(--card-bg);
+    color: var(--data-fg);
+}
+
+.device-btn.active {
+    background: var(--data-fg);
+    color: white;
+    border-color: var(--data-fg);
+    box-shadow: 0 2px 8px rgba(71, 92, 167, 0.25);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .dashboard-content {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .calendar-day {
+        min-height: 80px;
+        padding: 4px;
+    }
+
+    .day-number {
+        font-size: 12px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <div>
+                <div class="breadcrumb" id="breadcrumb">
+                    <span class="breadcrumb-item"><i class="fa-solid fa-building"></i> Loading...</span>
+                </div>
+                <div class="location-title" id="locationTitle">
+                    <i class="fa-solid fa-calendar-days"></i> Calendar Trends Dashboard
+                </div>
+            </div>
+            <div class="time-info">
+                <div id="period">Period: Loading...</div>
+                <div id="parameter">Parameter: Loading...</div>
+                <div class="aggregation-badge">
+                    <i class="fa-solid fa-chart-column"></i> <span id="deviceCount">Devices</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+        <!-- Header -->
+        <div class="header-card">
+            <!-- Device Info Cards -->
+            <div class="info-grid">
+                <div class="info-card blue-card">
+                    <div class="info-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                        <span>Device</span>
+                    </div>
+                    <p class="info-value" id="deviceName">Loading...</p>
+                </div>
+
+                <div class="info-card green-card">
+                    <div class="info-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        <span>Parameter</span>
+                    </div>
+                    <p class="info-value" id="tagName">Loading...</p>
+                </div>
+
+                <div class="info-card purple-card">
+                    <div class="info-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                        <span>Average</span>
+                    </div>
+                    <p class="info-value" id="overallAvg">Loading...</p>
+                </div>
+
+                <div class="info-card blue-card">
+                    <div class="info-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span>Days Tracked</span>
+                    </div>
+                    <p class="info-value" id="totalDays">Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Device Selector -->
+        <div class="device-selector-card">
+            <h3>Select Device</h3>
+            <div id="deviceSelector" class="device-selector"></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-card">
+            <div class="controls-content">
+                <div class="button-group">
+                    <button id="trendViewBtn" class="view-btn active">Trend View</button>
+                    <button id="valuesViewBtn" class="view-btn">Values View</button>
+                </div>
+                <div class="location-info">
+                    <span id="locationText">Loading...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar Grid -->
+        <div class="calendar-card">
+            <h2>December 2025</h2>
+
+            <!-- Day headers -->
+            <div class="day-headers">
+                <div class="day-header">Sun</div>
+                <div class="day-header">Mon</div>
+                <div class="day-header">Tue</div>
+                <div class="day-header">Wed</div>
+                <div class="day-header">Thu</div>
+                <div class="day-header">Fri</div>
+                <div class="day-header">Sat</div>
+            </div>
+
+            <!-- Calendar days container -->
+            <div id="calendarDays" class="calendar-grid">
+                <!-- Days will be generated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Info Banner -->
+        <div id="infoBanner" class="info-banner">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+            <span><strong>High-Resolution Data:</strong> Each sparkline shows 96 data points collected at 15-minute intervals throughout the 24-hour period, providing detailed insight into daily amperage patterns.</span>
+        </div>
+
+        <!-- Selected Day Details -->
+        <div id="detailsCard" class="details-card hidden">
+            <div class="details-header">
+                <h3 id="detailsTitle">Day Details</h3>
+                <button id="closeDetailsBtn" class="close-btn">Close</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card blue-stat">
+                    <p class="stat-label">Minimum</p>
+                    <p class="stat-value" id="detailMin">-</p>
+                </div>
+                <div class="stat-card green-stat">
+                    <p class="stat-label">Maximum</p>
+                    <p class="stat-value" id="detailMax">-</p>
+                </div>
+                <div class="stat-card purple-stat">
+                    <p class="stat-label">Average</p>
+                    <p class="stat-value" id="detailAvg">-</p>
+                </div>
+                <div class="stat-card purple-stat">
+                    <p class="stat-label">Variation</p>
+                    <p class="stat-value" id="detailVar">-</p>
+                </div>
+            </div>
+
+            <div class="details-info">
+                <p id="detailReadings">Total Readings: -</p>
+                <p>Reading Interval: 15 minutes (4 samples per hour)</p>
+                <p id="detailDataPoints">Data Points in Chart: -</p>
+            </div>
+
+            <div class="trend-chart-container">
+                <h4>24-Hour Trend Pattern (96 samples)</h4>
+                <div id="detailChart" style="width: 100%; height: 300px;"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    
+    <script src="../all.min.js"></script>
+    <script src="../echarts.min.js"></script>
+    <script src="calendar-dashboard.js"></script>
+</body>
+</html>

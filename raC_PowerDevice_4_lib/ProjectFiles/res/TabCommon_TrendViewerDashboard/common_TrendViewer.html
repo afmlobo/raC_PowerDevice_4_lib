@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Device Trend Viewer</title>
+    <link rel="stylesheet" href="../ISA_style.css">
+    <script type="text/javascript" src="../echarts.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--display-bg);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            width: 100%;
+            margin: 0;
+            background: var(--card-bg);
+            overflow: hidden;
+        }
+
+        .dashboard-header {
+            display: none;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .location-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .status-badge {
+            background: #4caf50;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .time-info {
+            opacity: 0.9;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .time-info > div {
+            margin: 3px 0;
+            font-size: 13px;
+        }
+
+        .info-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.95);
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-weight: 500;
+            margin-top: 6px;
+            display: inline-block;
+            font-size: 13px;
+        }
+
+        .dashboard-content {
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            height: 100vh;
+        }
+
+        .summary-grid {
+            display: none;
+        }
+
+        .summary-card {
+            background: var(--grouping-box);
+            padding: 16px;
+            border-left: 4px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .summary-label {
+            font-size: 12px;
+            color: var(--label-fg);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .summary-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--data-fg);
+        }
+
+        .summary-unit {
+            font-size: 12px;
+            color: var(--eng-unit-fg);
+        }
+
+        .chart-section {
+            background: var(--display-bg);
+            padding: 0;
+            height: calc(100% - 120px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chart-header {
+            display: none;
+        }
+
+        .chart-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--title-fg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chart-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .control-label {
+            font-size: 13px;
+            color: var(--label-fg);
+            font-weight: 600;
+        }
+
+        .toggle-btn {
+            border: 1px solid var(--border-color);
+            background: var(--grouping-box);
+            color: var(--label-fg);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-btn:hover:not(.active):not(:disabled) {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: #667eea;
+        }
+
+        .toggle-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .toggle-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .chart-container {
+            flex: 1;
+            background: var(--display-bg);
+            padding: 0;
+            padding-bottom: 60px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+        }
+
+        .chart-container.small {
+            height: 350px;
+        }
+
+        .no-data-message {
+            color: var(--eng-unit-fg);
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .bottom-grid {
+            display: none;
+        }
+
+        .legend-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 12px 16px;
+            margin-top: 16px;
+            background: var(--grouping-box);
+            max-height: 120px;
+            overflow-y: auto;
+            border-top: 1px solid var(--border-color);
+            align-content: flex-start;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            padding: 4px 8px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .legend-item:hover {
+            background-color: rgba(102, 126, 234, 0.1);
+        }
+
+        .legend-item.disabled {
+            opacity: 0.5;
+        }
+
+        .legend-marker {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            flex-shrink: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .info-panel {
+            display: none;
+        }
+
+        .info-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--label-fg);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-text {
+            font-size: 13px;
+            color: var(--eng-unit-fg);
+            line-height: 1.5;
+        }
+
+        .loading {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+        }
+        
+        .loading.active {
+            display: block;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #c62828;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 1024px) {
+            .bottom-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .header-right {
+                width: 100%;
+                text-align: left;
+            }
+            .chart-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .chart-controls {
+                width: 100%;
+            }
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chart-section {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div class="header-left">
+                <div class="breadcrumb" id="breadcrumb">
+                    <span class="breadcrumb-item"><i class="fa-solid fa-building"></i> Loading...</span>
+                </div>
+                <div class="location-title">
+                    <i class="fa-solid fa-chart-line"></i> Multi-Device Trend Viewer
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="status-badge" id="statusBadge">
+                    <i class="fa-solid fa-circle-check"></i> Ready
+                </div>
+                <div class="time-info">
+                    <div id="timeRange">Initializing...</div>
+                    <div id="lastUpdated">Last Update: Loading...</div>
+                    <div class="info-badge">
+                        <i class="fa-solid fa-layer-group"></i> 
+                        <span id="seriesCount">0 Series</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="dashboard-content">
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="summary-label">Devices Selected</div>
+                    <div class="summary-value" id="selectedDeviceCount">0</div>
+                    <div class="summary-unit">devices</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Tags Selected</div>
+                    <div class="summary-value" id="selectedTagCount">0</div>
+                    <div class="summary-unit">tags</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Data Points</div>
+                    <div class="summary-value" id="dataPointCount">0</div>
+                    <div class="summary-unit">points</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Series Plotted</div>
+                    <div class="summary-value" id="plotSeriesCount">0</div>
+                    <div class="summary-unit">combinations</div>
+                </div>
+            </div>
+
+            <!-- Main Trend Chart -->
+            <div class="chart-section">
+                <div class="chart-header">
+                    <div class="chart-title">
+                        <i class="fa-solid fa-chart-area"></i> Stacked Trend Analysis
+                    </div>
+                    <div class="chart-controls">
+                        <div class="control-group">
+                            <span class="control-label">Chart Type:</span>
+                            <button class="toggle-btn active" id="chartTypeArea" data-type="area">Area</button>
+                            <button class="toggle-btn" id="chartTypeLine" data-type="line">Line</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container" id="mainTrendChart">
+                    <div class="no-data-message">No trend data available. Select devices and tags to display data.</div>
+                </div>
+                <div class="legend-container" id="legendContainer">
+                    <div class="no-data-message" style="width: 100%;">Legend will appear here</div>
+                </div>
+            </div>
+
+            <!-- Info Panel -->
+            <div class="info-panel">
+                <div class="info-title">
+                    <i class="fa-solid fa-circle-info"></i> Trend Viewer Information
+                </div>
+                <div class="info-text">
+                    This chart displays time-series data for multiple selected devices and tags. Each series represents a combination of [Device Name + Tag Name]. 
+                    The stacked visualization allows you to track trends across devices simultaneously while maintaining individual series visibility through color coding.
+                </div>
+            </div>
+
+            <!-- Comparison Charts Grid -->
+            <div class="bottom-grid">
+                <div class="chart-section">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <i class="fa-solid fa-chart-column"></i> Device Contribution
+                        </div>
+                    </div>
+                    <div class="chart-container small" id="deviceContributionChart">
+                        <div class="no-data-message">No device data available</div>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <i class="fa-solid fa-tags"></i> Tag Distribution
+                        </div>
+                    </div>
+                    <div class="chart-container small" id="tagDistributionChart">
+                        <div class="no-data-message">No tag data available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <h3>Loading trend data...</h3>
+    </div>
+
+    <script type="text/javascript" src="../all.min.js"></script>
+    <script src="js_common_TrendViewer.js"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiring Diagnostics Dashboard - {{deviceName}}</title>
+    <link rel="stylesheet" href="../ISA_style.css">
+    <style>
+        * { box-sizing: border-box; }
+
+        .dashboard-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .card:hover { box-shadow: none; }
+
+        .card-header {
+            padding: 0;
+        }
+
+        .card-header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding-top: 0px;
+            padding-right: 12px;
+            padding-bottom: 12px;
+            padding-left: 0px;
+        }
+
+        .status {
+            font-size: 0.75rem;
+            color: var(--label-fg);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .status-dot.good { background: var(--state-good); }
+        .status-dot.error { background: var(--urgent-alarm); animation: none; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+        }
+
+        .left-panel, .right-panel {
+            flex: 0 0 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .summary-card, .correction-card {
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid var(--equipment-border);
+            background: var(--grouping-box);
+        }
+
+        .summary-title, .correction-title, .phasor-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: var(--title-fg);
+        }
+
+        .metric-grid, .mapping-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .metric-item, .mapping-item {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 12px;
+            border: 1px solid var(--equipment-border);
+        }
+
+        .metric-item.full-width {
+            grid-column: span 3;
+        }
+
+        .metric-item.third-width {
+            grid-column: span 1;
+        }
+
+        .two-column-row {
+            grid-column: span 3;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .metric-label, .mapping-label, .correction-label, .phasor-label {
+            font-size: 0.75rem;
+            color: var(--label-fg);
+            margin-bottom: 4px;
+        }
+
+        .metric-value, .mapping-value, .correction-value, .phasor-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--data-fg);
+        }
+
+        .metric-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .metric-status img {
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+        }
+
+        .phasor-panel {
+            background: var(--grouping-box);
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid var(--equipment-border);
+            flex: 1;
+        }
+
+        .phasor-container {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+        }
+
+        .phasor-chart-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .phasor-chart {
+            width: 100%;
+            height: 300px;
+        }
+
+        .phasor-data {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .phasor-item {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 12px;
+            border: 1px solid var(--equipment-border);
+        }
+
+        .correction-item {
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .card-content { flex-direction: column; }
+            .left-panel, .right-panel { flex: 0 0 100%; }
+            .metric-grid, .mapping-grid, .phasor-data { grid-template-columns: 1fr; }
+            .phasor-container { flex-direction: column; }
+            .phasor-chart { height: 200px; }
+        }
+    </style>
+</head>
+<body data-device-name="{{deviceName}}">
+    <div class="dashboard-container">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <div class="card-title">Wiring Diagnostics Dashboard</div>
+                    <div class="card-subtitle">Monitoring Wiring Status and Phasor Analysis</div>
+                </div>
+                <div class="status">
+                    <span id="status-dot" class="status-dot good"></span>
+                    <span id="last-updated">Last updated: --</span>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="left-panel">
+                    <div class="summary-card">
+                        <div class="summary-title">Wiring Tests</div>
+                        <div class="metric-grid" id="wiring-tests">
+                            <!-- Wiring tests populated by JS -->
+                        </div>
+                    </div>
+                    <div class="correction-card">
+                        <div class="correction-title">Wiring Corrections</div>
+                        <div id="wiring-corrections">
+                            <!-- Wiring corrections populated by JS -->
+                        </div>
+                        <div class="mapping-grid" id="input-mappings">
+                            <!-- Input mappings populated by JS -->
+                        </div>
+                    </div>
+                </div>
+                <div class="right-panel">
+                    <div class="phasor-panel">
+                        <div class="phasor-title">Phasor Diagram</div>
+                        <div class="phasor-container">
+                            <div class="phasor-chart-container">
+                                <div id="phasor-chart" class="phasor-chart"></div>
+                            </div>
+                            <div class="phasor-data" id="phasor-data">
+                                <!-- Phasor data populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../echarts.min.js"></script>
+        <script src="js_FetchWiringDiagnosticsData.js"></script>
+    </div>
+</body>
+</html>

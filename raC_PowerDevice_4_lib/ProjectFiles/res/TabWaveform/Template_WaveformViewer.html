@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waveform Viewer - {{deviceName}}</title>
+    <link rel="stylesheet" href="../ISA_style.css">
+    <style>
+        * { box-sizing: border-box; }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1px;
+        }
+
+        .main-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* File Name Title */
+        .file-title {
+            font-size: 1rem;
+            color: var(--title-fg);
+            font-weight: 600;
+            margin-bottom: 0px;
+            padding-left: 4px;
+        }
+
+        /* Metadata Grid - No cards, just info */
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 16px 24px;
+            margin-bottom: 16px;
+            padding: 12px 8px;
+            background: var(--grouping-box);
+            border-radius: 6px;
+            border: 1px solid var(--equipment-border);
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            min-width: 0;
+        }
+
+        .metadata-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            min-width: 0;
+        }
+
+        .metadata-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .metadata-label {
+            font-size: 0.7rem;
+            color: var(--label-fg);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            line-height: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .metadata-value-row {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            min-width: 0;
+        }
+
+        .metadata-value {
+            font-size: 1rem;
+            color: var(--title-fg);
+            font-weight: 600;
+            line-height: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .metadata-unit {
+            font-size: 0.65rem;
+            color: var(--label-fg);
+            opacity: 0.75;
+            line-height: 1;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .icon-file { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .icon-calendar { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .icon-clock { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .icon-cycle { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .icon-size { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .icon-voltage { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        .icon-current { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .icon-event { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); }
+        .icon-frequency { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+        .icon-archive { background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%); }
+
+        /* Chart Card */
+        .chart-card {
+            background: var(--grouping-box);
+            border: 1px solid var(--equipment-border);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--equipment-border);
+        }
+
+        .chart-title {
+            font-size: 1.25rem;
+            color: var(--title-fg);
+            font-weight: 600;
+        }
+
+        .chart-filename {
+            font-size: 0.875rem;
+            color: var(--label-fg);
+            font-style: italic;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 600px;
+        }
+
+        #loading {
+            text-align: center;
+            font-size: 18px;
+            color: var(--label-fg);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--grouping-box);
+            padding: 40px 60px;
+            border-radius: 12px;
+            border: 2px solid var(--equipment-border);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--equipment-border);
+            border-top-color: var(--title-fg);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 1200px) {
+            .metadata-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metadata-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .chart-container {
+                height: 400px;
+            }
+            .file-name-display {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body data-device-name="{{deviceName}}">
+    <div class="dashboard-container">
+        <div class="main-layout">
+            <!-- File Name as Simple Title -->
+            <div class="file-title" id="fileName">Select a waveform to view</div>
+
+            <!-- Metadata Grid - No cards, just info in 2 rows -->
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <div class="metadata-header">
+                        <div class="metadata-icon icon-calendar">📅</div>
+                        <div class="metadata-label">Capture Date</div>
+                    </div>
+                    <div class="metadata-value-row">
+                        <div class="metadata-value" id="captureDate">-</div>
+                        <div class="metadata-unit" id="captureTime">-</div>
+                    </div>
+                </div>
+
+                <div class="metadata-item">
+                    <div class="metadata-header">
+                        <div class="metadata-icon icon-event">⚡</div>
+                        <div class="metadata-label">Event Type</div>
+                    </div>
+                    <div class="metadata-value-row">
+                        <div class="metadata-value" id="eventType">-</div>
+                    </div>
+                </div>
+
+                <div class="metadata-item">
+                    <div class="metadata-header">
+                        <div class="metadata-icon icon-cycle">🔄</div>
+                        <div class="metadata-label">Total Cycles</div>
+                    </div>
+                    <div class="metadata-value-row">
+                        <div class="metadata-value" id="totalCycles">-</div>
+                        <div class="metadata-unit" id="segmentCycles">-</div>
+                    </div>
+                </div>
+
+                <div class="metadata-item">
+                    <div class="metadata-header">
+                        <div class="metadata-icon icon-frequency">📊</div>
+                        <div class="metadata-label">Frequency</div>
+                    </div>
+                    <div class="metadata-value-row">
+                        <div class="metadata-value" id="frequency">-</div>
+                    </div>
+                </div>
+
+                <div class="metadata-item">
+                    <div class="metadata-header">
+                        <div class="metadata-icon icon-voltage">⚡</div>
+                        <div class="metadata-label">Max Voltage</div>
+                    </div>
+                    <div class="metadata-value-row">
+                        <div class="metadata-value" id="maxVoltage">-</div>
+                    </div>
+                </div>
+
+                <div class="metadata-item">
+                    <div class="metadata-header">
+                        <div class="metadata-icon icon-current">🔌</div>
+                        <div class="metadata-label">Max Current</div>
+                    </div>
+                    <div class="metadata-value-row">
+                        <div class="metadata-value" id="maxCurrent">-</div>
+                    </div>
+                </div>
+
+                <div class="metadata-item">
+                    <div class="metadata-header">
+                        <div class="metadata-icon icon-size">💾</div>
+                        <div class="metadata-label">File Size</div>
+                    </div>
+                    <div class="metadata-value-row">
+                        <div class="metadata-value" id="fileSize">-</div>
+                    </div>
+                </div>
+
+                <div class="metadata-item">
+                    <div class="metadata-header">
+                        <div class="metadata-icon icon-archive">📦</div>
+                        <div class="metadata-label">Archived Date</div>
+                    </div>
+                    <div class="metadata-value-row">
+                        <div class="metadata-value" id="archivedDate">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart Card -->
+            <div class="chart-card">
+                <div class="chart-header">
+                    <div>
+                        <div class="chart-title">Waveform Analysis</div>
+                        <div class="chart-filename" id="chartFilename">Select a waveform to view</div>
+                    </div>
+                </div>
+                <div class="chart-container" id="chartContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading">
+        <div class="loading-spinner"></div>
+        <div>Loading waveform data...</div>
+    </div>
+
+    <script src="../echarts.min.js"></script>
+    <script src="js_FetchWaveform.js"></script>
+</body>
+</html>
