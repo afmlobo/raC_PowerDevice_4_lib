@@ -1,0 +1,4101 @@
+Name: 'Panels-Faceplate'
+Type: FolderType
+Children:
+- Name: raC_4_00_raC_Dvc_1834_AENTR_Home
+  Id: g=f547f9c98bdf3bc0d4376b9bc519aa9d
+  Supertype: Panel
+  ReferenceType: HasComponent
+  Children:
+  - Name: Width
+    Type: BaseVariableType
+    DataType: Size
+    ModellingRule: Optional
+    Value: 574.0
+  - Name: Height
+    Type: BaseVariableType
+    DataType: Size
+    ModellingRule: Optional
+    Value: 337.0
+  - Name: Tag
+    Type: NodePointer
+    DataType: NodeId
+    Children:
+    - Name: Kind
+      Type: PropertyType
+      DataType: NodeId
+      Value: {"IdType":2,"Id":"339cecc7f4cc318bedc1e7a0a5f42548","Namespace":4}
+    - Name: DynamicLink
+      Type: DynamicLink
+      DataType: NodePath
+      Value: "{raSDK1_DialogBoxBase}/Ref_Tag@NodeId"
+      Children:
+      - Name: Mode
+        Type: BaseVariableType
+        DataType: DynamicLinkMode
+        ModellingRule: Optional
+        Value: 2
+    - Name: NodeClass
+      Type: PropertyType
+      DataType: NodePointerNodeClass
+      ModellingRule: Optional
+  - Name: grp_BannerHome
+    Type: ColumnLayout
+    Children:
+    - Name: Width
+      Type: BaseVariableType
+      DataType: Size
+      ModellingRule: Optional
+      Value: 50.0
+    - Name: Height
+      Type: BaseVariableType
+      DataType: Size
+      ModellingRule: Optional
+      Value: 50.0
+    - Name: HorizontalAlignment
+      Type: BaseVariableType
+      DataType: HorizontalAlignment
+      ModellingRule: Optional
+      Value: 3
+    - Name: VerticalAlignment
+      Type: BaseVariableType
+      DataType: VerticalAlignment
+      ModellingRule: Optional
+      Value: 3
+    - Name: Banner_1834_AENTR
+      Type: raC_4_Ethernet_InCabinate_1834_AENTR
+      Children:
+      - Name: grp_BannerAndSeparator
+        Type: ColumnLayout
+        Children:
+        - Name: pnl_banner
+          Type: Panel
+          Children:
+          - Name: dwg_background
+            Type: Rectangle
+            Children:
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#ffffff"
+              Children:
+              - Name: ConditionalConverter1
+                Type: ConditionalConverter
+                Children:
+                - Name: Condition
+                  Type: BaseDataVariableType
+                  DataType: Boolean
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: ExpressionEvaluator1
+                    Type: ExpressionEvaluator
+                    Children:
+                    - Name: Source0
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag/WarningPresent"
+                    - Name: Source1
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                    - Name: Source2
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+            - Name: Visible
+              Type: BaseDataVariableType
+              DataType: Boolean
+              Value: true
+              Children:
+              - Name: ExpressionEvaluator1
+                Type: ExpressionEvaluator
+                Children:
+                - Name: Source0
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                - Name: Source1
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                - Name: Source2
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                - Name: Source3
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                - Name: Source4
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                - Name: Source5
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+          - Name: grp_Banner
+            Type: RowLayout
+            Children:
+            - Name: img_faulted
+              Type: Image
+              Children:
+              - Name: Path
+                Type: BaseDataVariableType
+                DataType: ResourceUri
+                Value: "ns=4;%PROJECTDIR%/res/Faulted_16px.svg"
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source0
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: Source1
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                  - Name: Source2
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                  - Name: Source3
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                  - Name: Source4
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                  - Name: Source5
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+            - Name: img_warning
+              Type: Image
+              Children:
+              - Name: Path
+                Type: BaseDataVariableType
+                DataType: ResourceUri
+                Value: "ns=4;%PROJECTDIR%/res/Warning_16.svg"
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source0
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentWarning"
+                  - Name: Source1
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentWarning"
+                  - Name: Source2
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SecurityLogWarning"
+                  - Name: Source3
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ReferenceTopologyWarning"
+                  - Name: Source4
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/WarningPresent"
+                  - Name: Source5
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/OperatingHoursAlarm"
+                  - Name: Source6
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: Source7
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                  - Name: Source8
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+                  - Name: Source9
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                  - Name: Source10
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                  - Name: Source11
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+            - Name: sd_Ready
+              Type: Label
+              Children:
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source6
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: Source7
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                  - Name: Source8
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                  - Name: Source9
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                  - Name: Source10
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                  - Name: Source11
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+              - Name: Enabled
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Default"
+            - Name: sd_NotReady
+              Type: Label
+              Children:
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source0
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: Source1
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                  - Name: Source2
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                  - Name: Source3
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                  - Name: Source4
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                  - Name: Source5
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+              - Name: Enabled
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Default"
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                      - Name: Source2
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                      - Name: Source3
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                      - Name: Source4
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                      - Name: Source5
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+                  - Name: TrueValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Fault"
+                  - Name: FalseValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Default"
+            - Name: sd_TripPresent
+              Type: Label
+              Children:
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source0
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                  - Name: Source1
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+              - Name: Enabled
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Default"
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: TrueValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Fault"
+                  - Name: FalseValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Default"
+            - Name: sd_Fault
+              Type: Label
+              Children:
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source0
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+                  - Name: Source1
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+              - Name: Enabled
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Default"
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: TrueValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Fault"
+                  - Name: FalseValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Default"
+            - Name: sd_Network Power Over Current Trip
+              Type: Label
+              Children:
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source0
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                  - Name: Source1
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+              - Name: Enabled
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Default"
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: TrueValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Fault"
+                  - Name: FalseValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Default"
+            - Name: sd_Switched Power Over Current Trip
+              Type: Label
+              Children:
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source0
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                  - Name: Source1
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+              - Name: Enabled
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Default"
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: TrueValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Fault"
+                  - Name: FalseValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Default"
+            - Name: sd_InternalFault
+              Type: Label
+              Children:
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source0
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                  - Name: Source1
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+              - Name: Enabled
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Default"
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: TrueValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Fault"
+                  - Name: FalseValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Default"
+            - Name: sd_Network Power Over Current Warning
+              Type: Label
+              Children:
+              - Name: Enabled
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Default"
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentWarning"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                      - Name: Source2
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                      - Name: Source3
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                      - Name: Source4
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                      - Name: Source5
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                      - Name: Source6
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+                  - Name: TrueValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Default"
+                  - Name: FalseValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Fault"
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source0
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentWarning"
+                  - Name: Source1
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: Source2
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                  - Name: Source3
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                  - Name: Source4
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                  - Name: Source5
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                  - Name: Source6
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+            - Name: sd_Switched Power Over Current Warning
+              Type: Label
+              Children:
+              - Name: Enabled
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Default"
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentWarning"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                      - Name: Source2
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                      - Name: Source3
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                      - Name: Source4
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                      - Name: Source5
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                      - Name: Source6
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+                  - Name: TrueValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Default"
+                  - Name: FalseValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Fault"
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source0
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentWarning"
+                  - Name: Source1
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: Source2
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                  - Name: Source3
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                  - Name: Source4
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                  - Name: Source5
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                  - Name: Source6
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+            - Name: sd_Device Not Connected
+              Type: Label
+              Children:
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+              - Name: Enabled
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+            - Name: sd_OperatingHoursAlarm
+              Type: Label
+              Children:
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source0
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/OperatingHoursAlarm"
+                  - Name: Source1
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: Source2
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                  - Name: Source3
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                  - Name: Source4
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                  - Name: Source5
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                  - Name: Source6
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+              - Name: Enabled
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Default"
+            - Name: sd_Reference Topology Warning
+              Type: Label
+              Children:
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source0
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ReferenceTopologyWarning"
+                  - Name: Source1
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: Source2
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                  - Name: Source3
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                  - Name: Source4
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                  - Name: Source5
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                  - Name: Source6
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+              - Name: Enabled
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Default"
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ReferenceTopologyWarning"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                      - Name: Source2
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                      - Name: Source3
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                      - Name: Source4
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                      - Name: Source5
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                      - Name: Source6
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+                  - Name: TrueValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Default"
+                  - Name: FalseValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Fault"
+            - Name: sd_Security Log Warning
+              Type: Label
+              Children:
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ExpressionEvaluator1
+                  Type: ExpressionEvaluator
+                  Children:
+                  - Name: Source0
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SecurityLogWarning"
+                  - Name: Source1
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                  - Name: Source2
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                  - Name: Source3
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                  - Name: Source4
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                  - Name: Source5
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                  - Name: Source6
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+              - Name: Enabled
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Default"
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/SecurityLogWarning"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                      - Name: Source2
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                      - Name: Source3
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                      - Name: Source4
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                      - Name: Source5
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                      - Name: Source6
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+                  - Name: TrueValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Default"
+                  - Name: FalseValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Fault"
+        - Name: Dwg_Seperator
+          Type: Rectangle
+    - Name: ScrollView1
+      Type: ScrollView
+      Children:
+      - Name: Width
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 300.0
+      - Name: Height
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 300.0
+      - Name: HorizontalAlignment
+        Type: BaseVariableType
+        DataType: HorizontalAlignment
+        ModellingRule: Optional
+        Value: 3
+      - Name: VerticalAlignment
+        Type: BaseVariableType
+        DataType: VerticalAlignment
+        ModellingRule: Optional
+        Value: 3
+      - Name: VerticalLayout1
+        Type: ColumnLayout
+        Children:
+        - Name: Width
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 50.0
+        - Name: Height
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: -1.0
+        - Name: HorizontalAlignment
+          Type: BaseVariableType
+          DataType: HorizontalAlignment
+          ModellingRule: Optional
+          Value: 3
+        - Name: HorizontalLayout1
+          Type: RowLayout
+          Children:
+          - Name: Width
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 50.0
+          - Name: Height
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: -1.0
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+            Value: 3
+          - Name: VerticalAlignment
+            Type: BaseVariableType
+            DataType: VerticalAlignment
+            ModellingRule: Optional
+          - Name: BottomMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: LeftMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 8.0
+          - Name: RightMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: VerticalLayout1
+            Type: ColumnLayout
+            Children:
+            - Name: Width
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: 50.0
+            - Name: Height
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: -1.0
+            - Name: HorizontalAlignment
+              Type: BaseVariableType
+              DataType: HorizontalAlignment
+              ModellingRule: Optional
+              Value: 3
+            - Name: nd_NetworkPowerCurrent
+              Type: raSDK1_ND_LblValUnit
+              Children:
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+                - Name: FontSize
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: -1.0
+                - Name: HorizontalAlignment
+                  Type: BaseVariableType
+                  DataType: HorizontalAlignment
+                  ModellingRule: Optional
+              - Name: HorizontalLayout
+                Type: RowLayout
+                Children:
+                - Name: Value
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: StringFormatter1
+                      Type: StringFormatter
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../Inp_Value"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../Set_DecimalPlaces"
+                  - Name: Style
+                    Type: BaseDataVariableType
+                    DataType: String
+                    Value: "Live Data"
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../Cfg_DisplayAsPrimary"
+                  - Name: Visible
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    Value: true
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Expression
+                        Type: BaseDataVariableType
+                        DataType: String
+                        ReferenceType: HasParameter
+                        ModellingRule: Optional
+                        Value: "!{0}"
+                      - Name: ns=2;Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                - Name: Units
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "../../../Cfg_Units"
+                  - Name: FontSize
+                    Type: BaseDataVariableType
+                    DataType: Size
+                    Value: -1.0
+                - Name: HorizontalAlignment
+                  Type: BaseVariableType
+                  DataType: HorizontalAlignment
+                  ModellingRule: Optional
+                  Value: 2
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Network Power Current"}
+              - Name: Cfg_Units
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"A"}
+              - Name: Inp_Value
+                Type: BaseDataVariableType
+                DataType: Float
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerCurrent"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Set_DecimalPlaces
+                Type: BaseDataVariableType
+                DataType: Int32
+                Value: 2
+              - Name: Cfg_DisplayAsPrimary
+                Type: BaseDataVariableType
+                DataType: Boolean
+              - Name: HorizontalAlignment
+                Type: BaseVariableType
+                DataType: HorizontalAlignment
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: ContentAlignment
+                Type: BaseVariableType
+                DataType: ContentVerticalAlignment
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: VerticalGap
+                Type: BaseDataVariableType
+                DataType: Size
+                ModellingRule: Optional
+            - Name: nd_NetworkPowerVoltage
+              Type: raSDK1_ND_LblValUnit
+              Children:
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+                - Name: FontSize
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: -1.0
+                - Name: HorizontalAlignment
+                  Type: BaseVariableType
+                  DataType: HorizontalAlignment
+                  ModellingRule: Optional
+              - Name: HorizontalLayout
+                Type: RowLayout
+                Children:
+                - Name: Value
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: StringFormatter1
+                      Type: StringFormatter
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../Inp_Value"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../Set_DecimalPlaces"
+                  - Name: Style
+                    Type: BaseDataVariableType
+                    DataType: String
+                    Value: "Live Data"
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../Cfg_DisplayAsPrimary"
+                  - Name: Visible
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    Value: true
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Expression
+                        Type: BaseDataVariableType
+                        DataType: String
+                        ReferenceType: HasParameter
+                        ModellingRule: Optional
+                        Value: "!{0}"
+                      - Name: ns=2;Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                - Name: Units
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "../../../Cfg_Units"
+                  - Name: FontSize
+                    Type: BaseDataVariableType
+                    DataType: Size
+                    Value: -1.0
+                - Name: HorizontalAlignment
+                  Type: BaseVariableType
+                  DataType: HorizontalAlignment
+                  ModellingRule: Optional
+                  Value: 2
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Network Power Voltage"}
+              - Name: Cfg_Units
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"V"}
+              - Name: Inp_Value
+                Type: BaseDataVariableType
+                DataType: Float
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerVoltage"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Set_DecimalPlaces
+                Type: BaseDataVariableType
+                DataType: Int32
+                Value: 2
+              - Name: Cfg_DisplayAsPrimary
+                Type: BaseDataVariableType
+                DataType: Boolean
+              - Name: HorizontalAlignment
+                Type: BaseVariableType
+                DataType: HorizontalAlignment
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: ContentAlignment
+                Type: BaseVariableType
+                DataType: ContentVerticalAlignment
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+            - Name: VerticalAlignment
+              Type: BaseVariableType
+              DataType: VerticalAlignment
+              ModellingRule: Optional
+            - Name: VerticalGap
+              Type: BaseDataVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: 16.0
+          - Name: VerticalLayout2
+            Type: ColumnLayout
+            Children:
+            - Name: Width
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: 50.0
+            - Name: Height
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: -1.0
+            - Name: nd_SwitchedPowerCurrent
+              Type: raSDK1_ND_LblValUnit
+              Children:
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+                - Name: FontSize
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: -1.0
+                - Name: HorizontalAlignment
+                  Type: BaseVariableType
+                  DataType: HorizontalAlignment
+                  ModellingRule: Optional
+              - Name: HorizontalLayout
+                Type: RowLayout
+                Children:
+                - Name: Value
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: StringFormatter1
+                      Type: StringFormatter
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../Inp_Value"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../Set_DecimalPlaces"
+                  - Name: Style
+                    Type: BaseDataVariableType
+                    DataType: String
+                    Value: "Live Data"
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../Cfg_DisplayAsPrimary"
+                  - Name: Visible
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    Value: true
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Expression
+                        Type: BaseDataVariableType
+                        DataType: String
+                        ReferenceType: HasParameter
+                        ModellingRule: Optional
+                        Value: "!{0}"
+                      - Name: ns=2;Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                - Name: Units
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "../../../Cfg_Units"
+                  - Name: FontSize
+                    Type: BaseDataVariableType
+                    DataType: Size
+                    Value: -1.0
+                - Name: HorizontalAlignment
+                  Type: BaseVariableType
+                  DataType: HorizontalAlignment
+                  ModellingRule: Optional
+                  Value: 2
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Switched Power Current"}
+              - Name: Cfg_Units
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"A"}
+              - Name: Inp_Value
+                Type: BaseDataVariableType
+                DataType: Float
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerCurrent"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Set_DecimalPlaces
+                Type: BaseDataVariableType
+                DataType: Int32
+                Value: 2
+              - Name: Cfg_DisplayAsPrimary
+                Type: BaseDataVariableType
+                DataType: Boolean
+              - Name: HorizontalAlignment
+                Type: BaseVariableType
+                DataType: HorizontalAlignment
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: ContentAlignment
+                Type: BaseVariableType
+                DataType: ContentVerticalAlignment
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+            - Name: nd_SwitchedPowerVoltage
+              Type: raSDK1_ND_LblValUnit
+              Children:
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+                - Name: FontSize
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: -1.0
+                - Name: HorizontalAlignment
+                  Type: BaseVariableType
+                  DataType: HorizontalAlignment
+                  ModellingRule: Optional
+              - Name: HorizontalLayout
+                Type: RowLayout
+                Children:
+                - Name: Value
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: StringFormatter1
+                      Type: StringFormatter
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../Inp_Value"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../Set_DecimalPlaces"
+                  - Name: Style
+                    Type: BaseDataVariableType
+                    DataType: String
+                    Value: "Live Data"
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../Cfg_DisplayAsPrimary"
+                  - Name: Visible
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    Value: true
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Expression
+                        Type: BaseDataVariableType
+                        DataType: String
+                        ReferenceType: HasParameter
+                        ModellingRule: Optional
+                        Value: "!{0}"
+                      - Name: ns=2;Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/ConnectionFaulted"
+                - Name: Units
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "../../../Cfg_Units"
+                  - Name: FontSize
+                    Type: BaseDataVariableType
+                    DataType: Size
+                    Value: -1.0
+                - Name: HorizontalAlignment
+                  Type: BaseVariableType
+                  DataType: HorizontalAlignment
+                  ModellingRule: Optional
+                  Value: 2
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Switched Power Voltage"}
+              - Name: Cfg_Units
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"V"}
+              - Name: Inp_Value
+                Type: BaseDataVariableType
+                DataType: Float
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerVoltage"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Set_DecimalPlaces
+                Type: BaseDataVariableType
+                DataType: Int32
+                Value: 2
+              - Name: Cfg_DisplayAsPrimary
+                Type: BaseDataVariableType
+                DataType: Boolean
+              - Name: HorizontalAlignment
+                Type: BaseVariableType
+                DataType: HorizontalAlignment
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: ContentAlignment
+                Type: BaseVariableType
+                DataType: ContentVerticalAlignment
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+            - Name: HorizontalAlignment
+              Type: BaseVariableType
+              DataType: HorizontalAlignment
+              ModellingRule: Optional
+              Value: 3
+            - Name: VerticalAlignment
+              Type: BaseVariableType
+              DataType: VerticalAlignment
+              ModellingRule: Optional
+            - Name: VerticalGap
+              Type: BaseDataVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: 16.0
+          - Name: VerticalGap
+            Type: BaseDataVariableType
+            DataType: Size
+            ModellingRule: Optional
+        - Name: VerticalAlignment
+          Type: BaseVariableType
+          DataType: VerticalAlignment
+          ModellingRule: Optional
+        - Name: TopMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 8.0
+        - Name: HorizontalLayout2
+          Type: RowLayout
+          Children:
+          - Name: Width
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 50.0
+          - Name: Height
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: -1.0
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+            Value: 3
+          - Name: VerticalAlignment
+            Type: BaseVariableType
+            DataType: VerticalAlignment
+            ModellingRule: Optional
+          - Name: VerticalLayout1
+            Type: ColumnLayout
+            Children:
+            - Name: Width
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: 50.0
+            - Name: Height
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: -1.0
+            - Name: HorizontalAlignment
+              Type: BaseVariableType
+              DataType: HorizontalAlignment
+              ModellingRule: Optional
+              Value: 3
+            - Name: VerticalAlignment
+              Type: BaseVariableType
+              DataType: VerticalAlignment
+              ModellingRule: Optional
+            - Name: BottomMargin
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+            - Name: Network Power Active
+              Type: raSDK1_BSD_IndLbl
+              Children:
+              - Name: Indicator
+                Type: Rectangle
+                Children:
+                - Name: BorderColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#919191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: FalseValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#919191"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_InactiveBorderColor"
+                - Name: FillColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#2a4191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: TrueValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#475ca7"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_ActiveFillColor"
+                - Name: BorderThickness
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: 1.0
+                - Name: Rotation
+                  Type: BaseVariableType
+                  DataType: Size
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Network Power Active"}
+              - Name: Inp_Active
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerActive"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Cfg_ActiveFillColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#2a4191"
+              - Name: Cfg_InactiveBorderColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#919191"
+              - Name: VerticalGap
+                Type: BaseDataVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+            - Name: Network Power Over Current Trip
+              Type: raSDK1_BSD_IndLbl
+              Children:
+              - Name: Indicator
+                Type: Rectangle
+                Children:
+                - Name: BorderColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#919191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: FalseValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#919191"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_InactiveBorderColor"
+                - Name: FillColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#2a4191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: TrueValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#475ca7"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_ActiveFillColor"
+                - Name: BorderThickness
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: 1.0
+                - Name: Rotation
+                  Type: BaseVariableType
+                  DataType: Size
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Network Power Over Cur Trip"}
+              - Name: Inp_Active
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentTrip"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Cfg_ActiveFillColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#2a4191"
+              - Name: Cfg_InactiveBorderColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#919191"
+              - Name: VerticalGap
+                Type: BaseDataVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+            - Name: Network Power Over Current Warn
+              Type: raSDK1_BSD_IndLbl
+              Children:
+              - Name: Indicator
+                Type: Rectangle
+                Children:
+                - Name: BorderColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#919191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: FalseValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#919191"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_InactiveBorderColor"
+                - Name: FillColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#2a4191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: TrueValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#475ca7"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_ActiveFillColor"
+                - Name: BorderThickness
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: 1.0
+                - Name: Rotation
+                  Type: BaseVariableType
+                  DataType: Size
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Network Power Over Cur Warn"}
+              - Name: Inp_Active
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/NetworkPowerOverCurrentWarning"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Cfg_ActiveFillColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#2a4191"
+              - Name: Cfg_InactiveBorderColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#919191"
+              - Name: VerticalGap
+                Type: BaseDataVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+            - Name: Trip Present
+              Type: raSDK1_BSD_IndLbl
+              Children:
+              - Name: Indicator
+                Type: Rectangle
+                Children:
+                - Name: BorderColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#919191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: FalseValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#919191"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_InactiveBorderColor"
+                - Name: FillColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#2a4191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: TrueValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#475ca7"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_ActiveFillColor"
+                - Name: BorderThickness
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: 1.0
+                - Name: Rotation
+                  Type: BaseVariableType
+                  DataType: Size
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Trip"}
+              - Name: Inp_Active
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/TripPresent"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Cfg_ActiveFillColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#2a4191"
+              - Name: Cfg_InactiveBorderColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#919191"
+              - Name: VerticalGap
+                Type: BaseDataVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+            - Name: OperatingHoursAlarm
+              Type: raSDK1_BSD_IndLbl
+              Children:
+              - Name: Indicator
+                Type: Rectangle
+                Children:
+                - Name: BorderColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#919191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: FalseValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#919191"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_InactiveBorderColor"
+                - Name: FillColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#2a4191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: TrueValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#475ca7"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_ActiveFillColor"
+                - Name: BorderThickness
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: 1.0
+                - Name: Rotation
+                  Type: BaseVariableType
+                  DataType: Size
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Operating Hours Alarm"}
+              - Name: Inp_Active
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/OperatingHoursAlarm"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Cfg_ActiveFillColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#2a4191"
+              - Name: Cfg_InactiveBorderColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#919191"
+              - Name: VerticalGap
+                Type: BaseDataVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+            - Name: Internal Fault
+              Type: raSDK1_BSD_IndLbl
+              Children:
+              - Name: Indicator
+                Type: Rectangle
+                Children:
+                - Name: BorderColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#919191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: FalseValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#919191"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_InactiveBorderColor"
+                - Name: FillColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#2a4191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: TrueValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#475ca7"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_ActiveFillColor"
+                - Name: BorderThickness
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: 1.0
+                - Name: Rotation
+                  Type: BaseVariableType
+                  DataType: Size
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Internal Fault"}
+              - Name: Inp_Active
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/InternalFault"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Cfg_ActiveFillColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#2a4191"
+              - Name: Cfg_InactiveBorderColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#919191"
+              - Name: VerticalGap
+                Type: BaseDataVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+            - Name: VerticalGap
+              Type: BaseDataVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: 8.0
+            - Name: TopMargin
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+            - Name: LeftMargin
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+            - Name: RightMargin
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+          - Name: VerticalLayout2
+            Type: ColumnLayout
+            Children:
+            - Name: Width
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: 50.0
+            - Name: Height
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: -1.0
+            - Name: HorizontalAlignment
+              Type: BaseVariableType
+              DataType: HorizontalAlignment
+              ModellingRule: Optional
+              Value: 3
+            - Name: VerticalAlignment
+              Type: BaseVariableType
+              DataType: VerticalAlignment
+              ModellingRule: Optional
+            - Name: Switched Power Active
+              Type: raSDK1_BSD_IndLbl
+              Children:
+              - Name: Indicator
+                Type: Rectangle
+                Children:
+                - Name: BorderColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#919191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: FalseValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#919191"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_InactiveBorderColor"
+                - Name: FillColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#2a4191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: TrueValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#475ca7"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_ActiveFillColor"
+                - Name: BorderThickness
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: 1.0
+                - Name: Rotation
+                  Type: BaseVariableType
+                  DataType: Size
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Switched Power Active"}
+              - Name: Inp_Active
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerActive"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Cfg_ActiveFillColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#2a4191"
+              - Name: Cfg_InactiveBorderColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#919191"
+              - Name: VerticalGap
+                Type: BaseDataVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: HorizontalAlignment
+                Type: BaseVariableType
+                DataType: HorizontalAlignment
+                ModellingRule: Optional
+            - Name: VerticalGap
+              Type: BaseDataVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: 8.0
+            - Name: Switched Power Over Current Trip
+              Type: raSDK1_BSD_IndLbl
+              Children:
+              - Name: Indicator
+                Type: Rectangle
+                Children:
+                - Name: BorderColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#919191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: FalseValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#919191"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_InactiveBorderColor"
+                - Name: FillColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#2a4191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: TrueValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#475ca7"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_ActiveFillColor"
+                - Name: BorderThickness
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: 1.0
+                - Name: Rotation
+                  Type: BaseVariableType
+                  DataType: Size
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Switched Power Over Cur Trip"}
+              - Name: Inp_Active
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentTrip"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Cfg_ActiveFillColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#2a4191"
+              - Name: Cfg_InactiveBorderColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#919191"
+              - Name: VerticalGap
+                Type: BaseDataVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: HorizontalAlignment
+                Type: BaseVariableType
+                DataType: HorizontalAlignment
+                ModellingRule: Optional
+            - Name: Switched Power Over Current Warning
+              Type: raSDK1_BSD_IndLbl
+              Children:
+              - Name: Indicator
+                Type: Rectangle
+                Children:
+                - Name: BorderColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#919191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: FalseValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#919191"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_InactiveBorderColor"
+                - Name: FillColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#2a4191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: TrueValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#475ca7"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_ActiveFillColor"
+                - Name: BorderThickness
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: 1.0
+                - Name: Rotation
+                  Type: BaseVariableType
+                  DataType: Size
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Switched Power Over Cur Warn"}
+              - Name: Inp_Active
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/SwitchedPowerOverCurrentWarning"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Cfg_ActiveFillColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#2a4191"
+              - Name: Cfg_InactiveBorderColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#919191"
+              - Name: VerticalGap
+                Type: BaseDataVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: HorizontalAlignment
+                Type: BaseVariableType
+                DataType: HorizontalAlignment
+                ModellingRule: Optional
+            - Name: Fault
+              Type: raSDK1_BSD_IndLbl
+              Children:
+              - Name: Indicator
+                Type: Rectangle
+                Children:
+                - Name: BorderColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#919191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: FalseValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#919191"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_InactiveBorderColor"
+                - Name: FillColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#2a4191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: TrueValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#475ca7"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_ActiveFillColor"
+                - Name: BorderThickness
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: 1.0
+                - Name: Rotation
+                  Type: BaseVariableType
+                  DataType: Size
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Fault"}
+              - Name: Inp_Active
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Fault"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Cfg_ActiveFillColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#2a4191"
+              - Name: Cfg_InactiveBorderColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#919191"
+              - Name: VerticalGap
+                Type: BaseDataVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: HorizontalAlignment
+                Type: BaseVariableType
+                DataType: HorizontalAlignment
+                ModellingRule: Optional
+            - Name: Reference Topology Warning
+              Type: raSDK1_BSD_IndLbl
+              Children:
+              - Name: Indicator
+                Type: Rectangle
+                Children:
+                - Name: BorderColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#919191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: FalseValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#919191"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_InactiveBorderColor"
+                - Name: FillColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#2a4191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: TrueValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#475ca7"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_ActiveFillColor"
+                - Name: BorderThickness
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: 1.0
+                - Name: Rotation
+                  Type: BaseVariableType
+                  DataType: Size
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Reference Topology Warning"}
+              - Name: Inp_Active
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/ReferenceTopologyWarning"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Cfg_ActiveFillColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#2a4191"
+              - Name: Cfg_InactiveBorderColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#919191"
+              - Name: VerticalGap
+                Type: BaseDataVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: HorizontalAlignment
+                Type: BaseVariableType
+                DataType: HorizontalAlignment
+                ModellingRule: Optional
+            - Name: Security Log Warning
+              Type: raSDK1_BSD_IndLbl
+              Children:
+              - Name: Indicator
+                Type: Rectangle
+                Children:
+                - Name: BorderColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#919191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: FalseValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#919191"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_InactiveBorderColor"
+                - Name: FillColor
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  Value: "#2a4191"
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Inp_Active"
+                    - Name: TrueValue
+                      Type: BaseDataVariableType
+                      DataType: Color
+                      ReferenceType: HasParameter
+                      Value: "#475ca7"
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../Cfg_ActiveFillColor"
+                - Name: BorderThickness
+                  Type: BaseDataVariableType
+                  DataType: Size
+                  Value: 1.0
+                - Name: Rotation
+                  Type: BaseVariableType
+                  DataType: Size
+              - Name: Label
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../Cfg_Label"
+              - Name: Cfg_Label
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Security Log Warning"}
+              - Name: Inp_Active
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/SecurityLogWarning"
+                  Children:
+                  - Name: Mode
+                    Type: BaseVariableType
+                    DataType: DynamicLinkMode
+                    ModellingRule: Optional
+                    Value: 2
+              - Name: Cfg_ActiveFillColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#2a4191"
+              - Name: Cfg_InactiveBorderColor
+                Type: BaseDataVariableType
+                DataType: Color
+                Value: "#919191"
+              - Name: VerticalGap
+                Type: BaseDataVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: LeftMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+              - Name: HorizontalAlignment
+                Type: BaseVariableType
+                DataType: HorizontalAlignment
+                ModellingRule: Optional
+            - Name: TopMargin
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+            - Name: BottomMargin
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+            - Name: RightMargin
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+            - Name: LeftMargin
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+          - Name: BottomMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: ContentAlignment
+            Type: BaseVariableType
+            DataType: ContentHorizontalAlignment
+            ModellingRule: Optional
+          - Name: LeftMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 8.0
+        - Name: VerticalGap
+          Type: BaseDataVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 16.0
+      - Name: ContentWidth
+        Type: BaseDataVariableType
+        DataType: Size
+        AccessLevel: Read
+      - Name: ContentHeight
+        Type: BaseDataVariableType
+        DataType: Size
+        AccessLevel: Read
+      - Name: ViewWidth
+        Type: BaseDataVariableType
+        DataType: Size
+        AccessLevel: Read
+      - Name: ViewHeight
+        Type: BaseDataVariableType
+        DataType: Size
+        AccessLevel: Read
+      - Name: ContentX
+        Type: BaseDataVariableType
+        DataType: Size
+      - Name: ContentY
+        Type: BaseDataVariableType
+        DataType: Size
+      - Class: Reference
+        Target: ns=7;i=1394
+        Direction: Forward
+  - Name: Opacity
+    Type: BaseVariableType
+    DataType: Float
+    ModellingRule: Optional
+    Value: 100.0
