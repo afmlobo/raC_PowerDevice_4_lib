@@ -1,0 +1,819 @@
+Name: <PrivateElements>
+Type: FolderType
+Children:
+- File: 'Panels-Faceplate/Panels-Faceplate.yaml'
+- File: Widgets/Widgets.yaml
+- Name: raC_4_00_raC_Dvc_AS294E_InfLookup_Description
+  Id: g=55f3fdf68304324cbc362d2279ae174a
+  Supertype: ValueMapConverter
+  Description: {"LocaleId":"en-US","Text":"Information loop-up table for fault table containing short descriptions for fault codes"}
+  ReferenceType: HasComponent
+  Children:
+  - Name: ns=2;Pairs
+    Type: BaseObjectType
+    ModellingRule: None
+    Children:
+    - Name: Pair1
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 4294934528
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Description not found; see Product Manual."
+    - Name: Pair5
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 1
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "The load has drawn excessive current."
+    - Name: Pair6
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 2
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "A phase to phase or phase to ground short has been detected."
+    - Name: Pair7
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 3
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "A switched or unswitched power dip has been detected."
+    - Name: Pair8
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 4
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Shorted sensor or input device or wiring mistake."
+    - Name: Pair9
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 5
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "The drive output current has exceeded the hardware current limit."
+    - Name: Pair10
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 6
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Possible transients induced during non-volitle storage routines."
+    - Name: Pair11
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 7
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Configuration mismatch between control module and drive."
+    - Name: Pair12
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 8
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Drive power loss, undervoltage or overvoltage."
+    - Name: Pair13
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 9
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "A motor stall condition occurred during acceleration."
+    - Name: Pair14
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 10
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Operating temperature has been exceeded."
+    - Name: Pair15
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 11
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Phase to ground fault detected between drive and motor."
+    - Name: Pair16
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 12
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Drive unsuccessfully attempted to reset fault and resume running."
+    - Name: Pair17
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 13
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "A failure has been detected in the drive power section."
+    - Name: Pair18
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 14
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Output short circuit condition has been detected."
+    - Name: Pair19
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 15
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "User Defined"
+    - Name: Pair20
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 16
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Drive not detected or an invalid config setting is present. "
+  - Name: Mode
+    Type: PropertyType
+    DataType: DynamicLinkMode
+    ReferenceType: HasComponent
+    ModellingRule: Optional
+- Name: raC_4_00_raC_Dvc_AS294E_InfLookup_Details
+  Id: g=2c291b76ddb66321b6171d13c8cc2b2d
+  Supertype: ValueMapConverter
+  Description: {"LocaleId":"en-US","Text":"Information loop-up table for fault table containing long details/actions for fault codes"}
+  ReferenceType: HasComponent
+  Children:
+  - Name: ns=2;Pairs
+    Type: BaseObjectType
+    ModellingRule: None
+    Children:
+    - Name: Pair1
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 4294934528
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "No description found in the lookup table for the current code."
+    - Name: Pair5
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 1
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Verify load is operating correctly and the ArmorStart is properly set-up. The fault may be reset only after the motor has sufficiently cooled."
+    - Name: Pair6
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 2
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check the wiring between the drive and motor.\n2. Check motor for grounded phase.\n3. Replace ArmorStart if fault cannot be cleared."
+    - Name: Pair7
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 3
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check control voltage, wiring, and polarity (A1/A2/A3 terminal)."
+    - Name: Pair8
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 4
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Correct, isolate, or remove wiring error before restarting."
+    - Name: Pair9
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 5
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check for excess load, improper [BoostSelect] setting (P86) or other causes of excess current.\n2. Check load requirements and [SWCurrentTrip] setting (P83)."
+    - Name: Pair10
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 6
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. If the fault was initiated by a transient, power cycling may clear the problem. \n2. This fault may be reset by a [SetToDefaults] (P68).\n3. Replacement of the ArmorStart may be required. "
+    - Name: Pair11
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 7
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. If powered off, power on and reset the fault\n2. Cycle power to the drive. "
+    - Name: Pair12
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 8
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Verify disconnect is not open and check input fuses.\n2. Check AC line for low/high voltage or line power interruption.\n3. Bus OverVoltage can also be caused by motor regeneration. Extending the [DecelTime1] or [DecelTime2] (P37,70) may reduce regeneration."
+    - Name: Pair13
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 9
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check for excessive load or mechanical transmission component failure. \n2. Increase [AccelTime1] or [AccelTime2] (P36, 69) or reduce load so drive output current does not exceed the current set by [CurrentLimit] (P31)."
+    - Name: Pair14
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 10
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check for blocked or dirty heat sink fins.\n2. Verify ambient temp has not exceeded 40 °C.\n3. Clear the fault or cycle power."
+    - Name: Pair15
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 11
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check the wiring between the drive and motor.\n2. Check motor for grounded phase.\n3. Replace starter module if fault cannot be cleared."
+    - Name: Pair16
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 12
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Correct the cause of the fault and manually clear. \n2. Check [AutoRestartTries] and [AutoRestartDelay] (P84,85) meets application needs."
+    - Name: Pair17
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 13
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Cycle power. \n2. Replace unit if failure can not be cleared."
+    - Name: Pair18
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 14
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Correct, isolate or remove wiring error prior to restarting the system."
+    - Name: Pair19
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 15
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Fault generated based on user configuration. This fault may be reset after the condition that caused it is removed. For example, the Auxiliary Input goes low or the DeviceLogix logic drives the bit low."
+    - Name: Pair20
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 16
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Cycle power. \n2. Replace drive if fault cannot be cleared."
+  - Name: Mode
+    Type: PropertyType
+    DataType: DynamicLinkMode
+    ReferenceType: HasComponent
+    ModellingRule: Optional
+- Name: raC_4_00_raC_Dvc_AS294E_Help
+  Id: g=8caf8578eb7e9c71332dfb93c89ce191
+  Supertype: Panel
+  ReferenceType: HasComponent
+  Children:
+  - Name: Width
+    Type: BaseVariableType
+    DataType: Size
+    ModellingRule: Optional
+    Value: 700.0
+  - Name: Height
+    Type: BaseVariableType
+    DataType: Size
+    ModellingRule: Optional
+    Value: 600.0
+  - Name: TopMargin
+    Type: BaseVariableType
+    DataType: Size
+    ModellingRule: Optional
+  - Name: VerticalLayout
+    Type: ColumnLayout
+    Children:
+    - Name: Width
+      Type: BaseVariableType
+      DataType: Size
+      ModellingRule: Optional
+      Value: 50.0
+    - Name: Height
+      Type: BaseVariableType
+      DataType: Size
+      ModellingRule: Optional
+      Value: 50.0
+    - Name: HorizontalAlignment
+      Type: BaseVariableType
+      DataType: HorizontalAlignment
+      ModellingRule: Optional
+      Value: 3
+    - Name: VerticalAlignment
+      Type: BaseVariableType
+      DataType: VerticalAlignment
+      ModellingRule: Optional
+      Value: 3
+    - Name: Help
+      Type: ScrollView
+      Children:
+      - Name: Width
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 300.0
+      - Name: Height
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 300.0
+      - Name: HorizontalAlignment
+        Type: BaseVariableType
+        DataType: HorizontalAlignment
+        ModellingRule: Optional
+        Value: 3
+      - Name: VerticalAlignment
+        Type: BaseVariableType
+        DataType: VerticalAlignment
+        ModellingRule: Optional
+        Value: 3
+      - Name: PDFViewer
+        Type: PdfViewer
+        Children:
+        - Name: Path
+          Type: BaseDataVariableType
+          DataType: ResourceUri
+          Value: "ns=4;%PROJECTDIR%/res/Help raC-4 Power.pdf"
+        - Name: CurrentPage
+          Type: BaseDataVariableType
+          DataType: Int32
+        - Name: Width
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 400.0
+        - Name: Height
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 300.0
+        - Name: HorizontalAlignment
+          Type: BaseVariableType
+          DataType: HorizontalAlignment
+          ModellingRule: Optional
+          Value: 3
+        - Name: VerticalAlignment
+          Type: BaseVariableType
+          DataType: VerticalAlignment
+          ModellingRule: Optional
+          Value: 3
+        - Name: LeftMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: TopMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: RightMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: BottomMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: ZoomMode
+          Type: BaseDataVariableType
+          DataType: PdfViewerZoomMode
+          ModellingRule: Optional
+        - Name: Visible
+          Type: BaseDataVariableType
+          DataType: Boolean
+          Value: true
+          Children:
+          - Name: ConditionalConverter1
+            Type: ConditionalConverter
+            Children:
+            - Name: Condition
+              Type: BaseDataVariableType
+              DataType: Boolean
+              ReferenceType: HasSource
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../../../Device - RM100/Expanded"
+            - Name: TrueValue
+              Type: BaseDataVariableType
+              DataType: Boolean
+              ReferenceType: HasParameter
+              ModellingRule: Optional
+            - Name: FalseValue
+              Type: BaseDataVariableType
+              DataType: Boolean
+              ReferenceType: HasParameter
+              ModellingRule: Optional
+              Value: true
+      - Name: LeftMargin
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+      - Name: TopMargin
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+      - Name: RightMargin
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+      - Name: BottomMargin
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+      - Name: Zoommable
+        Type: BaseDataVariableType
+        DataType: Boolean
+        ModellingRule: Optional
+      - Name: MinZoomOut
+        Type: BaseDataVariableType
+        DataType: Int32
+        ModellingRule: Optional
+        Value: 100
+      - Name: MaxZoomIn
+        Type: BaseDataVariableType
+        DataType: Int32
+        ModellingRule: Optional
+        Value: 100
+      - Name: ContentWidth
+        Type: BaseDataVariableType
+        DataType: Size
+        AccessLevel: Read
+      - Name: ContentHeight
+        Type: BaseDataVariableType
+        DataType: Size
+        AccessLevel: Read
+      - Name: ViewWidth
+        Type: BaseDataVariableType
+        DataType: Size
+        AccessLevel: Read
+      - Name: ViewHeight
+        Type: BaseDataVariableType
+        DataType: Size
+        AccessLevel: Read
+      - Name: ContentX
+        Type: BaseDataVariableType
+        DataType: Size
+      - Name: ContentY
+        Type: BaseDataVariableType
+        DataType: Size
+      - Class: Reference
+        Target: ns=7;i=1394
+        Direction: Forward
+    - Name: 'Device - RM100'
+      Type: Accordion
+      Children:
+      - Name: Header
+        Type: AccordionHeader
+        Children:
+        - Name: Label
+          Type: Label
+          Children:
+          - Name: Text
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            ModellingRule: Optional
+            Value: {"LocaleId":"en-US","Text":"DEVICE - RM100"}
+          - Name: LeftMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 5.0
+          - Name: Style
+            Type: BaseDataVariableType
+            DataType: String
+            ModellingRule: Optional
+            Value: "Heading"
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+            Value: 2
+          - Name: VerticalAlignment
+            Type: BaseVariableType
+            DataType: VerticalAlignment
+            ModellingRule: Optional
+            Value: 2
+        - Name: Height
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 30.0
+      - Name: Content
+        Type: AccordionContent
+        Children:
+        - Name: WebBrowser1
+          Type: WebBrowser
+          Children:
+          - Name: URL
+            Type: BaseDataVariableType
+            DataType: ResourceUri
+            Value: "https://literature.rockwellautomation.com/idc/groups/literature/documents/rm/device-rm100_-en-p.pdf"
+          - Class: Reference
+            Target: ns=7;i=354
+            Direction: Forward
+          - Class: Reference
+            Target: ns=7;i=356
+            Direction: Forward
+          - Class: Reference
+            Target: ns=7;i=358
+            Direction: Forward
+          - Name: Width
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 300.0
+          - Name: Height
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 300.0
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+            Value: 3
+          - Name: VerticalAlignment
+            Type: BaseVariableType
+            DataType: VerticalAlignment
+            ModellingRule: Optional
+            Value: 3
+        - Name: Height
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 570.0
+      - Name: Expanded
+        Type: BaseDataVariableType
+        DataType: Boolean
+      - Name: Width
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 200.0
+      - Name: HorizontalAlignment
+        Type: BaseVariableType
+        DataType: HorizontalAlignment
+        ModellingRule: Optional
+        Value: 3
+      - Name: VerticalAlignment
+        Type: BaseVariableType
+        DataType: VerticalAlignment
+        ModellingRule: Optional
+  - Name: HorizontalAlignment
+    Type: BaseVariableType
+    DataType: HorizontalAlignment
+    ModellingRule: Optional
+    Value: 2
+  - Name: VerticalAlignment
+    Type: BaseVariableType
+    DataType: VerticalAlignment
+    ModellingRule: Optional
+    Value: 2

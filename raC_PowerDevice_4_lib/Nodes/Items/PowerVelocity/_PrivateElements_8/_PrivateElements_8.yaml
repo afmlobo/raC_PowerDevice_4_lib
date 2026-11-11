@@ -1,0 +1,1715 @@
+Name: <PrivateElements>
+Type: FolderType
+Children:
+- File: 'Panels-Faceplate/Panels-Faceplate.yaml'
+- File: Widgets/Widgets.yaml
+- Name: raC_4_02_raC_Dvc_APF350_InfLookup_Description
+  Id: g=84eba9addeab5b5a5d577e6c0ee90d28
+  Supertype: ValueMapConverter
+  Description: {"LocaleId":"en-US","Text":"Information loop-up table for fault table containing short descriptions for fault codes"}
+  ReferenceType: HasComponent
+  Children:
+  - Name: ns=2;Pairs
+    Type: BaseObjectType
+    ModellingRule: None
+    Children:
+    - Name: Pair1
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 4294934528
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Description not found; see Product Manual."
+    - Name: Pair2
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 68681729
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Device software encounters an unexpected condition."
+    - Name: Pair3
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 524289
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "One or more discrete inputs is above the maximum allowed value."
+    - Name: Pair4
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 589825
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Overcurrent condition on output or output short circuit condition"
+    - Name: Pair5
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 10551300
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Current firmware may be obsolete, incompatible, or incomplete."
+    - Name: Pair6
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 68681730
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Potential hardware problem or unexpected hardware behavior"
+    - Name: Pair7
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 68747268
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Data corruption errors detected during configuration on power up"
+    - Name: Pair8
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 68747269
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Error detected w/ configuration data storage component"
+    - Name: Pair9
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 68943875
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Motor control source changes state from OK to Data Invalid."
+    - Name: Pair10
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 68943878
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Motor control source changes operational state from OK to Faulted"
+    - Name: Pair11
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69009412
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "An autotune operation was started but failed to complete."
+    - Name: Pair12
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69402626
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Temperature value exceeded the Hard Temperature High Limit"
+    - Name: Pair13
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69468161
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "The Measured Voltage value fell below the Hard Voltage Low Limit"
+    - Name: Pair14
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69468162
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "The Measured Voltage value exceeded the Hard Voltage High Limit"
+    - Name: Pair15
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69468165
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "The ripple voltage value exceeded the Hard Voltage High Limit"
+    - Name: Pair16
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533698
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "The Ground Current exceeded the threshold."
+    - Name: Pair17
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533699
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Phase Current Lower Than Threshold, Longer Than given \nTime"
+    - Name: Pair18
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533797
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "A connection between phase 1 and ground was detected."
+    - Name: Pair19
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533816
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "A short between the phase 1 and phase 2 outputs was  detected."
+    - Name: Pair20
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533826
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "A short between the phase 1 and phase 3 outputs was  detected."
+    - Name: Pair21
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533897
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "A connection between phase 2 and ground was  detected."
+    - Name: Pair22
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533926
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "A short between the phase 2 and phase 3 outputs was  detected."
+    - Name: Pair23
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533997
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "A connection between phase 3 and ground was detected."
+    - Name: Pair24
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69599233
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Measured Voltage value fell below the Voltage Low Limit, Hard."
+    - Name: Pair25
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69599234
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "The Measured Voltage value exceeded the Voltage High Limit, Hard."
+    - Name: Pair26
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69664771
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Discrepancy between commanded state and actual state of brake"
+    - Name: Pair27
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69664772
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Brake fuse or breaker is open and no control of brake "
+    - Name: Pair28
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69664773
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Physical brake current exceeded, fault disables brake current"
+    - Name: Pair29
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69664774
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Brake Control Hardware Diagnostic Failure"
+    - Name: Pair30
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69664775
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Physical brake current low, fault disables brake current"
+    - Name: Pair31
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69730307
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Brake Control Source changed operational state OK-Data Invalid"
+    - Name: Pair32
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69730310
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Brake Control Source changed operational state OK to Faulted"
+    - Name: Pair33
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69926913
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "DB resistor overtemp Fault high until temp drops below threshold"
+    - Name: Pair34
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69926914
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "DB resistor overcurrent Fault high until current below threshold"
+    - Name: Pair35
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70189057
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Feedback signal loss"
+    - Name: Pair36
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70189060
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Feedback velocity comparison fault"
+    - Name: Pair37
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70254596
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "AutoFaultReset & run attempts equals number of configured retries"
+    - Name: Pair38
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70385665
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "The Thermal Capacity Utilized attribute is at or above 100%."
+    - Name: Pair39
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70516737
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Load monitor instance exceeds configured power output level"
+    - Name: Pair40
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70516738
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Load monitor instance less than the configured power output level"
+    - Name: Pair41
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70647809
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "The inverter current exceeded the Instanteous Overcurrent Limit."
+    - Name: Pair42
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70647811
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Inverter Current Capacity Utilized greater than 100%"
+    - Name: Pair43
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70647812
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Thermal Capacity Utilized greater than 100%"
+    - Name: Pair44
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70909957
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "STOFault true until STO fault condition is cleared in safetylogic"
+    - Name: Pair45
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70909960
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "SS1Fault true until SS1 fault condition is cleared in safetylogic"
+    - Name: Pair46
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70909964
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Safety logic declared a recoverable fault"
+    - Name: Pair47
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70909965
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Safety logic is declared an unrecoverable fault, power cycle"
+    - Name: Pair48
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70909966
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Safety logic reported a problem with a safety feedback device."
+    - Name: Pair49
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 71237638
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Discrete output source changes operational state from OK/ Faulted"
+  - Name: Mode
+    Type: PropertyType
+    DataType: DynamicLinkMode
+    ReferenceType: HasComponent
+    ModellingRule: Optional
+- Name: raC_4_02_raC_Dvc_APF350_InfLookup_Details
+  Id: g=eb32accb6ccecf328d19d09ba0715ddb
+  Supertype: ValueMapConverter
+  Description: {"LocaleId":"en-US","Text":"Information loop-up table for fault table containing long details/actions for fault codes"}
+  ReferenceType: HasComponent
+  Children:
+  - Name: ns=2;Pairs
+    Type: BaseObjectType
+    ModellingRule: None
+    Children:
+    - Name: Pair1
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 4294934528
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "No description found in the lookup table for the current code."
+    - Name: Pair2
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 68681729
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "This is an unrecoverable fault that indicates a severe failure with the device firmware. 1. Cycle power 2. Perform a firmware update to a newer firmware release 3. If fault persists, replace the device"
+    - Name: Pair3
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 524289
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Check load on the sensor power provided by the input connectors.Combined load cannot exceed 300 mA."
+    - Name: Pair4
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 589825
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check load on the user outputs. Combined load on all user outputs cannot exceed 2 A. 2. Provide a minimum user output load of 10 mA. Current detection does not work reliably without any load and this fault may be reported."
+    - Name: Pair5
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 10551300
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Use a tool to perform a network firmware update. This fault persists and prevents operation until new firmware is provided."
+    - Name: Pair6
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 68681730
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "This is an unrecoverable fault that indicates a severe failure with the device hardware. 1. Cycle power 2. Perform a firmware update to a newer firmware release 3. If fault persists"
+    - Name: Pair7
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 68747268
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Re-configure the drive."
+    - Name: Pair8
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 68747269
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Re-configure the drive. 2. If the fault persists, replace the device"
+    - Name: Pair9
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 68943875
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check that the controller that is supposed to be controlling the drive is in Run mode"
+    - Name: Pair10
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 68943878
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check that the controller that is supposed to be controlling the drive is still powered on and correctly configured. 2 Verify network cabling."
+    - Name: Pair11
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69009412
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. If the failure was caused by a user abort action,restart the autotune procedure. 2. Otherwise, check if the load is disconnected from the motor. 3. Or check if the motor is properly connected to the drive."
+    - Name: Pair12
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69402626
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Verify ambient temp has not exceeded rated temp 2.Check actual output current meets the derating guidelines. 3. Verify output current is not exceeding the specs listed in manual. 4. Turn off power, allow product to cool, retry"
+    - Name: Pair13
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69468161
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check that the disconnect is in the ON position. 2. Check for a power quality issue, take appropriate corrective actions. 3. Check that 3-phase power is present. 4. Reset the drive."
+    - Name: Pair14
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69468162
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Monitor the AC line for high line voltage or transient conditions. 2. Motor regeneration can also be the cause of bus overvoltage. Extend the Decel Time setting or install dynamic brake option. 3. Enable DC bus regulation."
+    - Name: Pair15
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69468165
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check that 3-phase power is present(all phases) 2. Check input fuses 3. Check input impedance balance 4. Enable DC bus regulation"
+    - Name: Pair16
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533698
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Check the motor and wiring to the drive for a grounded condition."
+    - Name: Pair17
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533699
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Verify motor wiring. 2. Decrease the threshold to make the drive less sensitive to trip."
+    - Name: Pair18
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533797
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check the wiring between the drive and motor. 2. Check motor for grounded phase. 3. Replace drive if fault cannot be cleared."
+    - Name: Pair19
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533816
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check the motor and drive output terminal wiring for a shorted condition. 2. Replace drive if fault cannot be cleared."
+    - Name: Pair20
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533826
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check the motor and drive output terminal wiring for a shorted condition. 2. Replace drive if fault cannot be cleared."
+    - Name: Pair21
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533897
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check the wiring between the drive and motor. 2. Check motor for grounded phase. 3. Replace drive if fault cannot be cleared."
+    - Name: Pair22
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533926
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check the motor and drive output terminal wiring for a shorted condition. 2. Replace drive if fault cannot be cleared."
+    - Name: Pair23
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69533997
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check the wiring between the drive and motor. 2. Check motor for grounded phase. 3. Replace drive if fault cannot be cleared."
+    - Name: Pair24
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69599233
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check that the local disconnect is in the ON position. 2. Check for a power quality issue, take appropriate corrective actions. 3. Check that 3-phase power is present. 4. Reset the drive."
+    - Name: Pair25
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69599234
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Monitor the AC line for high line voltage or transient conditions. 2. Motor regeneration can also be the cause of bus overvoltage. Extend the Decel Time setting or install dynamic brake option."
+    - Name: Pair26
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69664771
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Cycle power. 2. Check EM brake wiring. 3. If the fault persists, replace the device."
+    - Name: Pair27
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69664772
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check / replace EM brake fuses. 2. Check input AC fuses. 3. Check that 3-phase power is present(all phases)."
+    - Name: Pair28
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69664773
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check EM brake wiring. 2.Verify EM brake operation(coil short). 3.Use EM brake with current draw below device limits."
+    - Name: Pair29
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69664774
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Cycle power. 2. If fault persists, replace the device."
+    - Name: Pair30
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69664775
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Verify EM brake wiring. 2. Verify EM brake operation (coil open). 3. Disable fault if using a EM brake with a low current draw (less than 70 mA)."
+    - Name: Pair31
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69730307
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check that the controller that is supposed to be controlling the drive is in run mode, not program or fault mode. This fault may be expected if the controller is intentionally placed in program mode."
+    - Name: Pair32
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69730310
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check that the controller that is supposed to be controlling the drive is still powered on and correctly configured. 2. Verify network cabling"
+    - Name: Pair33
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69926913
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Allow DB to cool 2. Lower duty cycle/DB activation time 3. Reduce stop frequency, Lower decel rate 4. Internal resistor thermal switch damaged; Replace DB resistor. 5. Check DB resistor cable/connection/config settings"
+    - Name: Pair34
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 69926914
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check DB cable/connection 2. Check DB is sized properly & Verify resistor resistance above minimum resistance for the drive 3. Replace dynamic brake resistor. 4. Replace device."
+    - Name: Pair35
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70189057
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Verify encoder configuration settings. 2. Check encoder wiring."
+    - Name: Pair36
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70189060
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Verify encoder configuration settings. 2. Check encoder wiring."
+    - Name: Pair37
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70254596
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "Correct the cause of the fault and manually clear. See the user manual for details on how to clear faults."
+    - Name: Pair38
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70385665
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Allow motor to cool and attempt restart. 2. Check configuration setting for motor overload current. 3. Reduce load. 4. Reduce time the motor is in overload"
+    - Name: Pair39
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70516737
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check for motor stall or machine jam condition. 2. Reduce the load. 3. Adjust load monitor current level to be appropriate for the application."
+    - Name: Pair40
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70516738
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check if the load has become decoupled from the motor. 2. Adjust load motor current level to be appropriate for the application."
+    - Name: Pair41
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70647809
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check motor and motor wiring for short circuit. 2. Reduce load."
+    - Name: Pair42
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70647811
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Reduce load. 2.Configure a reduced current limit. 3. Enable reduced current limit on overload."
+    - Name: Pair43
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70647812
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Reduce load. 2. Configure a reduced current limit. 3. Enable reduced current limit on overload. 4. Enable PWM requency reduction on overload."
+    - Name: Pair44
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70909957
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. To clear (reset) the Safety Fault, remove the source of the safety fault and then send a fault reset to the safety logic. 2. See the user manual for details on Safety Fault Reset & STO Fault."
+    - Name: Pair45
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70909960
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. To clear,55555 remove source of the safety fault and send fault reset to the safety logic 2. See user manual for details on SS1 Safety Faults 3. If using drive based SS1 functionality, check configuration such as deceleration time."
+    - Name: Pair46
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70909964
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. To acknowledge or clear this fault, remove the source of the safety fault and send a fault reset to the safety logic. 2. See the user manual for details."
+    - Name: Pair47
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70909965
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Power cycle the device. 2. If fault persists, replace the device."
+    - Name: Pair48
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 70909966
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Verify safety encoder configuration settings. 2. Check encoder wiring. 3. Safety fault must be cleared via CIP safety connection before the standard fault can be cleared, see user manual."
+    - Name: Pair49
+      Type: ValueMapPair
+      ModellingRule: None
+      Children:
+      - Name: Key
+        Type: BaseDataVariableType
+        DataType: UInt32
+        ModellingRule: None
+        Value: 71237638
+      - Name: Value
+        Type: BaseDataVariableType
+        DataType: String
+        ModellingRule: None
+        Value: "1. Check that the controller that is supposed to be controlling the drive is still powered on and correctly configured. 2. Verify network cabling."
+  - Name: Mode
+    Type: PropertyType
+    DataType: DynamicLinkMode
+    ReferenceType: HasComponent
+    ModellingRule: Optional
+- Name: raC_4_02_raC_Dvc_APF350_Help
+  Id: g=659c616b5e769e933c439c5c64af33bb
+  Supertype: Panel
+  ReferenceType: HasComponent
+  Children:
+  - Name: Width
+    Type: BaseVariableType
+    DataType: Size
+    ModellingRule: Optional
+    Value: 700.0
+  - Name: Height
+    Type: BaseVariableType
+    DataType: Size
+    ModellingRule: Optional
+    Value: 600.0
+  - Name: TopMargin
+    Type: BaseVariableType
+    DataType: Size
+    ModellingRule: Optional
+  - Name: VerticalLayout
+    Type: ColumnLayout
+    Children:
+    - Name: Width
+      Type: BaseVariableType
+      DataType: Size
+      ModellingRule: Optional
+      Value: 50.0
+    - Name: Height
+      Type: BaseVariableType
+      DataType: Size
+      ModellingRule: Optional
+      Value: 50.0
+    - Name: HorizontalAlignment
+      Type: BaseVariableType
+      DataType: HorizontalAlignment
+      ModellingRule: Optional
+      Value: 3
+    - Name: VerticalAlignment
+      Type: BaseVariableType
+      DataType: VerticalAlignment
+      ModellingRule: Optional
+      Value: 3
+    - Name: Help
+      Type: ScrollView
+      Children:
+      - Name: Width
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 300.0
+      - Name: Height
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 300.0
+      - Name: HorizontalAlignment
+        Type: BaseVariableType
+        DataType: HorizontalAlignment
+        ModellingRule: Optional
+        Value: 3
+      - Name: VerticalAlignment
+        Type: BaseVariableType
+        DataType: VerticalAlignment
+        ModellingRule: Optional
+        Value: 3
+      - Name: PDFViewer
+        Type: PdfViewer
+        Children:
+        - Name: Path
+          Type: BaseDataVariableType
+          DataType: ResourceUri
+          Value: "ns=4;%PROJECTDIR%/res/Help raC-4 Power.pdf"
+        - Name: CurrentPage
+          Type: BaseDataVariableType
+          DataType: Int32
+        - Name: Width
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 400.0
+        - Name: Height
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 300.0
+        - Name: HorizontalAlignment
+          Type: BaseVariableType
+          DataType: HorizontalAlignment
+          ModellingRule: Optional
+          Value: 3
+        - Name: VerticalAlignment
+          Type: BaseVariableType
+          DataType: VerticalAlignment
+          ModellingRule: Optional
+          Value: 3
+        - Name: LeftMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: TopMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: RightMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: BottomMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: ZoomMode
+          Type: BaseDataVariableType
+          DataType: PdfViewerZoomMode
+          ModellingRule: Optional
+        - Name: Visible
+          Type: BaseDataVariableType
+          DataType: Boolean
+          Value: true
+          Children:
+          - Name: ConditionalConverter1
+            Type: ConditionalConverter
+            Children:
+            - Name: Condition
+              Type: BaseDataVariableType
+              DataType: Boolean
+              ReferenceType: HasSource
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../../../Device - RM100/Expanded"
+            - Name: TrueValue
+              Type: BaseDataVariableType
+              DataType: Boolean
+              ReferenceType: HasParameter
+              ModellingRule: Optional
+            - Name: FalseValue
+              Type: BaseDataVariableType
+              DataType: Boolean
+              ReferenceType: HasParameter
+              ModellingRule: Optional
+              Value: true
+      - Name: LeftMargin
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+      - Name: TopMargin
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+      - Name: RightMargin
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+      - Name: BottomMargin
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+      - Name: Zoommable
+        Type: BaseDataVariableType
+        DataType: Boolean
+        ModellingRule: Optional
+      - Name: MinZoomOut
+        Type: BaseDataVariableType
+        DataType: Int32
+        ModellingRule: Optional
+        Value: 100
+      - Name: MaxZoomIn
+        Type: BaseDataVariableType
+        DataType: Int32
+        ModellingRule: Optional
+        Value: 100
+      - Name: ContentWidth
+        Type: BaseDataVariableType
+        DataType: Size
+        AccessLevel: Read
+      - Name: ContentHeight
+        Type: BaseDataVariableType
+        DataType: Size
+        AccessLevel: Read
+      - Name: ViewWidth
+        Type: BaseDataVariableType
+        DataType: Size
+        AccessLevel: Read
+      - Name: ViewHeight
+        Type: BaseDataVariableType
+        DataType: Size
+        AccessLevel: Read
+      - Name: ContentX
+        Type: BaseDataVariableType
+        DataType: Size
+      - Name: ContentY
+        Type: BaseDataVariableType
+        DataType: Size
+      - Class: Reference
+        Target: ns=7;i=1394
+        Direction: Forward
+    - Name: 'Device - RM100'
+      Type: Accordion
+      Children:
+      - Name: Header
+        Type: AccordionHeader
+        Children:
+        - Name: Label
+          Type: Label
+          Children:
+          - Name: Text
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            ModellingRule: Optional
+            Value: {"LocaleId":"en-US","Text":"DEVICE - RM100"}
+          - Name: LeftMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 5.0
+          - Name: Style
+            Type: BaseDataVariableType
+            DataType: String
+            ModellingRule: Optional
+            Value: "Heading"
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+            Value: 2
+          - Name: VerticalAlignment
+            Type: BaseVariableType
+            DataType: VerticalAlignment
+            ModellingRule: Optional
+            Value: 2
+        - Name: Height
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 30.0
+      - Name: Content
+        Type: AccordionContent
+        Children:
+        - Name: WebBrowser1
+          Type: WebBrowser
+          Children:
+          - Name: URL
+            Type: BaseDataVariableType
+            DataType: ResourceUri
+            Value: "https://literature.rockwellautomation.com/idc/groups/literature/documents/rm/device-rm100_-en-p.pdf"
+          - Class: Reference
+            Target: ns=7;i=354
+            Direction: Forward
+          - Class: Reference
+            Target: ns=7;i=356
+            Direction: Forward
+          - Class: Reference
+            Target: ns=7;i=358
+            Direction: Forward
+          - Name: Width
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 300.0
+          - Name: Height
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 300.0
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+            Value: 3
+          - Name: VerticalAlignment
+            Type: BaseVariableType
+            DataType: VerticalAlignment
+            ModellingRule: Optional
+            Value: 3
+        - Name: Height
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 570.0
+      - Name: Expanded
+        Type: BaseDataVariableType
+        DataType: Boolean
+      - Name: Width
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 200.0
+      - Name: HorizontalAlignment
+        Type: BaseVariableType
+        DataType: HorizontalAlignment
+        ModellingRule: Optional
+        Value: 3
+      - Name: VerticalAlignment
+        Type: BaseVariableType
+        DataType: VerticalAlignment
+        ModellingRule: Optional
+  - Name: HorizontalAlignment
+    Type: BaseVariableType
+    DataType: HorizontalAlignment
+    ModellingRule: Optional
+    Value: 2
+  - Name: VerticalAlignment
+    Type: BaseVariableType
+    DataType: VerticalAlignment
+    ModellingRule: Optional
+    Value: 2

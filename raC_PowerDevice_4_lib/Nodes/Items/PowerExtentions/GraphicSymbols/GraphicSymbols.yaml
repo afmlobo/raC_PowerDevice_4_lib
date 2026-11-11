@@ -1,0 +1,366 @@
+Name: GraphicSymbols
+Type: FolderType
+Children:
+- Name: raC_4_00_raC_Opr_BaseEnergy_GS_NavText
+  Id: g=d3cb767054a93cd38be84e1e3fc986db
+  Supertype: raC_Dvc_TextButtonPwrExt
+  DisplayName: {"LocaleId":"en-US","Text":"BaseEnergy Text Button"}
+  ReferenceType: HasComponent
+  Children:
+  - Name: raSDK1_NavGeneral
+    Type: raSDK1_NavGeneral
+    Children:
+    - Name: Cfg_CloseCurrentDisplay
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: Ref_Tag
+      Type: BaseDataVariableType
+      DataType: NodeId
+      Children:
+      - Name: DynamicLink
+        Type: DynamicLink
+        DataType: NodePath
+        Value: "../../Ref_Tag@Pointer"
+    - Name: MouseClickEventHandler1
+      Type: EventHandler
+      Children:
+      - Name: ListenEventType
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/EventTypes/BaseEventType/MouseEvent/MouseClickEvent"
+      - Name: MethodsToCall
+        Type: BaseObjectType
+        Children:
+        - Name: MethodContainer1
+          Type: BaseObjectType
+          Children:
+          - Name: ObjectPointer
+            Type: NodePointer
+            DataType: NodeId
+            Children:
+            - Name: Kind
+              Type: PropertyType
+              DataType: NodeId
+              Value: "/Types/ObjectTypes/BaseObjectType"
+            - Name: DynamicLink
+              Type: DynamicLink
+              DataType: NodePath
+              Value: "../../../../raSDK1_NL_NavGeneral@NodeId"
+          - Name: Method
+            Type: BaseDataVariableType
+            DataType: String
+            Value: "NavGeneral"
+      - Name: EventArguments
+        Type: MouseClickEvent
+        Children:
+        - Name: EventId
+          Type: PropertyType
+          DataType: ByteString
+        - Name: EventType
+          Type: PropertyType
+          DataType: NodeId
+        - Name: SourceNode
+          Type: PropertyType
+          DataType: NodeId
+        - Name: SourceName
+          Type: PropertyType
+          DataType: String
+        - Name: Time
+          Type: PropertyType
+          DataType: UtcTime
+        - Name: ReceiveTime
+          Type: PropertyType
+          DataType: UtcTime
+        - Name: Message
+          Type: PropertyType
+          DataType: LocalizedText
+        - Name: Severity
+          Type: PropertyType
+          DataType: UInt16
+    - Name: Cfg_NavLibraryString
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Inf_Lib"
+    - Name: Cfg_NavInstructionString
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Inf_Type"
+    - Name: raSDK1_NL_NavGeneral
+      Type: NetLogic
+      Children:
+      - Class: Reference
+        Target: g=ac5296507cb3b45346bf236e457e26cb
+        Direction: Forward
+    - Name: Cfg_DialogBox
+      Type: BaseDataVariableType
+      DataType: NodeId
+      Children:
+      - Name: DynamicLink
+        Type: DynamicLink
+        DataType: NodePath
+        Value: "../../Cfg_DialogBox@Pointer"
+    - Name: Cfg_DisplayType
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Faceplate"
+    - Name: Visible
+      Type: BaseDataVariableType
+      DataType: Boolean
+      Value: true
+      Children:
+      - Name: DynamicLink
+        Type: DynamicLink
+        DataType: NodePath
+        Value: "../../Inp_EnableNavigation"
+    - Name: Text
+      Type: BaseDataVariableType
+      DataType: LocalizedText
+      Children:
+      - Name: DynamicLink
+        Type: DynamicLink
+        DataType: NodePath
+        Value: "../../Cfg_Label"
+  - Name: NavBorder
+    Type: Rectangle
+    Children:
+    - Name: BorderColor
+      Type: BaseDataVariableType
+      DataType: Color
+      Value: "#ffffff00"
+      Children:
+      - Name: ConditionalConverter1
+        Type: ConditionalConverter
+        Children:
+        - Name: Condition
+          Type: BaseDataVariableType
+          DataType: Boolean
+          ReferenceType: HasSource
+          Children:
+          - Name: DynamicLink
+            Type: DynamicLink
+            DataType: NodePath
+            Value: "../../../../Cfg_ShowNavigationBorder"
+        - Name: TrueValue
+          Type: BaseDataVariableType
+          DataType: Color
+          ReferenceType: HasParameter
+          Value: "#919191"
+    - Name: Grp_Content
+      Type: ColumnLayout
+      Children:
+      - Name: Pnl_MinSize
+        Type: Panel
+        Children:
+        - Name: Width
+          Type: BaseVariableType
+          DataType: Size
+          Value: 100.0
+      - Name: Pnl_LblName
+        Type: Panel
+        Children:
+        - Name: Width
+          Type: BaseVariableType
+          DataType: Size
+          Value: -1.0
+        - Name: Pnl_MinSize
+          Type: Panel
+        - Name: VerticalLayout1
+          Type: ColumnLayout
+          Children:
+          - Name: Label1
+            Type: Label
+            Children:
+            - Name: Text
+              Type: BaseDataVariableType
+              DataType: LocalizedText
+              Value: {"LocaleId":"en-US","Text":"Object_Label"}
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../../../../Ref_Tag/Description"
+            - Name: Width
+              Type: BaseVariableType
+              DataType: Size
+              Value: -1.0
+              Children:
+              - Name: ConditionalConverter1
+                Type: ConditionalConverter
+                Children:
+                - Name: Condition
+                  Type: BaseDataVariableType
+                  DataType: Boolean
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: ExpressionEvaluator1
+                    Type: ExpressionEvaluator
+                    Children:
+                    - Name: Source0
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../../../../../../../Cfg_SizingStyle"
+                - Name: TrueValue
+                  Type: BaseDataVariableType
+                  DataType: Int32
+                  ReferenceType: HasParameter
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../../../Pnl_MinSize/Width"
+                - Name: FalseValue
+                  Type: BaseDataVariableType
+                  DataType: Int32
+                  ReferenceType: HasParameter
+                  Value: -1
+            - Name: WordWrap
+              Type: BaseDataVariableType
+              DataType: Boolean
+              Children:
+              - Name: ExpressionEvaluator1
+                Type: ExpressionEvaluator
+                Children:
+                - Name: Source0
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../../../../../Cfg_SizingStyle"
+            - Name: Elide
+              Type: BaseDataVariableType
+              DataType: ElideEnum
+              Value: 2
+              Children:
+              - Name: ConditionalConverter1
+                Type: ConditionalConverter
+                Children:
+                - Name: Condition
+                  Type: BaseDataVariableType
+                  DataType: Boolean
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: ExpressionEvaluator1
+                    Type: ExpressionEvaluator
+                    Children:
+                    - Name: Source0
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../../../../../../../Cfg_SizingStyle"
+            - Name: Visible
+              Type: BaseDataVariableType
+              DataType: Boolean
+              Value: true
+              Children:
+              - Name: ConditionalConverter1
+                Type: ConditionalConverter
+                Children:
+                - Name: Condition
+                  Type: BaseDataVariableType
+                  DataType: Boolean
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: ExpressionEvaluator1
+                    Type: ExpressionEvaluator
+                    Children:
+                    - Name: Source0
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "../../../../../../../../../../Cfg_Label"
+                    - Name: Source1
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: StringFormatter1
+                        Type: StringFormatter
+    - Name: Chevron
+      Type: ScaleLayout
+      WriteMask: BrowseName|DataType|Description|DisplayName|MinimumSamplingInterval|UserAccessLevel
+      Children:
+      - Name: FillColor
+        Type: BaseDataVariableType
+        DataType: Color
+        Value: "#3f3f3f"
+      - Name: shape
+        Type: Image
+        Children:
+        - Name: Path
+          Type: BaseDataVariableType
+          DataType: ResourceUri
+          Value: "ns=4;%PROJECTDIR%/res/Chevron2.svg"
+        - Name: DynamicColor
+          Type: BaseDataVariableType
+          DataType: Color
+          Value: "#d1d3d4"
+          Children:
+          - Name: DynamicLink
+            Type: DynamicLink
+            DataType: NodePath
+            Value: "../../FillColor"
+      - Name: Visible
+        Type: BaseDataVariableType
+        DataType: Boolean
+        Value: true
+        Children:
+        - Name: DynamicLink
+          Type: DynamicLink
+          DataType: NodePath
+          Value: "../../../Cfg_ShowNavigationChevron"
+    - Name: Width
+      Type: BaseVariableType
+      DataType: Size
+      Value: -1.0
+    - Name: Height
+      Type: BaseVariableType
+      DataType: Size
+      Value: -1.0
+  - Name: Ref_Tag
+    Type: BaseDataVariableType
+    DataType: NodeId
+  - Name: Cfg_SizingStyle
+    Type: BaseDataVariableType
+    DataType: raSDK1_Style
+    Value: 1
+  - Name: Cfg_ShowNavigationBorder
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: Cfg_ShowNavigationChevron
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: Inp_EnableNavigation
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: Cfg_Label
+    Type: BaseDataVariableType
+    DataType: LocalizedText
+    Value: {"LocaleId":"en-US","Text":""}
+  - Name: Cfg_DialogBox
+    Type: BaseDataVariableType
+    DataType: NodeId
+  - Name: Cfg_CloseCurrentDisplay
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: Cfg_DisplayType
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Faceplate"

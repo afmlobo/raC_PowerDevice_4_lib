@@ -1,0 +1,10 @@
+Name: Items
+Type: FolderType
+Children:
+- File: PowerDiscrete/PowerDiscrete.yaml
+- File: PowerVelocity/PowerVelocity.yaml
+- File: PowerMotion/PowerMotion.yaml
+- File: PowerMonitor/PowerMonitor.yaml
+- File: EtherNetIPInCabinet/EtherNetIPInCabinet.yaml
+- File: Contactor/Contactor.yaml
+- File: PowerExtentions/PowerExtentions.yaml

@@ -1,0 +1,1563 @@
+Name: 'Panels-Faceplate'
+Type: FolderType
+Children:
+- Name: raC_4_00_raC_Opr_BaseEnergy_Home
+  Id: g=c2c774628ba99d8639ed1b5b1708db11
+  Supertype: Panel
+  ReferenceType: HasComponent
+  Children:
+  - Name: Width
+    Type: BaseVariableType
+    DataType: Size
+    ModellingRule: Optional
+    Value: 574.0
+  - Name: Height
+    Type: BaseVariableType
+    DataType: Size
+    ModellingRule: Optional
+    Value: 337.0
+  - Name: Tag
+    Type: NodePointer
+    DataType: NodeId
+    Children:
+    - Name: Kind
+      Type: PropertyType
+      DataType: NodeId
+      Value: {"IdType":2,"Id":"bf8efd71d79630273bc20c6e590d9ab4","Namespace":4}
+    - Name: DynamicLink
+      Type: DynamicLink
+      DataType: NodePath
+      Value: "{raSDK1_DialogBoxBase}/Ref_Tag@NodeId"
+      Children:
+      - Name: Mode
+        Type: BaseVariableType
+        DataType: DynamicLinkMode
+        ModellingRule: Optional
+        Value: 2
+  - Name: HorizontalAlignment
+    Type: BaseVariableType
+    DataType: HorizontalAlignment
+    ModellingRule: Optional
+  - Name: VerticalAlignment
+    Type: BaseVariableType
+    DataType: VerticalAlignment
+    ModellingRule: Optional
+  - Name: grp_BannerHome
+    Type: ColumnLayout
+    Children:
+    - Name: Width
+      Type: BaseVariableType
+      DataType: Size
+      ModellingRule: Optional
+      Value: 50.0
+    - Name: Height
+      Type: BaseVariableType
+      DataType: Size
+      ModellingRule: Optional
+      Value: 50.0
+    - Name: Banner
+      Type: raC_4_00_raC_Opr_BaseEnergy_W_Banner
+      Children:
+      - Name: grp_BannerAndSeparator
+        Type: ColumnLayout
+        Children:
+        - Name: pnl_banner
+          Type: Panel
+          Children:
+          - Name: dwg_background
+            Type: Rectangle
+            Children:
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#ffffff"
+              Children:
+              - Name: ConditionalConverter1
+                Type: ConditionalConverter
+                Children:
+                - Name: Condition
+                  Type: BaseDataVariableType
+                  DataType: Boolean
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: ExpressionEvaluator1
+                    Type: ExpressionEvaluator
+                    Children:
+                    - Name: Source0
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_ER"
+                    - Name: Source1
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_WaitingForDevice"
+                - Name: FalseValue
+                  Type: BaseDataVariableType
+                  DataType: Color
+                  ReferenceType: HasParameter
+                  Children:
+                  - Name: ConditionalConverter1
+                    Type: ConditionalConverter
+                    Children:
+                    - Name: Condition
+                      Type: BaseDataVariableType
+                      DataType: Boolean
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_WaitingForDevice"
+          - Name: grp_Banner
+            Type: RowLayout
+            Children:
+            - Name: img_notready
+              Type: Image
+              Children:
+              - Name: Path
+                Type: BaseDataVariableType
+                DataType: ResourceUri
+                Value: "ns=4;%PROJECTDIR%/res/Sts_CommBad_16.svg"
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_WaitingForDevice"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_ER"
+            - Name: msd_MeteringSts
+              Type: Label
+              Children:
+              - Name: Text
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_WaitingForDevice"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_ER"
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Data Label"
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_ER"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_WaitingForDevice"
+                  - Name: TrueValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Default"
+                  - Name: FalseValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Warning"
+                    Children:
+                    - Name: ConditionalConverter1
+                      Type: ConditionalConverter
+                      Children:
+                      - Name: Condition
+                        Type: BaseDataVariableType
+                        DataType: Boolean
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_WaitingForDevice"
+            - Name: msd_NotReadyState
+              Type: Label
+              Children:
+              - Name: Text
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Children:
+                - Name: KeyValueConverter1
+                  Type: ValueMapConverter
+                  Children:
+                  - Name: Source
+                    Type: BaseDataVariableType
+                    DataType: BaseDataType
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_WaitingForDevice"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_ER"
+                  - Name: Pairs
+                    Type: BaseObjectType
+                    Children:
+                    - Name: Pair
+                      Type: ValueMapPair
+                      Children:
+                      - Name: Key
+                        Type: BaseDataVariableType
+                        DataType: UInt32
+                      - Name: Value
+                        Type: BaseDataVariableType
+                        DataType: String
+                    - Name: Pair1
+                      Type: ValueMapPair
+                      Children:
+                      - Name: Key
+                        Type: BaseDataVariableType
+                        DataType: UInt32
+                        Value: 1
+                      - Name: Value
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: " - Drive Not Available"
+                    - Name: Pair2
+                      Type: ValueMapPair
+                      Children:
+                      - Name: Key
+                        Type: BaseDataVariableType
+                        DataType: UInt32
+                        Value: 2
+                      - Name: Value
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: " - CIP Message Error"
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                Value: "Default"
+                Children:
+                - Name: ConditionalConverter1
+                  Type: ConditionalConverter
+                  Children:
+                  - Name: Condition
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ReferenceType: HasSource
+                    Children:
+                    - Name: ExpressionEvaluator1
+                      Type: ExpressionEvaluator
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_ER"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_WaitingForDevice"
+                  - Name: TrueValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Default"
+                  - Name: FalseValue
+                    Type: BaseDataVariableType
+                    DataType: String
+                    ReferenceType: HasParameter
+                    Value: "Warning"
+                    Children:
+                    - Name: ConditionalConverter1
+                      Type: ConditionalConverter
+                      Children:
+                      - Name: Condition
+                        Type: BaseDataVariableType
+                        DataType: Boolean
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_WaitingForDevice"
+              - Name: Visible
+                Type: BaseDataVariableType
+                DataType: Boolean
+                Value: true
+        - Name: Dwg_Seperator
+          Type: Rectangle
+    - Name: grp_DvcOutputEnergy
+      Type: ColumnLayout
+      Children:
+      - Name: Width
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 50.0
+      - Name: Height
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 50.0
+      - Name: HorizontalAlignment
+        Type: BaseVariableType
+        DataType: HorizontalAlignment
+        ModellingRule: Optional
+        Value: 3
+      - Name: VerticalAlignment
+        Type: BaseVariableType
+        DataType: VerticalAlignment
+        ModellingRule: Optional
+        Value: 3
+      - Name: LeftMargin
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 8.0
+      - Name: TopMargin
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 8.0
+      - Name: RightMargin
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 8.0
+      - Name: BottomMargin
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 8.0
+      - Name: grp_ResourceType
+        Type: RowLayout
+        Children:
+        - Name: Width
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 50.0
+        - Name: Height
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: -1.0
+        - Name: lbl_ResourceType
+          Type: Label
+          Children:
+          - Name: Text
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            ModellingRule: Optional
+            Value: {"LocaleId":"en-US","Text":"Resource Type"}
+          - Name: Style
+            Type: BaseDataVariableType
+            DataType: String
+            ModellingRule: Optional
+            Value: "Data Label"
+          - Name: BottomMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+          - Name: VerticalAlignment
+            Type: BaseVariableType
+            DataType: VerticalAlignment
+            ModellingRule: Optional
+            Value: 2
+        - Name: msd_ResourceType
+          Type: Label
+          Children:
+          - Name: Text
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            Children:
+            - Name: KeyValueConverter1
+              Type: ValueMapConverter
+              Children:
+              - Name: Source
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/ResourceType"
+              - Name: ns=2;Pairs
+                Type: BaseObjectType
+                Children:
+                - Name: Pair
+                  Type: ValueMapPair
+                  Children:
+                  - Name: Key
+                    Type: BaseDataVariableType
+                    DataType: UInt32
+                  - Name: Value
+                    Type: BaseDataVariableType
+                    DataType: String
+                    Value: "Generic"
+                - Name: Pair1
+                  Type: ValueMapPair
+                  Children:
+                  - Name: Key
+                    Type: BaseDataVariableType
+                    DataType: UInt32
+                    Value: 1
+                  - Name: Value
+                    Type: BaseDataVariableType
+                    DataType: String
+                    Value: "Electrical"
+                - Name: Pair2
+                  Type: ValueMapPair
+                  Children:
+                  - Name: Key
+                    Type: BaseDataVariableType
+                    DataType: UInt32
+                    Value: 2
+                  - Name: Value
+                    Type: BaseDataVariableType
+                    DataType: String
+                    Value: "Non-Electrical"
+                - Name: Pair3
+                  Type: ValueMapPair
+                  Children:
+                  - Name: Key
+                    Type: BaseDataVariableType
+                    DataType: UInt32
+                    Value: 3
+                  - Name: Value
+                    Type: BaseDataVariableType
+                    DataType: String
+                    Value: "Other"
+          - Name: Width
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: -1.0
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+            Value: 3
+          - Name: BottomMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: Style
+            Type: BaseDataVariableType
+            DataType: String
+            ModellingRule: Optional
+            Value: "Live Data"
+          - Name: LeftMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 8.0
+          - Name: VerticalAlignment
+            Type: BaseVariableType
+            DataType: VerticalAlignment
+            ModellingRule: Optional
+            Value: 2
+        - Name: HorizontalAlignment
+          Type: BaseVariableType
+          DataType: HorizontalAlignment
+          ModellingRule: Optional
+          Value: 3
+        - Name: TopMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: LeftMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 4.0
+        - Name: RightMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: BottomMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+      - Name: grp_Capabilities
+        Type: RowLayout
+        Children:
+        - Name: Width
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 50.0
+        - Name: Height
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: -1.0
+        - Name: lbl_Capabilities
+          Type: Label
+          Children:
+          - Name: Text
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            ModellingRule: Optional
+            Value: {"LocaleId":"en-US","Text":"Capabilities"}
+          - Name: Style
+            Type: BaseDataVariableType
+            DataType: String
+            ModellingRule: Optional
+            Value: "Data Label"
+          - Name: BottomMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+          - Name: VerticalAlignment
+            Type: BaseVariableType
+            DataType: VerticalAlignment
+            ModellingRule: Optional
+            Value: 2
+        - Name: msd_Sts_Capabilities
+          Type: Label
+          Children:
+          - Name: Text
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            Children:
+            - Name: KeyValueConverter1
+              Type: ValueMapConverter
+              Children:
+              - Name: Source
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/Capabilities"
+              - Name: ns=2;Pairs
+                Type: BaseObjectType
+                Children:
+                - Name: Pair
+                  Type: ValueMapPair
+                  Children:
+                  - Name: Key
+                    Type: BaseDataVariableType
+                    DataType: UInt32
+                  - Name: Value
+                    Type: BaseDataVariableType
+                    DataType: String
+                    Value: "Measured"
+                - Name: Pair1
+                  Type: ValueMapPair
+                  Children:
+                  - Name: Key
+                    Type: BaseDataVariableType
+                    DataType: UInt32
+                    Value: 1
+                  - Name: Value
+                    Type: BaseDataVariableType
+                    DataType: String
+                    Value: "Derived"
+                - Name: Pair2
+                  Type: ValueMapPair
+                  Children:
+                  - Name: Key
+                    Type: BaseDataVariableType
+                    DataType: UInt32
+                    Value: 2
+                  - Name: Value
+                    Type: BaseDataVariableType
+                    DataType: String
+                    Value: "Proxy"
+                - Name: Pair3
+                  Type: ValueMapPair
+                  Children:
+                  - Name: Key
+                    Type: BaseDataVariableType
+                    DataType: UInt32
+                    Value: 3
+                  - Name: Value
+                    Type: BaseDataVariableType
+                    DataType: String
+                    Value: "Aggregated"
+                - Name: Pair4
+                  Type: ValueMapPair
+                  Children:
+                  - Name: Key
+                    Type: BaseDataVariableType
+                    DataType: UInt32
+                    Value: 4
+                  - Name: Value
+                    Type: BaseDataVariableType
+                    DataType: String
+                    Value: "Energy Rate Fixed"
+          - Name: Width
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: -1.0
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+            Value: 3
+          - Name: BottomMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: Style
+            Type: BaseDataVariableType
+            DataType: String
+            ModellingRule: Optional
+            Value: "Live Data"
+          - Name: LeftMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 8.0
+          - Name: VerticalAlignment
+            Type: BaseVariableType
+            DataType: VerticalAlignment
+            ModellingRule: Optional
+            Value: 2
+        - Name: HorizontalAlignment
+          Type: BaseVariableType
+          DataType: HorizontalAlignment
+          ModellingRule: Optional
+          Value: 3
+        - Name: TopMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: LeftMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 4.0
+        - Name: RightMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: BottomMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: VerticalAlignment
+          Type: BaseVariableType
+          DataType: VerticalAlignment
+          ModellingRule: Optional
+      - Name: grp_RealEnergyTitle
+        Type: RowLayout
+        Children:
+        - Name: Width
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 50.0
+        - Name: Height
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: -1.0
+        - Name: lbl_RealEnergy
+          Type: Label
+          Children:
+          - Name: Text
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            ModellingRule: Optional
+            Value: {"LocaleId":"en-US","Text":"Real Energy"}
+          - Name: Style
+            Type: BaseDataVariableType
+            DataType: String
+            ModellingRule: Optional
+            Value: "Heading"
+          - Name: BottomMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 16.0
+        - Name: HorizontalAlignment
+          Type: BaseVariableType
+          DataType: HorizontalAlignment
+          ModellingRule: Optional
+          Value: 3
+        - Name: TopMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 4.0
+        - Name: LeftMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 4.0
+        - Name: RightMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: BottomMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: VerticalAlignment
+          Type: BaseVariableType
+          DataType: VerticalAlignment
+          ModellingRule: Optional
+      - Name: grp_RealEnergy
+        Type: RowLayout
+        Children:
+        - Name: Width
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 50.0
+        - Name: Height
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: -1.0
+        - Name: HorizontalAlignment
+          Type: BaseVariableType
+          DataType: HorizontalAlignment
+          ModellingRule: Optional
+          Value: 3
+        - Name: VerticalAlignment
+          Type: BaseVariableType
+          DataType: VerticalAlignment
+          ModellingRule: Optional
+        - Name: nd_Consumed
+          Type: raSDK1_ND_LblValUnit_Stack
+          Children:
+          - Name: Label
+            Type: Label
+            Children:
+            - Name: Text
+              Type: BaseDataVariableType
+              DataType: LocalizedText
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../Cfg_Label"
+            - Name: FontSize
+              Type: BaseDataVariableType
+              DataType: Size
+              Value: -1.0
+          - Name: Value
+            Type: Label
+            Children:
+            - Name: Text
+              Type: BaseDataVariableType
+              DataType: LocalizedText
+              Children:
+              - Name: StringFormatter1
+                Type: StringFormatter
+                Children:
+                - Name: Source0
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../Inp_Value"
+                - Name: Source1
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../Set_DecimalPlaces"
+            - Name: Style
+              Type: BaseDataVariableType
+              DataType: String
+              Value: "Live Data"
+              Children:
+              - Name: ExpressionEvaluator1
+                Type: ExpressionEvaluator
+                Children:
+                - Name: Source0
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../Cfg_DisplayAsPrimary"
+          - Name: Units
+            Type: Label
+            Children:
+            - Name: Text
+              Type: BaseDataVariableType
+              DataType: LocalizedText
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../Cfg_Units"
+          - Name: Cfg_Label
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            Value: {"LocaleId":"en-US","Text":"Consumed"}
+          - Name: Cfg_Units
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            Value: {"LocaleId":"en-US","Text":"kWh"}
+          - Name: Inp_Value
+            Type: BaseDataVariableType
+            DataType: Float
+            Children:
+            - Name: ExpressionEvaluator1
+              Type: ExpressionEvaluator
+              Children:
+              - Name: Expression
+                Type: BaseDataVariableType
+                DataType: String
+                ReferenceType: HasParameter
+                ModellingRule: Optional
+                Value: "({4}*1000000000)+({3}*1000000)+({2}*1000)+{1}+({0}/1000)"
+              - Name: ns=2;Source0
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/ConsumedEnergyOdo[0]"
+              - Name: ns=2;Source1
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/ConsumedEnergyOdo[1]"
+              - Name: ns=2;Source2
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/ConsumedEnergyOdo[2]"
+              - Name: ns=2;Source3
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/ConsumedEnergyOdo[3]"
+              - Name: ns=2;Source4
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/ConsumedEnergyOdo[4]"
+          - Name: Set_DecimalPlaces
+            Type: BaseDataVariableType
+            DataType: Int32
+            Value: 3
+          - Name: Cfg_DisplayAsPrimary
+            Type: BaseDataVariableType
+            DataType: Boolean
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+            Value: 2
+          - Name: LeftMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: RightMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: TopMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: BottomMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: HorizontalGap
+            Type: BaseDataVariableType
+            DataType: Size
+            ModellingRule: Optional
+        - Name: nd_Generated
+          Type: raSDK1_ND_LblValUnit_Stack
+          Children:
+          - Name: Label
+            Type: Label
+            Children:
+            - Name: Text
+              Type: BaseDataVariableType
+              DataType: LocalizedText
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../Cfg_Label"
+            - Name: FontSize
+              Type: BaseDataVariableType
+              DataType: Size
+              Value: -1.0
+          - Name: Value
+            Type: Label
+            Children:
+            - Name: Text
+              Type: BaseDataVariableType
+              DataType: LocalizedText
+              Children:
+              - Name: StringFormatter1
+                Type: StringFormatter
+                Children:
+                - Name: Source0
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../Inp_Value"
+                - Name: Source1
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../Set_DecimalPlaces"
+            - Name: Style
+              Type: BaseDataVariableType
+              DataType: String
+              Value: "Live Data"
+              Children:
+              - Name: ExpressionEvaluator1
+                Type: ExpressionEvaluator
+                Children:
+                - Name: Source0
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../Cfg_DisplayAsPrimary"
+          - Name: Units
+            Type: Label
+            Children:
+            - Name: Text
+              Type: BaseDataVariableType
+              DataType: LocalizedText
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../Cfg_Units"
+          - Name: Cfg_Label
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            Value: {"LocaleId":"en-US","Text":"Generated"}
+          - Name: Cfg_Units
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            Value: {"LocaleId":"en-US","Text":"kWh"}
+          - Name: Inp_Value
+            Type: BaseDataVariableType
+            DataType: Float
+            Children:
+            - Name: ExpressionEvaluator1
+              Type: ExpressionEvaluator
+              Children:
+              - Name: Expression
+                Type: BaseDataVariableType
+                DataType: String
+                ReferenceType: HasParameter
+                ModellingRule: Optional
+                Value: "({4}*1000000000)+({3}*1000000)+({2}*1000)+{1}+({0}/1000)"
+              - Name: ns=2;Source0
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/GeneratedEnergyOdo[0]"
+              - Name: ns=2;Source1
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/GeneratedEnergyOdo[1]"
+              - Name: ns=2;Source2
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/GeneratedEnergyOdo[2]"
+              - Name: ns=2;Source3
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/GeneratedEnergyOdo[3]"
+              - Name: ns=2;Source4
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/GeneratedEnergyOdo[4]"
+          - Name: Set_DecimalPlaces
+            Type: BaseDataVariableType
+            DataType: Int32
+            Value: 3
+          - Name: Cfg_DisplayAsPrimary
+            Type: BaseDataVariableType
+            DataType: Boolean
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+            Value: 2
+          - Name: TopMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: RightMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: BottomMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: LeftMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+        - Name: LeftMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 4.0
+        - Name: TopMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: RightMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: BottomMargin
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+        - Name: nd_Net
+          Type: raSDK1_ND_LblValUnit_Stack
+          Children:
+          - Name: Label
+            Type: Label
+            Children:
+            - Name: Text
+              Type: BaseDataVariableType
+              DataType: LocalizedText
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../Cfg_Label"
+            - Name: FontSize
+              Type: BaseDataVariableType
+              DataType: Size
+              Value: -1.0
+          - Name: Value
+            Type: Label
+            Children:
+            - Name: Text
+              Type: BaseDataVariableType
+              DataType: LocalizedText
+              Children:
+              - Name: StringFormatter1
+                Type: StringFormatter
+                Children:
+                - Name: Source0
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../Inp_Value"
+                - Name: Source1
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../Set_DecimalPlaces"
+            - Name: Style
+              Type: BaseDataVariableType
+              DataType: String
+              Value: "Live Data"
+              Children:
+              - Name: ExpressionEvaluator1
+                Type: ExpressionEvaluator
+                Children:
+                - Name: Source0
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../Cfg_DisplayAsPrimary"
+          - Name: Units
+            Type: Label
+            Children:
+            - Name: Text
+              Type: BaseDataVariableType
+              DataType: LocalizedText
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../Cfg_Units"
+          - Name: Cfg_Label
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            Value: {"LocaleId":"en-US","Text":"Net"}
+          - Name: Cfg_Units
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            Value: {"LocaleId":"en-US","Text":"kWh"}
+          - Name: Inp_Value
+            Type: BaseDataVariableType
+            DataType: Float
+            Children:
+            - Name: ExpressionEvaluator1
+              Type: ExpressionEvaluator
+              Children:
+              - Name: Expression
+                Type: BaseDataVariableType
+                DataType: String
+                ReferenceType: HasParameter
+                ModellingRule: Optional
+                Value: "({4}*1000000000)+({3}*1000000)+({2}*1000)+{1}+({0}/1000)"
+              - Name: ns=2;Source0
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/TotalEnergyOdo[0]"
+              - Name: ns=2;Source1
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/TotalEnergyOdo[1]"
+              - Name: ns=2;Source2
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/TotalEnergyOdo[2]"
+              - Name: ns=2;Source3
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/TotalEnergyOdo[3]"
+              - Name: ns=2;Source4
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/TotalEnergyOdo[4]"
+          - Name: Set_DecimalPlaces
+            Type: BaseDataVariableType
+            DataType: Int32
+            Value: 3
+          - Name: Cfg_DisplayAsPrimary
+            Type: BaseDataVariableType
+            DataType: Boolean
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+            Value: 2
+          - Name: TopMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: BottomMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: LeftMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: RightMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+        - Name: nd_TransferRate
+          Type: raSDK1_ND_LblValUnit_Stack
+          Children:
+          - Name: Label
+            Type: Label
+            Children:
+            - Name: Text
+              Type: BaseDataVariableType
+              DataType: LocalizedText
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../Cfg_Label"
+            - Name: FontSize
+              Type: BaseDataVariableType
+              DataType: Size
+              Value: -1.0
+          - Name: Value
+            Type: Label
+            Children:
+            - Name: Text
+              Type: BaseDataVariableType
+              DataType: LocalizedText
+              Children:
+              - Name: StringFormatter1
+                Type: StringFormatter
+                Children:
+                - Name: Source0
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../Inp_Value"
+                - Name: Source1
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../Set_DecimalPlaces"
+            - Name: Style
+              Type: BaseDataVariableType
+              DataType: String
+              Value: "Live Data"
+              Children:
+              - Name: ExpressionEvaluator1
+                Type: ExpressionEvaluator
+                Children:
+                - Name: Source0
+                  Type: BaseDataVariableType
+                  DataType: BaseDataType
+                  ReferenceType: HasSource
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../Cfg_DisplayAsPrimary"
+          - Name: Units
+            Type: Label
+            Children:
+            - Name: Text
+              Type: BaseDataVariableType
+              DataType: LocalizedText
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../Cfg_Units"
+          - Name: Cfg_Label
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            Value: {"LocaleId":"en-US","Text":"Transfer Rate"}
+          - Name: Cfg_Units
+            Type: BaseDataVariableType
+            DataType: LocalizedText
+            Value: {"LocaleId":"en-US","Text":"kW"}
+          - Name: Inp_Value
+            Type: BaseDataVariableType
+            DataType: Float
+            Children:
+            - Name: DynamicLink
+              Type: DynamicLink
+              DataType: NodePath
+              Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_EnergyBase/EnergyTransferRate"
+              Children:
+              - Name: Mode
+                Type: BaseVariableType
+                DataType: DynamicLinkMode
+                ModellingRule: Optional
+                Value: 2
+          - Name: Set_DecimalPlaces
+            Type: BaseDataVariableType
+            DataType: Int32
+            Value: 3
+          - Name: Cfg_DisplayAsPrimary
+            Type: BaseDataVariableType
+            DataType: Boolean
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+            Value: 2
+          - Name: TopMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: BottomMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: LeftMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: RightMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+        - Name: HorizontalGap
+          Type: BaseDataVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 8.0
+        - Name: Wrap
+          Type: BaseDataVariableType
+          DataType: Boolean
+          ModellingRule: Optional
+          Value: true
+      - Name: Enabled
+        Type: BaseDataVariableType
+        DataType: Boolean
+        Value: true
+        Children:
+        - Name: ConditionalConverter1
+          Type: ConditionalConverter
+          Children:
+          - Name: Condition
+            Type: BaseDataVariableType
+            DataType: Boolean
+            ReferenceType: HasSource
+            Children:
+            - Name: ExpressionEvaluator1
+              Type: ExpressionEvaluator
+              Children:
+              - Name: Expression
+                Type: BaseDataVariableType
+                DataType: String
+                ReferenceType: HasParameter
+                ModellingRule: Optional
+                Value: "!{0} && !{1}"
+              - Name: ns=2;Source0
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_WaitingForDevice"
+              - Name: ns=2;Source1
+                Type: BaseDataVariableType
+                DataType: BaseDataType
+                ReferenceType: HasSource
+                Children:
+                - Name: DynamicLink
+                  Type: DynamicLink
+                  DataType: NodePath
+                  Value: "{raSDK1_DialogBox}/Ref_Tag/Sts_ER"
+          - Name: TrueValue
+            Type: BaseDataVariableType
+            DataType: Boolean
+            ReferenceType: HasParameter
+            ModellingRule: Optional
+            Value: true
+          - Name: FalseValue
+            Type: BaseDataVariableType
+            DataType: Boolean
+            ReferenceType: HasParameter
+            ModellingRule: Optional
+      - Name: VerticalGap
+        Type: BaseDataVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 4.0
+    - Name: HorizontalAlignment
+      Type: BaseVariableType
+      DataType: HorizontalAlignment
+      ModellingRule: Optional
+      Value: 3
+    - Name: VerticalAlignment
+      Type: BaseVariableType
+      DataType: VerticalAlignment
+      ModellingRule: Optional
+      Value: 3
