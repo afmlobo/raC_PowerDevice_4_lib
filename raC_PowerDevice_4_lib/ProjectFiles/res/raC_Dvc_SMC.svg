@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 30.336 55.735" overflow="visible" xml:space="preserve">
+<g id="grid" display="none">
+</g>
+<g id="stk">
+	<path fill="none" stroke="#9B9B9B" stroke-width="2" stroke-miterlimit="10" d="M29.244,5H0.878v37.883
+		c8.766,4.279,18.068,5.233,28.366,0V5z"/>
+	<path fill="#9B9B9B" stroke="#9B9B9B" stroke-width="2" stroke-miterlimit="10" d="M24.739,36.501H4.918v3.483
+		c6.125,2.621,12.625,3.206,19.821,0V36.501z"/>
+	<polygon fill="none" stroke="#9B9B9B" stroke-width="2" stroke-miterlimit="10" points="4.245,52.986 4.245,44.432 8.107,45.652 
+		8.107,52.986 	"/>
+	<polygon fill="none" stroke="#9B9B9B" stroke-width="2" stroke-miterlimit="10" points="26.244,52.845 26.244,44.479 
+		22.382,45.699 22.382,52.845 	"/>
+	<polygon fill="none" stroke="#9B9B9B" stroke-width="2" stroke-miterlimit="10" points="17.375,52.845 17.375,46.81 13.513,46.778 
+		13.513,52.845 	"/>
+	
+		<rect x="-114.148" y="-8.153" fill="none" stroke="#FFFFFF" stroke-width="0.5" stroke-miterlimit="10" width="530.325" height="69.711"/>
+	<g>
+		<g>
+			<rect x="13.336" y="8.732" fill="#9B9B9B" width="11.685" height="17.101"/>
+		</g>
+	</g>
+	<g>
+		<circle fill="none" stroke="#9B9B9B" stroke-width="2" stroke-miterlimit="10" cx="7.945" cy="19.684" r="0.639"/>
+	</g>
+	<g>
+		<circle fill="none" stroke="#9B9B9B" stroke-width="2" stroke-miterlimit="10" cx="7.945" cy="23.907" r="0.639"/>
+	</g>
+	<g>
+		<circle fill="none" stroke="#9B9B9B" stroke-width="2" stroke-miterlimit="10" cx="7.945" cy="28.131" r="0.639"/>
+	</g>
+</g>
+</svg>
