@@ -1,0 +1,3424 @@
+Name: PowerMonitor
+Type: FolderType
+Children:
+- Name: raC_4_01_raC_Dvc_PM1000_UI
+  Type: ObjectLibraryItem
+  Description: {"LocaleId":"","Text":"Name: PM1000- PowerMonitor 1000\n\nVersion: 4.01\n\nDescription:\n\nThe PowerMonitor device objects are a group of objects that include the PowerMonitor™ 500, 1000, and 5000 (raC_Dvc_PM500, raC_Dvc_PM1000, raC_Dvc_PM5000)."}
+  Children:
+  - Name: LibraryItemGuid
+    Type: BaseDataVariableType
+    DataType: Guid
+    Value: "a29017012a7e77831a454c7d22befd2c"
+  - Name: LibraryItemVersion
+    Type: BaseDataVariableType
+    DataType: UInt32
+    Value: 1
+  - Name: raC_4_01_raC_Dvc_PM1000_UI
+    Type: FolderType
+    DisplayName: {"LocaleId":"en-US","Text":"raC_Dvc_PM1000"}
+    Children:
+    - Name: raC_4_01_raC_Dvc_PM1000_Faceplate
+      Id: g=56429e2d5f3b283adadff6bd358a7590
+      Supertype: raSDK1_DialogBoxFPBase
+      ReferenceType: HasComponent
+      Children:
+      - Name: raSDK1_DialogBox
+        Type: Alias
+        DataType: NodeId
+        Children:
+        - Name: Kind
+          Type: PropertyType
+          DataType: NodeId
+      - Name: Canvas
+        Type: Screen
+        Children:
+        - Name: VerticalLayout
+          Type: ColumnLayout
+          Children:
+          - Name: Header
+            Type: Rectangle
+            Children:
+            - Name: HorizontalLayout
+              Type: RowLayout
+              Children:
+              - Name: Title
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: StringFormatter1
+                    Type: StringFormatter
+                    Children:
+                    - Name: Source0
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag@BrowseName"
+                    - Name: Source1
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag/Description"
+              - Name: MoveTarget
+                Type: NodePointer
+                DataType: NodeId
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: nav_Help
+                Type: Button
+                Children:
+                - Name: MouseClickEventHandler1
+                  Type: EventHandler
+                  Children:
+                  - Name: ListenEventType
+                    Type: PropertyType
+                    DataType: NodeId
+                    Value: "/Types/EventTypes/BaseEventType/MouseEvent/MouseClickEvent"
+                  - Name: MethodsToCall
+                    Type: BaseObjectType
+                    Children:
+                    - Name: MethodContainer1
+                      Type: BaseObjectType
+                      Children:
+                      - Name: ObjectPointer
+                        Type: NodePointer
+                        DataType: NodeId
+                        Value: "/Objects/Commands/VariableCommands"
+                        Children:
+                        - Name: Kind
+                          Type: PropertyType
+                          DataType: NodeId
+                          Value: "/Types/ObjectTypes/BaseObjectType"
+                      - Name: Method
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: "Set"
+                      - Name: InputArguments
+                        Type: BaseObjectType
+                        Children:
+                        - Name: VariableToModify
+                          Type: BaseDataVariableType
+                          DataType: VariablePointer
+                          Children:
+                          - Name: DynamicLink
+                            Type: DynamicLink
+                            DataType: NodePath
+                            Value: "../../../../../../../../../../HelpScreen/Visible@NodeId"
+                        - Name: Value
+                          Type: BaseDataVariableType
+                          DataType: Boolean
+                          Value: true
+                        - Name: ArrayIndex
+                          Type: BaseDataVariableType
+                          DataType: UInt32
+                          ValueRank: ScalarOrOneDimension
+                  - Name: EventArguments
+                    Type: MouseClickEvent
+                    Children:
+                    - Name: EventId
+                      Type: PropertyType
+                      DataType: ByteString
+                    - Name: EventType
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceNode
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceName
+                      Type: PropertyType
+                      DataType: String
+                    - Name: Time
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: ReceiveTime
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: Message
+                      Type: PropertyType
+                      DataType: LocalizedText
+                    - Name: Severity
+                      Type: PropertyType
+                      DataType: UInt16
+                - Name: Visible
+                  Type: BaseDataVariableType
+                  DataType: Boolean
+                  ModellingRule: Optional
+                  Value: true
+                - Name: ImagePath
+                  Type: BaseDataVariableType
+                  DataType: ResourceUri
+                  ModellingRule: Optional
+                  Value: "ns=4;%PROJECTDIR%/res/Nav_Help.svg"
+              - Name: nav_Close
+                Type: Button
+                Children:
+                - Name: MouseClickEventHandler1
+                  Type: EventHandler
+                  Children:
+                  - Name: ListenEventType
+                    Type: PropertyType
+                    DataType: NodeId
+                    Value: "/Types/EventTypes/BaseEventType/MouseEvent/MouseClickEvent"
+                  - Name: MethodsToCall
+                    Type: BaseObjectType
+                    Children:
+                    - Name: MethodContainer1
+                      Type: BaseObjectType
+                      Children:
+                      - Name: ObjectPointer
+                        Type: NodePointer
+                        DataType: NodeId
+                        Children:
+                        - Name: Kind
+                          Type: PropertyType
+                          DataType: NodeId
+                          Value: "/Types/ObjectTypes/BaseObjectType"
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../../../../..@NodeId"
+                      - Name: Method
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: "Close"
+                  - Name: EventArguments
+                    Type: MouseClickEvent
+                    Children:
+                    - Name: EventId
+                      Type: PropertyType
+                      DataType: ByteString
+                    - Name: EventType
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceNode
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceName
+                      Type: PropertyType
+                      DataType: String
+                    - Name: Time
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: ReceiveTime
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: Message
+                      Type: PropertyType
+                      DataType: LocalizedText
+                    - Name: Severity
+                      Type: PropertyType
+                      DataType: UInt16
+              - Name: TopMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+                Value: 6.0
+              - Name: BottomMargin
+                Type: BaseVariableType
+                DataType: Size
+                ModellingRule: Optional
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#afafaf"
+            - Name: MoveTarget
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../..@NodeId"
+          - Name: DisplayPanel
+            Type: Panel
+            Children:
+            - Name: NavigationPanel
+              Type: NavigationPanel
+              Children:
+              - Name: Panels
+                Type: BaseObjectType
+                Children:
+                - Name: Panel1
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM1000_UI/raC_4_01_raC_Dvc_PM1000_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM1000_Home"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Oper.svg"
+                - Name: Panel2
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM1000_UI/raC_4_01_raC_Dvc_PM1000_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM1000_PWR"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Pwr.svg"
+                - Name: Panel3
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM1000_UI/raC_4_01_raC_Dvc_PM1000_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM1000_VIF"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Sine.svg"
+                - Name: Panel4
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM1000_UI/raC_4_01_raC_Dvc_PM1000_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM1000_PA"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_PA.svg"
+                - Name: Panel5
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM1000_UI/raC_4_01_raC_Dvc_PM1000_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM1000_Fault"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Faults_16.svg"
+              - Name: CurrentPanel
+                Type: NodePointer
+                DataType: NodeId
+                AccessLevel: Read
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item"
+              - Name: CurrentTabIndex
+                Type: BaseDataVariableType
+                DataType: Int32
+              - Class: Reference
+                Target: ns=7;i=1183
+                Direction: Forward
+              - Class: Reference
+                Target: ns=7;i=1181
+                Direction: Forward
+      - Class: Reference
+        Target: ns=7;i=519
+        Direction: Forward
+      - Name: MoveTarget
+        Type: NodePointer
+        DataType: NodeId
+      - Name: Cfg_HelpPanel
+        Type: BaseDataVariableType
+        DataType: NodeId
+        Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM1000_UI/raC_4_01_raC_Dvc_PM1000_UI/<PrivateElements&>/raC_4_01_raC_Dvc_PM1000_Help"
+      - Name: HelpScreen
+        Type: Screen
+        Children:
+        - Name: Border
+          Type: Rectangle
+        - Name: VerticalLayout1
+          Type: ColumnLayout
+          Children:
+          - Name: Header
+            Type: Rectangle
+            Children:
+            - Name: HorizontalLayout
+              Type: RowLayout
+              Children:
+              - Name: Title
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../../../Canvas/VerticalLayout/Header/HorizontalLayout/Title/Text"
+              - Name: MoveTarget
+                Type: NodePointer
+                DataType: NodeId
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: Close
+                Type: Button
+                Children:
+                - Name: MouseClickEventHandler1
+                  Type: EventHandler
+                  Children:
+                  - Name: ListenEventType
+                    Type: PropertyType
+                    DataType: NodeId
+                    Value: "/Types/EventTypes/BaseEventType/MouseEvent/MouseClickEvent"
+                  - Name: MethodsToCall
+                    Type: BaseObjectType
+                    Children:
+                    - Name: MethodContainer1
+                      Type: BaseObjectType
+                      Children:
+                      - Name: ObjectPointer
+                        Type: NodePointer
+                        DataType: NodeId
+                        Value: "/Objects/Commands/VariableCommands"
+                        Children:
+                        - Name: Kind
+                          Type: PropertyType
+                          DataType: NodeId
+                          Value: "/Types/ObjectTypes/BaseObjectType"
+                      - Name: Method
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: "Set"
+                      - Name: InputArguments
+                        Type: BaseObjectType
+                        Children:
+                        - Name: VariableToModify
+                          Type: BaseDataVariableType
+                          DataType: VariablePointer
+                          Children:
+                          - Name: DynamicLink
+                            Type: DynamicLink
+                            DataType: NodePath
+                            Value: "../../../../../../../../../Visible@NodeId"
+                        - Name: Value
+                          Type: BaseDataVariableType
+                          DataType: Boolean
+                        - Name: ArrayIndex
+                          Type: BaseDataVariableType
+                          DataType: UInt32
+                          ValueRank: ScalarOrOneDimension
+                  - Name: EventArguments
+                    Type: MouseClickEvent
+                    Children:
+                    - Name: EventId
+                      Type: PropertyType
+                      DataType: ByteString
+                    - Name: EventType
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceNode
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceName
+                      Type: PropertyType
+                      DataType: String
+                    - Name: Time
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: ReceiveTime
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: Message
+                      Type: PropertyType
+                      DataType: LocalizedText
+                    - Name: Severity
+                      Type: PropertyType
+                      DataType: UInt16
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#afafaf"
+            - Name: MoveTarget
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../..@NodeId"
+          - Name: HelpPanelLoader
+            Type: PanelLoader
+            Children:
+            - Name: Panel
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: Kind
+                Type: PropertyType
+                DataType: NodeId
+                Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../../Cfg_HelpPanel"
+            - Name: CurrentPanel
+              Type: NodePointer
+              DataType: NodeId
+              AccessLevel: Read
+              Children:
+              - Name: Kind
+                Type: PropertyType
+                DataType: NodeId
+                Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item"
+            - Class: Reference
+              Target: ns=7;i=478
+              Direction: Forward
+          - Name: Footer
+            Type: Rectangle
+            Children:
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#afafaf"
+            - Name: MoveTarget
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: Kind
+                Type: PropertyType
+                DataType: NodeId
+                Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../..@NodeId"
+            - Name: Version
+              Type: RowLayout
+              Children:
+              - Name: VerticalLayout
+                Type: ColumnLayout
+                Children:
+                - Name: Description
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "../../../../../../../Cfg_Description"
+                - Name: NameAndVersion
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: StringFormatter1
+                      Type: StringFormatter
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../../../../..@BrowseName"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../../../../../Cfg_ObjectVersion"
+              - Name: VerticalLayout1
+                Type: ColumnLayout
+                Children:
+                - Name: Copyright
+                  Type: Label
+        - Name: Visible
+          Type: BaseDataVariableType
+          DataType: Boolean
+      - Name: Cfg_ObjectVersion
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "4.01"
+      - Name: Cfg_Description
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+        Value: {"LocaleId":"en-US","Text":"Power Monitor Device Faceplate Help"}
+      - Name: Width
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 620.0
+      - Name: Height
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 373.0
+    - File: GraphicSymbols/GraphicSymbols.yaml
+    - File: _PrivateElements_/_PrivateElements_.yaml
+  - Name: TypeDependencyLocations
+    Type: BaseVariableType
+    DataType: TypeLocation
+    ValueRank: OneDimension
+    ArrayDimensions: [0]
+    Value: [{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_DialogBoxFPBase","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","FaceplateComponents","DialogBox"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_DialogBoxBase","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","FaceplateComponents","DialogBox"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raC_Dvc_TextButtonPwrPM","browsePath":["UI","RockwellAutomationLibraries","raC_PowerDevice_4_lib","<PrivateElements>","Widgets"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_Base_TextButton","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","raC_DeviceLibraries"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_NavGeneral","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","Navigate","NavMethods"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":64,"browseName":"raSDK1_Style","browsePath":["Model"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raC_Dvc_GSPwrPM","browsePath":["UI","RockwellAutomationLibraries","raC_PowerDevice_4_lib","<PrivateElements>","Widgets"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_Base_GS","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","raC_DeviceLibraries"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raC_4_PowerMonitorBanner","browsePath":["UI","RockwellAutomationLibraries","raC_PowerDevice_4_lib","<PrivateElements>","Widgets"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_Btn_Momentary_Icon","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","Control","CommandButtons"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_ND_LblValUnit_Stack","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","DataDisplay","Numeric"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_PanelBase","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","FaceplateComponents","FaceplatePanel"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_ND_ValUnit","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","DataDisplay","Numeric"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_TD_DateTime_Stack","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","DataDisplay","Time"]}}]
+- Name: raC_4_01_raC_Dvc_PM5000_UI
+  Type: ObjectLibraryItem
+  Description: {"LocaleId":"","Text":"Name: PM5000- PowerMonitor 5000\n\nVersion: 4.01\n\nDescription:\n\nThe PowerMonitor device objects are a group of objects that include the PowerMonitor™ 500, 1000, and 5000 (raC_Dvc_PM500, raC_Dvc_PM1000, raC_Dvc_PM5000)."}
+  Children:
+  - Name: LibraryItemGuid
+    Type: BaseDataVariableType
+    DataType: Guid
+    Value: "530a647df222d018968cc05671f18b74"
+  - Name: LibraryItemVersion
+    Type: BaseDataVariableType
+    DataType: UInt32
+    Value: 1
+  - Name: raC_4_01_raC_Dvc_PM5000_UI
+    Type: FolderType
+    DisplayName: {"LocaleId":"en-US","Text":"raC_Dvc_PM5000"}
+    Children:
+    - Name: raC_4_01_raC_Dvc_PM5000_Faceplate
+      Id: g=32df8abafc908413c8bbcca0b21aab6f
+      Supertype: raSDK1_DialogBoxFPBase
+      ReferenceType: HasComponent
+      Children:
+      - Name: raSDK1_DialogBox
+        Type: Alias
+        DataType: NodeId
+        Children:
+        - Name: Kind
+          Type: PropertyType
+          DataType: NodeId
+      - Name: Canvas
+        Type: Screen
+        Children:
+        - Name: VerticalLayout
+          Type: ColumnLayout
+          Children:
+          - Name: Header
+            Type: Rectangle
+            Children:
+            - Name: HorizontalLayout
+              Type: RowLayout
+              Children:
+              - Name: Title
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: StringFormatter1
+                    Type: StringFormatter
+                    Children:
+                    - Name: Source0
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag@BrowseName"
+                    - Name: Source1
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag/Description"
+              - Name: MoveTarget
+                Type: NodePointer
+                DataType: NodeId
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: nav_Help
+                Type: Button
+                Children:
+                - Name: MouseClickEventHandler1
+                  Type: EventHandler
+                  Children:
+                  - Name: ListenEventType
+                    Type: PropertyType
+                    DataType: NodeId
+                    Value: "/Types/EventTypes/BaseEventType/MouseEvent/MouseClickEvent"
+                  - Name: MethodsToCall
+                    Type: BaseObjectType
+                    Children:
+                    - Name: MethodContainer1
+                      Type: BaseObjectType
+                      Children:
+                      - Name: ObjectPointer
+                        Type: NodePointer
+                        DataType: NodeId
+                        Value: "/Objects/Commands/VariableCommands"
+                        Children:
+                        - Name: Kind
+                          Type: PropertyType
+                          DataType: NodeId
+                          Value: "/Types/ObjectTypes/BaseObjectType"
+                      - Name: Method
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: "Set"
+                      - Name: InputArguments
+                        Type: BaseObjectType
+                        Children:
+                        - Name: VariableToModify
+                          Type: BaseDataVariableType
+                          DataType: VariablePointer
+                          Children:
+                          - Name: DynamicLink
+                            Type: DynamicLink
+                            DataType: NodePath
+                            Value: "../../../../../../../../../../HelpScreen/Visible@NodeId"
+                        - Name: Value
+                          Type: BaseDataVariableType
+                          DataType: Boolean
+                          Value: true
+                        - Name: ArrayIndex
+                          Type: BaseDataVariableType
+                          DataType: UInt32
+                          ValueRank: ScalarOrOneDimension
+                  - Name: EventArguments
+                    Type: MouseClickEvent
+                    Children:
+                    - Name: EventId
+                      Type: PropertyType
+                      DataType: ByteString
+                    - Name: EventType
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceNode
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceName
+                      Type: PropertyType
+                      DataType: String
+                    - Name: Time
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: ReceiveTime
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: Message
+                      Type: PropertyType
+                      DataType: LocalizedText
+                    - Name: Severity
+                      Type: PropertyType
+                      DataType: UInt16
+                - Name: Visible
+                  Type: BaseDataVariableType
+                  DataType: Boolean
+                  ModellingRule: Optional
+                  Value: true
+                - Name: ImagePath
+                  Type: BaseDataVariableType
+                  DataType: ResourceUri
+                  ModellingRule: Optional
+                  Value: "ns=4;%PROJECTDIR%/res/Nav_Help.svg"
+              - Name: nav_Close
+                Type: Button
+                Children:
+                - Name: MouseClickEventHandler1
+                  Type: EventHandler
+                  Children:
+                  - Name: ListenEventType
+                    Type: PropertyType
+                    DataType: NodeId
+                    Value: "/Types/EventTypes/BaseEventType/MouseEvent/MouseClickEvent"
+                  - Name: MethodsToCall
+                    Type: BaseObjectType
+                    Children:
+                    - Name: MethodContainer1
+                      Type: BaseObjectType
+                      Children:
+                      - Name: ObjectPointer
+                        Type: NodePointer
+                        DataType: NodeId
+                        Children:
+                        - Name: Kind
+                          Type: PropertyType
+                          DataType: NodeId
+                          Value: "/Types/ObjectTypes/BaseObjectType"
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../../../../..@NodeId"
+                      - Name: Method
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: "Close"
+                  - Name: EventArguments
+                    Type: MouseClickEvent
+                    Children:
+                    - Name: EventId
+                      Type: PropertyType
+                      DataType: ByteString
+                    - Name: EventType
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceNode
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceName
+                      Type: PropertyType
+                      DataType: String
+                    - Name: Time
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: ReceiveTime
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: Message
+                      Type: PropertyType
+                      DataType: LocalizedText
+                    - Name: Severity
+                      Type: PropertyType
+                      DataType: UInt16
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#afafaf"
+            - Name: MoveTarget
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../..@NodeId"
+          - Name: DisplayPanel
+            Type: Panel
+            Children:
+            - Name: NavigationPanel
+              Type: NavigationPanel
+              Children:
+              - Name: Panels
+                Type: BaseObjectType
+                Children:
+                - Name: Panel1
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_UI/raC_4_01_raC_Dvc_PM5000_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM5000_Home"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Oper.svg"
+                - Name: Panel2
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_UI/raC_4_01_raC_Dvc_PM5000_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM5000_PWR"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Pwr.svg"
+                - Name: Panel3
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_UI/raC_4_01_raC_Dvc_PM5000_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM5000_VIF"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Sine.svg"
+                - Name: Panel4
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_UI/raC_4_01_raC_Dvc_PM5000_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM5000_PA"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_PA.svg"
+                - Name: Panel5
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_UI/raC_4_01_raC_Dvc_PM5000_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM5000_Fault"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Faults_16.svg"
+              - Name: CurrentPanel
+                Type: NodePointer
+                DataType: NodeId
+                AccessLevel: Read
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item"
+              - Name: CurrentTabIndex
+                Type: BaseDataVariableType
+                DataType: Int32
+              - Class: Reference
+                Target: ns=7;i=1183
+                Direction: Forward
+              - Class: Reference
+                Target: ns=7;i=1181
+                Direction: Forward
+      - Class: Reference
+        Target: ns=7;i=519
+        Direction: Forward
+      - Name: MoveTarget
+        Type: NodePointer
+        DataType: NodeId
+      - Name: Cfg_HelpPanel
+        Type: BaseDataVariableType
+        DataType: NodeId
+        Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_UI/raC_4_01_raC_Dvc_PM5000_UI/<PrivateElements&>/raC_4_01_raC_Dvc_PM5000_Help"
+      - Name: HelpScreen
+        Type: Screen
+        Children:
+        - Name: Border
+          Type: Rectangle
+        - Name: VerticalLayout1
+          Type: ColumnLayout
+          Children:
+          - Name: Header
+            Type: Rectangle
+            Children:
+            - Name: HorizontalLayout
+              Type: RowLayout
+              Children:
+              - Name: Title
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../../../Canvas/VerticalLayout/Header/HorizontalLayout/Title/Text"
+              - Name: MoveTarget
+                Type: NodePointer
+                DataType: NodeId
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: Close
+                Type: Button
+                Children:
+                - Name: MouseClickEventHandler1
+                  Type: EventHandler
+                  Children:
+                  - Name: ListenEventType
+                    Type: PropertyType
+                    DataType: NodeId
+                    Value: "/Types/EventTypes/BaseEventType/MouseEvent/MouseClickEvent"
+                  - Name: MethodsToCall
+                    Type: BaseObjectType
+                    Children:
+                    - Name: MethodContainer1
+                      Type: BaseObjectType
+                      Children:
+                      - Name: ObjectPointer
+                        Type: NodePointer
+                        DataType: NodeId
+                        Value: "/Objects/Commands/VariableCommands"
+                        Children:
+                        - Name: Kind
+                          Type: PropertyType
+                          DataType: NodeId
+                          Value: "/Types/ObjectTypes/BaseObjectType"
+                      - Name: Method
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: "Set"
+                      - Name: InputArguments
+                        Type: BaseObjectType
+                        Children:
+                        - Name: VariableToModify
+                          Type: BaseDataVariableType
+                          DataType: VariablePointer
+                          Children:
+                          - Name: DynamicLink
+                            Type: DynamicLink
+                            DataType: NodePath
+                            Value: "../../../../../../../../../Visible@NodeId"
+                        - Name: Value
+                          Type: BaseDataVariableType
+                          DataType: Boolean
+                        - Name: ArrayIndex
+                          Type: BaseDataVariableType
+                          DataType: UInt32
+                          ValueRank: ScalarOrOneDimension
+                  - Name: EventArguments
+                    Type: MouseClickEvent
+                    Children:
+                    - Name: EventId
+                      Type: PropertyType
+                      DataType: ByteString
+                    - Name: EventType
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceNode
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceName
+                      Type: PropertyType
+                      DataType: String
+                    - Name: Time
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: ReceiveTime
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: Message
+                      Type: PropertyType
+                      DataType: LocalizedText
+                    - Name: Severity
+                      Type: PropertyType
+                      DataType: UInt16
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#afafaf"
+            - Name: MoveTarget
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../..@NodeId"
+          - Name: HelpPanelLoader
+            Type: PanelLoader
+            Children:
+            - Name: Panel
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: Kind
+                Type: PropertyType
+                DataType: NodeId
+                Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../../Cfg_HelpPanel"
+            - Name: CurrentPanel
+              Type: NodePointer
+              DataType: NodeId
+              AccessLevel: Read
+              Children:
+              - Name: Kind
+                Type: PropertyType
+                DataType: NodeId
+                Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item"
+            - Class: Reference
+              Target: ns=7;i=478
+              Direction: Forward
+          - Name: Footer
+            Type: Rectangle
+            Children:
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#afafaf"
+            - Name: MoveTarget
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: Kind
+                Type: PropertyType
+                DataType: NodeId
+                Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../..@NodeId"
+            - Name: Version
+              Type: RowLayout
+              Children:
+              - Name: VerticalLayout
+                Type: ColumnLayout
+                Children:
+                - Name: Description
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "../../../../../../../Cfg_Description"
+                - Name: NameAndVersion
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: StringFormatter1
+                      Type: StringFormatter
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../../../../..@BrowseName"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../../../../../Cfg_ObjectVersion"
+              - Name: VerticalLayout1
+                Type: ColumnLayout
+                Children:
+                - Name: Copyright
+                  Type: Label
+        - Name: Visible
+          Type: BaseDataVariableType
+          DataType: Boolean
+      - Name: Cfg_ObjectVersion
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "4.01"
+      - Name: Cfg_Description
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+        Value: {"LocaleId":"en-US","Text":"Power Monitor Device Faceplate Help"}
+      - Name: Width
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 620.0
+      - Name: Height
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 373.0
+    - File: GraphicSymbols1/GraphicSymbols1.yaml
+    - File: _PrivateElements_1/_PrivateElements_1.yaml
+  - Name: TypeDependencyLocations
+    Type: BaseVariableType
+    DataType: TypeLocation
+    ValueRank: OneDimension
+    ArrayDimensions: [0]
+    Value: [{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_DialogBoxFPBase","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","FaceplateComponents","DialogBox"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_DialogBoxBase","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","FaceplateComponents","DialogBox"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raC_Dvc_TextButtonPwrPM","browsePath":["UI","RockwellAutomationLibraries","raC_PowerDevice_4_lib","<PrivateElements>","Widgets"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_Base_TextButton","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","raC_DeviceLibraries"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_NavGeneral","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","Navigate","NavMethods"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":64,"browseName":"raSDK1_Style","browsePath":["Model"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raC_Dvc_GSPwrPM","browsePath":["UI","RockwellAutomationLibraries","raC_PowerDevice_4_lib","<PrivateElements>","Widgets"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_Base_GS","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","raC_DeviceLibraries"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raC_4_PowerMonitorBanner","browsePath":["UI","RockwellAutomationLibraries","raC_PowerDevice_4_lib","<PrivateElements>","Widgets"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_Btn_Momentary_Icon","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","Control","CommandButtons"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_ND_LblValUnit_Stack","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","DataDisplay","Numeric"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_PanelBase","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","FaceplateComponents","FaceplatePanel"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_ND_ValUnit","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","DataDisplay","Numeric"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_TD_DateTime_Stack","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","DataDisplay","Time"]}}]
+- Name: raC_4_01_raC_Dvc_PM500_UI
+  Type: ObjectLibraryItem
+  Description: {"LocaleId":"","Text":"Name: PM500- PowerMonitor 500\n\nVersion: 4.01\n\nDescription:\n\nThe PowerMonitor device objects are a group of objects that include the PowerMonitor™ 500, 1000, and 5000 (raC_Dvc_PM500, raC_Dvc_PM1000, raC_Dvc_PM5000)."}
+  Children:
+  - Name: LibraryItemGuid
+    Type: BaseDataVariableType
+    DataType: Guid
+    Value: "9572ab50def7f5bbf2c2feabdb58ab68"
+  - Name: LibraryItemVersion
+    Type: BaseDataVariableType
+    DataType: UInt32
+    Value: 1
+  - Name: raC_4_01_raC_Dvc_PM500_UI
+    Type: FolderType
+    DisplayName: {"LocaleId":"en-US","Text":"raC_Dvc_PM500"}
+    Children:
+    - Name: raC_4_01_raC_Dvc_PM500_Faceplate
+      Id: g=52a9f5313ad395a99219c0d1d1796961
+      Supertype: raSDK1_DialogBoxFPBase
+      ReferenceType: HasComponent
+      Children:
+      - Name: raSDK1_DialogBox
+        Type: Alias
+        DataType: NodeId
+        Children:
+        - Name: Kind
+          Type: PropertyType
+          DataType: NodeId
+      - Name: Canvas
+        Type: Screen
+        Children:
+        - Name: VerticalLayout
+          Type: ColumnLayout
+          Children:
+          - Name: Header
+            Type: Rectangle
+            Children:
+            - Name: HorizontalLayout
+              Type: RowLayout
+              Children:
+              - Name: Title
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: StringFormatter1
+                    Type: StringFormatter
+                    Children:
+                    - Name: Source0
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag@BrowseName"
+                    - Name: Source1
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag/Description"
+              - Name: MoveTarget
+                Type: NodePointer
+                DataType: NodeId
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: nav_Help
+                Type: Button
+                Children:
+                - Name: MouseClickEventHandler1
+                  Type: EventHandler
+                  Children:
+                  - Name: ListenEventType
+                    Type: PropertyType
+                    DataType: NodeId
+                    Value: "/Types/EventTypes/BaseEventType/MouseEvent/MouseClickEvent"
+                  - Name: MethodsToCall
+                    Type: BaseObjectType
+                    Children:
+                    - Name: MethodContainer1
+                      Type: BaseObjectType
+                      Children:
+                      - Name: ObjectPointer
+                        Type: NodePointer
+                        DataType: NodeId
+                        Value: "/Objects/Commands/VariableCommands"
+                        Children:
+                        - Name: Kind
+                          Type: PropertyType
+                          DataType: NodeId
+                          Value: "/Types/ObjectTypes/BaseObjectType"
+                      - Name: Method
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: "Set"
+                      - Name: InputArguments
+                        Type: BaseObjectType
+                        Children:
+                        - Name: VariableToModify
+                          Type: BaseDataVariableType
+                          DataType: VariablePointer
+                          Children:
+                          - Name: DynamicLink
+                            Type: DynamicLink
+                            DataType: NodePath
+                            Value: "../../../../../../../../../../HelpScreen/Visible@NodeId"
+                        - Name: Value
+                          Type: BaseDataVariableType
+                          DataType: Boolean
+                          Value: true
+                        - Name: ArrayIndex
+                          Type: BaseDataVariableType
+                          DataType: UInt32
+                          ValueRank: ScalarOrOneDimension
+                  - Name: EventArguments
+                    Type: MouseClickEvent
+                    Children:
+                    - Name: EventId
+                      Type: PropertyType
+                      DataType: ByteString
+                    - Name: EventType
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceNode
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceName
+                      Type: PropertyType
+                      DataType: String
+                    - Name: Time
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: ReceiveTime
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: Message
+                      Type: PropertyType
+                      DataType: LocalizedText
+                    - Name: Severity
+                      Type: PropertyType
+                      DataType: UInt16
+                - Name: Visible
+                  Type: BaseDataVariableType
+                  DataType: Boolean
+                  ModellingRule: Optional
+                  Value: true
+                - Name: ImagePath
+                  Type: BaseDataVariableType
+                  DataType: ResourceUri
+                  ModellingRule: Optional
+                  Value: "ns=4;%PROJECTDIR%/res/Nav_Help.svg"
+              - Name: nav_Close
+                Type: Button
+                Children:
+                - Name: MouseClickEventHandler1
+                  Type: EventHandler
+                  Children:
+                  - Name: ListenEventType
+                    Type: PropertyType
+                    DataType: NodeId
+                    Value: "/Types/EventTypes/BaseEventType/MouseEvent/MouseClickEvent"
+                  - Name: MethodsToCall
+                    Type: BaseObjectType
+                    Children:
+                    - Name: MethodContainer1
+                      Type: BaseObjectType
+                      Children:
+                      - Name: ObjectPointer
+                        Type: NodePointer
+                        DataType: NodeId
+                        Children:
+                        - Name: Kind
+                          Type: PropertyType
+                          DataType: NodeId
+                          Value: "/Types/ObjectTypes/BaseObjectType"
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../../../../..@NodeId"
+                      - Name: Method
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: "Close"
+                  - Name: EventArguments
+                    Type: MouseClickEvent
+                    Children:
+                    - Name: EventId
+                      Type: PropertyType
+                      DataType: ByteString
+                    - Name: EventType
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceNode
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceName
+                      Type: PropertyType
+                      DataType: String
+                    - Name: Time
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: ReceiveTime
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: Message
+                      Type: PropertyType
+                      DataType: LocalizedText
+                    - Name: Severity
+                      Type: PropertyType
+                      DataType: UInt16
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#afafaf"
+            - Name: MoveTarget
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../..@NodeId"
+          - Name: DisplayPanel
+            Type: Panel
+            Children:
+            - Name: NavigationPanel
+              Type: NavigationPanel
+              Children:
+              - Name: Panels
+                Type: BaseObjectType
+                Children:
+                - Name: Panel1
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM500_UI/raC_4_01_raC_Dvc_PM500_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM500_Home"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Oper.svg"
+                - Name: Panel2
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM500_UI/raC_4_01_raC_Dvc_PM500_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM500_PWR"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Pwr.svg"
+                - Name: Panel3
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM500_UI/raC_4_01_raC_Dvc_PM500_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM500_VIF"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Sine.svg"
+                - Name: Panel4
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM500_UI/raC_4_01_raC_Dvc_PM500_UI/<PrivateElements&>/Panels-Faceplate/raC_4_01_raC_Dvc_PM500_Fault"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Faults_16.svg"
+              - Name: CurrentPanel
+                Type: NodePointer
+                DataType: NodeId
+                AccessLevel: Read
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item"
+              - Name: CurrentTabIndex
+                Type: BaseDataVariableType
+                DataType: Int32
+              - Class: Reference
+                Target: ns=7;i=1183
+                Direction: Forward
+              - Class: Reference
+                Target: ns=7;i=1181
+                Direction: Forward
+      - Class: Reference
+        Target: ns=7;i=519
+        Direction: Forward
+      - Name: MoveTarget
+        Type: NodePointer
+        DataType: NodeId
+      - Name: Cfg_HelpPanel
+        Type: BaseDataVariableType
+        DataType: NodeId
+        Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM500_UI/raC_4_01_raC_Dvc_PM500_UI/<PrivateElements&>/raC_4_01_raC_Dvc_PM500_Help"
+      - Name: HelpScreen
+        Type: Screen
+        Children:
+        - Name: Border
+          Type: Rectangle
+        - Name: VerticalLayout1
+          Type: ColumnLayout
+          Children:
+          - Name: Header
+            Type: Rectangle
+            Children:
+            - Name: HorizontalLayout
+              Type: RowLayout
+              Children:
+              - Name: Title
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../../../Canvas/VerticalLayout/Header/HorizontalLayout/Title/Text"
+              - Name: MoveTarget
+                Type: NodePointer
+                DataType: NodeId
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: Close
+                Type: Button
+                Children:
+                - Name: MouseClickEventHandler1
+                  Type: EventHandler
+                  Children:
+                  - Name: ListenEventType
+                    Type: PropertyType
+                    DataType: NodeId
+                    Value: "/Types/EventTypes/BaseEventType/MouseEvent/MouseClickEvent"
+                  - Name: MethodsToCall
+                    Type: BaseObjectType
+                    Children:
+                    - Name: MethodContainer1
+                      Type: BaseObjectType
+                      Children:
+                      - Name: ObjectPointer
+                        Type: NodePointer
+                        DataType: NodeId
+                        Value: "/Objects/Commands/VariableCommands"
+                        Children:
+                        - Name: Kind
+                          Type: PropertyType
+                          DataType: NodeId
+                          Value: "/Types/ObjectTypes/BaseObjectType"
+                      - Name: Method
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: "Set"
+                      - Name: InputArguments
+                        Type: BaseObjectType
+                        Children:
+                        - Name: VariableToModify
+                          Type: BaseDataVariableType
+                          DataType: VariablePointer
+                          Children:
+                          - Name: DynamicLink
+                            Type: DynamicLink
+                            DataType: NodePath
+                            Value: "../../../../../../../../../Visible@NodeId"
+                        - Name: Value
+                          Type: BaseDataVariableType
+                          DataType: Boolean
+                        - Name: ArrayIndex
+                          Type: BaseDataVariableType
+                          DataType: UInt32
+                          ValueRank: ScalarOrOneDimension
+                  - Name: EventArguments
+                    Type: MouseClickEvent
+                    Children:
+                    - Name: EventId
+                      Type: PropertyType
+                      DataType: ByteString
+                    - Name: EventType
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceNode
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceName
+                      Type: PropertyType
+                      DataType: String
+                    - Name: Time
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: ReceiveTime
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: Message
+                      Type: PropertyType
+                      DataType: LocalizedText
+                    - Name: Severity
+                      Type: PropertyType
+                      DataType: UInt16
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#afafaf"
+            - Name: MoveTarget
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../..@NodeId"
+          - Name: HelpPanelLoader
+            Type: PanelLoader
+            Children:
+            - Name: Panel
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: Kind
+                Type: PropertyType
+                DataType: NodeId
+                Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../../Cfg_HelpPanel"
+            - Name: CurrentPanel
+              Type: NodePointer
+              DataType: NodeId
+              AccessLevel: Read
+              Children:
+              - Name: Kind
+                Type: PropertyType
+                DataType: NodeId
+                Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item"
+            - Class: Reference
+              Target: ns=7;i=478
+              Direction: Forward
+          - Name: Footer
+            Type: Rectangle
+            Children:
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#afafaf"
+            - Name: MoveTarget
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: Kind
+                Type: PropertyType
+                DataType: NodeId
+                Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../..@NodeId"
+            - Name: Version
+              Type: RowLayout
+              Children:
+              - Name: VerticalLayout
+                Type: ColumnLayout
+                Children:
+                - Name: Description
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "../../../../../../../Cfg_Description"
+                - Name: NameAndVersion
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: StringFormatter1
+                      Type: StringFormatter
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../../../../..@BrowseName"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../../../../../Cfg_ObjectVersion"
+              - Name: VerticalLayout1
+                Type: ColumnLayout
+                Children:
+                - Name: Copyright
+                  Type: Label
+        - Name: Visible
+          Type: BaseDataVariableType
+          DataType: Boolean
+      - Name: Cfg_ObjectVersion
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "4.01"
+      - Name: Cfg_Description
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+        Value: {"LocaleId":"en-US","Text":"Power Monitor Device Faceplate Help"}
+      - Name: Width
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 620.0
+      - Name: Height
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 373.0
+    - File: GraphicSymbols2/GraphicSymbols2.yaml
+    - File: _PrivateElements_2/_PrivateElements_2.yaml
+  - Name: TypeDependencyLocations
+    Type: BaseVariableType
+    DataType: TypeLocation
+    ValueRank: OneDimension
+    ArrayDimensions: [0]
+    Value: [{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_DialogBoxFPBase","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","FaceplateComponents","DialogBox"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_DialogBoxBase","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","FaceplateComponents","DialogBox"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raC_Dvc_TextButtonPwrPM","browsePath":["UI","RockwellAutomationLibraries","raC_PowerDevice_4_lib","<PrivateElements>","Widgets"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_Base_TextButton","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","raC_DeviceLibraries"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_NavGeneral","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","Navigate","NavMethods"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":64,"browseName":"raSDK1_Style","browsePath":["Model"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raC_Dvc_GSPwrPM","browsePath":["UI","RockwellAutomationLibraries","raC_PowerDevice_4_lib","<PrivateElements>","Widgets"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_Base_GS","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","raC_DeviceLibraries"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raC_4_PowerMonitorBanner","browsePath":["UI","RockwellAutomationLibraries","raC_PowerDevice_4_lib","<PrivateElements>","Widgets"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_Btn_Momentary_Icon","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","Control","CommandButtons"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_ND_LblValUnit_Stack","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","DataDisplay","Numeric"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_PanelBase","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","FaceplateComponents","FaceplatePanel"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_ND_ValUnit","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","DataDisplay","Numeric"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_TD_DateTime_Stack","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","DataDisplay","Time"]}}]
+- Name: raC_4_01_raC_Dvc_PM5000_PQEM_Model
+  Type: ObjectLibraryItem
+  Description: {"LocaleId":"","Text":"Name: PowerMonitor™ 5000 Power Quality and Energy Monitoring Advanced Faceplates - Model\n\nVersion: 4.01\n\nPurpose: Data Model, Databases, NetLogic, Resources, E-mail Configuration\n\nUsage:\nDrag-and-drop the raC_4_01_raC_Dvc_PM5000_PQEM_Model object in the Model folder in your project\n\nUpdating Project References - This library solution leverages multiple NuGet packages for enhanced functionality. After importing the library objects, you will receive NetLogic errors stating that the solution has failed to build. To resolve these errors, follow the steps below.\n \nPrerequisites:\nInternet connection required for the first build (to download NuGet packages)\n\nTo resolve these errors take the following steps:\n1. Navigate to the project file folder. You can do this easily by clicking the folder button in the toolbar., then again clicking the folder button to open the path in Windows.\n\n2. Open the NetSolution folder, then find the file with the extension .csproj. This filename will match the name of your project. Open it in a simple text editor like Notepad. In this file, paste the following code directly before the final line (</Project>).\n\n<ItemGroup>\n  <PackageReference Include=\"Newtonsoft.Json\" Version=\"13.0.3\" />\n  <PackageReference Include=\"FluentFTP\" Version=\"49.0.2\" />\n  <PackageReference Include=\"QuestPDF\" Version=\"2024.3.0\" />\n  <PackageReference Include=\"Meta.Numerics\" Version=\"4.1.4\" />\n</ItemGroup>\n\n3. Navigate to the Model node, then locate and expand raC_4_01_raC_Dvc_PM5000_PQEM_Model. Right-click on raC_4_01_raC_Dvc_PM5000_PQEM_Setup and select \"Execute SetupInitialConfiguration\" to automatically configure all required objects."}
+  Children:
+  - Name: LibraryItemGuid
+    Type: BaseDataVariableType
+    DataType: Guid
+    Value: "e259995e1e1ddd9bb4794fdfc6c58d42"
+  - Name: LibraryItemVersion
+    Type: BaseDataVariableType
+    DataType: UInt32
+    Value: 1
+  - Name: raC_4_01_raC_Dvc_PM5000_PQEM_Model
+    Type: FolderType
+    Children:
+    - Name: raC_4_01_raC_Dvc_PM5000_PQEM
+      Id: g=385617ab31e84abfb2e4e623abd44b8b
+      Supertype: BaseObjectType
+      Description: {"LocaleId":"en-US","Text":"Power Quality and Energy Monitoring Advanced Faceplates"}
+      Children:
+      - Name: Val_IPAddress
+        Type: BaseDataVariableType
+        DataType: String
+        Description: {"LocaleId":"en-US","Text":"Power monitor device IP address"}
+        Value: "0.0.0.0"
+      - Name: Cfg_PQEventsUpdatePeriod
+        Type: BaseDataVariableType
+        DataType: Duration
+        Description: {"LocaleId":"en-US","Text":"Update rate for new power quality events check."}
+        Value: "0:00:01:00.0000000"
+      - Name: Cfg_LiveDataUpdateRate
+        Type: BaseDataVariableType
+        DataType: Int32
+        Description: {"LocaleId":"en-US","Text":"Live CIP data update rate (ms)"}
+        Value: 5000
+      - Name: Set_EnablePQEventsCheck
+        Type: BaseDataVariableType
+        DataType: Boolean
+        Description: {"LocaleId":"en-US","Text":"Enable power quality events check."}
+        Value: true
+      - Name: Set_EnableLiveData
+        Type: BaseDataVariableType
+        DataType: Boolean
+        Description: {"LocaleId":"en-US","Text":"Enable live CIP data updates"}
+        Value: true
+      - Name: Device_status
+        Type: NetLogic
+        Children:
+        - Class: Method
+          Name: ExportDeviceStatus
+      - Name: db_PQLogger
+        Type: NetLogic
+        Children:
+        - Name: logLabel
+          Type: BaseDataVariableType
+          DataType: String
+          Value: "0"
+        - Class: Method
+          Name: DownloadPowerQualityLogAsync
+        - Class: Method
+          Name: ProcessPowerQualityLogAsync
+          Children:
+          - Name: ns=0;InputArguments
+            Type: BaseVariableType
+            DataType: Argument
+            ReferenceType: HasProperty
+            ValueRank: OneDimension
+            ArrayDimensions: [0]
+            Value: [{"TypeId":{"Id":296},"Body":{"Name":"deviceNameOverride","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+        - Name: NewEventTrigger
+          Type: BaseDataVariableType
+          DataType: Boolean
+        - Class: Method
+          Name: ClearDeviceData
+        - Class: Method
+          Name: DropUnifiedTable
+        - Class: Method
+          Name: GetDeviceEventCount
+      - Name: db_AlarmLogManager
+        Type: NetLogic
+        Children:
+        - Class: Method
+          Name: GetAlarmCountsBySeverity
+          Children:
+          - Name: ns=0;OutputArguments
+            Type: BaseVariableType
+            DataType: Argument
+            ReferenceType: HasProperty
+            ValueRank: OneDimension
+            ArrayDimensions: [0]
+            Value: [{"TypeId":{"Id":296},"Body":{"Name":"critical","DataType":{"Id":6},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"warning","DataType":{"Id":6},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"info","DataType":{"Id":6},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+        - Class: Method
+          Name: GetAlarmTrendByHour
+          Children:
+          - Name: ns=0;InputArguments
+            Type: BaseVariableType
+            DataType: Argument
+            ReferenceType: HasProperty
+            ValueRank: OneDimension
+            ArrayDimensions: [0]
+            Value: [{"TypeId":{"Id":296},"Body":{"Name":"hoursBack","DataType":{"Id":6},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+        - Class: Method
+          Name: GetRecentAlarms
+          Children:
+          - Name: ns=0;InputArguments
+            Type: BaseVariableType
+            DataType: Argument
+            ReferenceType: HasProperty
+            ValueRank: OneDimension
+            ArrayDimensions: [0]
+            Value: [{"TypeId":{"Id":296},"Body":{"Name":"limit","DataType":{"Id":6},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+        - Class: Method
+          Name: GetTotalAlarmCount
+      - Name: db_EnergyLogManager
+        Type: NetLogic
+        Children:
+        - Class: Method
+          Name: DropUnifiedTable
+        - Name: IsFirstEnergyLogRun
+          Type: BaseDataVariableType
+          DataType: Boolean
+          Value: true
+      - Name: db_DataLogger
+        Type: NetLogic
+        Children:
+        - Name: logLabel
+          Type: BaseDataVariableType
+          DataType: String
+          Value: "0"
+        - Class: Method
+          Name: ExportDeviceDataReport
+        - Class: Method
+          Name: DropUnifiedTable
+      - Name: db_WaveformArchiveManager
+        Type: NetLogic
+        Children:
+        - Class: Method
+          Name: DeleteWaveform
+          Children:
+          - Name: ns=0;InputArguments
+            Type: BaseVariableType
+            DataType: Argument
+            ReferenceType: HasProperty
+            ValueRank: OneDimension
+            ArrayDimensions: [0]
+            Value: [{"TypeId":{"Id":296},"Body":{"Name":"deviceName","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"fileName","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+        - Class: Method
+          Name: GetArchivedWaveformPath
+          Children:
+          - Name: ns=0;InputArguments
+            Type: BaseVariableType
+            DataType: Argument
+            ReferenceType: HasProperty
+            ValueRank: OneDimension
+            ArrayDimensions: [0]
+            Value: [{"TypeId":{"Id":296},"Body":{"Name":"deviceName","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"fileName","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+        - Class: Method
+          Name: GetArchivedWaveforms
+          Children:
+          - Name: ns=0;InputArguments
+            Type: BaseVariableType
+            DataType: Argument
+            ReferenceType: HasProperty
+            ValueRank: OneDimension
+            ArrayDimensions: [0]
+            Value: [{"TypeId":{"Id":296},"Body":{"Name":"deviceName","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"maxRecords","DataType":{"Id":6},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+        - Class: Method
+          Name: GetArchiveStatistics
+        - Class: Method
+          Name: IsWaveformArchived
+          Children:
+          - Name: ns=0;InputArguments
+            Type: BaseVariableType
+            DataType: Argument
+            ReferenceType: HasProperty
+            ValueRank: OneDimension
+            ArrayDimensions: [0]
+            Value: [{"TypeId":{"Id":296},"Body":{"Name":"deviceName","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"fileName","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+        - Class: Method
+          Name: LoadWaveformFromArchive
+          Children:
+          - Name: ns=0;InputArguments
+            Type: BaseVariableType
+            DataType: Argument
+            ReferenceType: HasProperty
+            ValueRank: OneDimension
+            ArrayDimensions: [0]
+            Value: [{"TypeId":{"Id":296},"Body":{"Name":"deviceName","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"fileName","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+        - Class: Method
+          Name: DropTable
+        - Class: Method
+          Name: DropUnifiedTable
+      - Name: Username
+        Type: BaseDataVariableType
+        DataType: String
+        Description: {"LocaleId":"en-US","Text":"Power monitor device username"}
+        Value: "admin"
+      - Name: Password
+        Type: BaseDataVariableType
+        DataType: String
+        Description: {"LocaleId":"en-US","Text":"Power monitor device password"}
+        Value: "admin"
+      - Name: Emailsender
+        Type: NetLogic
+        Children:
+        - Name: Attachment
+          Type: BaseDataVariableType
+          DataType: ResourceUri
+          Value: "0"
+        - Name: MaxRetriesOnFailure
+          Type: BaseDataVariableType
+          DataType: Int32
+        - Name: DelayBeforeRetry
+          Type: BaseDataVariableType
+          DataType: Duration
+        - Name: EmailSendingStatus
+          Type: BaseDataVariableType
+          DataType: Boolean
+        - Name: EmailNotificationsEnabled
+          Type: BaseDataVariableType
+          DataType: Boolean
+          Value: true
+          Children:
+          - Name: DynamicLink
+            Type: DynamicLink
+            DataType: NodePath
+            Value: "../../Cfg_DeviceEmailNotifications"
+            Children:
+            - Name: Mode
+              Type: BaseVariableType
+              DataType: DynamicLinkMode
+              ModellingRule: Optional
+              Value: 2
+        - Name: NewEventTrigger
+          Type: BaseDataVariableType
+          DataType: Boolean
+          Children:
+          - Name: DynamicLink
+            Type: DynamicLink
+            DataType: NodePath
+            Value: "../../db_PQLogger/NewEventTrigger"
+            Children:
+            - Name: Mode
+              Type: BaseVariableType
+              DataType: DynamicLinkMode
+              ModellingRule: Optional
+              Value: 2
+        - Class: Method
+          Name: SendEmail
+          Children:
+          - Name: ns=0;InputArguments
+            Type: BaseVariableType
+            DataType: Argument
+            ReferenceType: HasProperty
+            ValueRank: OneDimension
+            ArrayDimensions: [0]
+            Value: [{"TypeId":{"Id":296},"Body":{"Name":"mailToAddress","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"mailSubject","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"mailBody","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+          - Name: ns=0;OutputArguments
+            Type: BaseVariableType
+            DataType: Argument
+            ReferenceType: HasProperty
+            ValueRank: OneDimension
+            ArrayDimensions: [0]
+            Value: [{"TypeId":{"Id":296},"Body":{"Name":"status","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+        - Name: DeviceSettings
+          Type: BaseDataVariableType
+          DataType: Int32
+        - Name: EmailServiceTest
+          Type: BaseDataVariableType
+          DataType: Int32
+        - Class: Method
+          Name: CheckEmailService
+      - Name: Cfg_DeviceEmailNotifications
+        Type: BaseDataVariableType
+        DataType: Boolean
+        Description: {"LocaleId":"en-US","Text":"Enable Email Notifications (To configure the e-mail settings: Find and select Model > raC_4_00_raC_Dvc_PM5000_PQEM_Model >\nraC_4_00_raC_Dvc_PM5000_PQEM_Email_GeneralSettings) "}
+      - Name: Set_EnableWaveformCheckAndStore
+        Type: BaseDataVariableType
+        DataType: Boolean
+        Description: {"LocaleId":"en-US","Text":"Enable automatic waveform download and archive storage"}
+        Value: true
+      - Name: Cfg_WaveformMaxArchiveSizeGB
+        Type: BaseDataVariableType
+        DataType: Int32
+        Description: {"LocaleId":"en-US","Text":"Maximum archive size in GB (oldest files deleted when exceeded)"}
+        Value: 5
+      - Name: Cfg_WaveformCheckPeriodSeconds
+        Type: BaseDataVariableType
+        DataType: Int32
+        Description: {"LocaleId":"en-US","Text":"Check interval for new waveforms inSeconds (default: 900 = 15 min)"}
+        Value: 900
+      - Name: Cfg_StoragePath
+        Type: BaseDataVariableType
+        DataType: String
+        Description: {"LocaleId":"en-US","Text":"Configure where waveform files are stored. Use:\n- %APPLICATIONDIR% for panel internal memory (limited, ~2-5GB depending on model)\n- %USB1% for first USB drive (external storage, larger capacity)\n- %USB2% for second USB drive (if multiple USB ports available)\nNote: If USB is unavailable at startup, system falls back to %APPLICATIONDIR%"}
+        Value: "%APPLICATIONDIR%"
+      - Name: Cfg_AlarmLogCheckPeriodSeconds
+        Type: BaseDataVariableType
+        DataType: Int32
+        Description: {"LocaleId":"en-US","Text":"Alarm Log Check Period In Minutes"}
+        Value: 600
+      - Name: Cfg_EnergyLogCheckPeriodSeconds
+        Type: BaseDataVariableType
+        DataType: Int32
+        Description: {"LocaleId":"en-US","Text":"Energy Log Check Period In Minutes"}
+        Value: 600
+      - Name: Set_EnableAlarmLogLogging
+        Type: BaseDataVariableType
+        DataType: Boolean
+        Description: {"LocaleId":"en-US","Text":"Enable Alarm Log Logging"}
+        Value: true
+      - Name: Set_EnableEnergyLogLogging
+        Type: BaseDataVariableType
+        DataType: Boolean
+        Description: {"LocaleId":"en-US","Text":"Enable Energy Log Logging"}
+        Value: true
+      - Name: Cfg_DataLogCheckPeriodSeconds
+        Type: BaseDataVariableType
+        DataType: Int32
+        Description: {"LocaleId":"en-US","Text":"DataLog Check Period In Minutes"}
+        Value: 600
+      - Name: Set_EnableDataLogLogging
+        Type: BaseDataVariableType
+        DataType: Boolean
+        Description: {"LocaleId":"en-US","Text":"Enable Data Log Logging"}
+        Value: true
+    - File: raC_4_01_raC_Dvc_PM5000_PQEM_DataStores/raC_4_01_raC_Dvc_PM5000_PQEM_DataStores.yaml
+    - File: raC_4_01_raC_Dvc_PM5000_PQEM_Users/raC_4_01_raC_Dvc_PM5000_PQEM_Users.yaml
+    - Name: raC_4_01_raC_Dvc_PM5000_PQEM_Email_GeneralSettings
+      Type: BaseObjectType
+      Children:
+      - Name: SenderEmailAddress
+        Type: BaseDataVariableType
+        DataType: String
+      - Name: SenderEmailPassword
+        Type: BaseDataVariableType
+        DataType: Password
+      - Name: SMTPHostname
+        Type: BaseDataVariableType
+        DataType: String
+      - Name: SMPTPort
+        Type: BaseDataVariableType
+        DataType: Int32
+      - Name: EnableSSL
+        Type: BaseDataVariableType
+        DataType: Boolean
+        Value: true
+      - Name: Status
+        Type: BaseDataVariableType
+        DataType: Int32
+    - Name: raC_4_01_raC_Dvc_PM5000_PQEM_Resources
+      Type: BaseObjectType
+      Children:
+      - Name: loginscript
+        Type: BaseDataVariableType
+        DataType: ResourceUri
+        Value: "ns=4;%PROJECTDIR%/NetSolution/DeviceLoginManager.cs"
+      - Name: css
+        Type: BaseDataVariableType
+        DataType: ResourceUri
+        Value: "ns=4;%PROJECTDIR%/res/ISA_style.css"
+      - Name: echart.js
+        Type: BaseDataVariableType
+        DataType: ResourceUri
+        Value: "ns=4;%PROJECTDIR%/res/echarts.min.js"
+      - Name: all_icon.js
+        Type: BaseDataVariableType
+        DataType: ResourceUri
+        Value: "ns=4;%PROJECTDIR%/res/all.min.js"
+      - Name: Newtonsoft.Json
+        Type: BaseDataVariableType
+        DataType: ResourceUri
+        Value: "ns=4;%PROJECTDIR%/NetSolution/Newtonsoft.Json.dll"
+      - Name: PM5000WaveformParser
+        Type: BaseDataVariableType
+        DataType: ResourceUri
+        Value: "ns=4;%PROJECTDIR%/NetSolution/PM5000WaveformParser.cs"
+    - Name: raC_4_01_raC_Dvc_PM5000_PQEM_Setup
+      Type: NetLogic
+      Children:
+      - Name: BehaviourStartPriority
+        Type: BehaviourStartPriorityVariableType
+        DataType: Byte
+        Value: 180
+      - Class: Method
+        Name: SetupInitialConfiguration
+- Name: raC_4_01_raC_Dvc_PM5000_PQEM_UI
+  Type: ObjectLibraryItem
+  Description: {"LocaleId":"","Text":"Name: PowerMonitor™ 5000 Power Quality and Energy Monitoring Advanced Faceplates - UI\n \nVersion: 4.01\n \nDescription: \nThe PowerMonitor 5000 Power Quality & Energy Monitoring object allows you to connect directly from FactoryTalk Optix to the PowerMonitor 5000 device to gather and display advanced device information including:\n• Live Data Dashboards\n• Harmonics Viewer\n• Usage Trends\n• Alarm & Events Logs\n• Energy Logs,\n• Wiring Diagnostics\n• Power Quality Events\n• ITI and SEMI F47 Charts\n• Waveforms\n• TrendViewer\n\nUsage:\nDrag-and-drop the raC_4_01_raC_Dvc_PM5000_PQEM_UI object in the UI folder in your project. We recommend creating a sub-folder for “RockwellAutomationLibraries” and you may also consider a sub-folder to organize each library like “raC_PowerDevice_4_lib”. Choose “Skip All” for any existing components."}
+  Children:
+  - Name: LibraryItemGuid
+    Type: BaseDataVariableType
+    DataType: Guid
+    Value: "851de0c0840971fb13637b0d703acf09"
+  - Name: LibraryItemVersion
+    Type: BaseDataVariableType
+    DataType: UInt32
+    Value: 1
+  - Name: raC_4_01_raC_Dvc_PM5000_PQEM_UI
+    Type: FolderType
+    DisplayName: {"LocaleId":"en-US","Text":"PM5000 PQEM"}
+    Children:
+    - Name: raC_4_01_raC_Dvc_PM5000_PQEM_Faceplate
+      Id: g=5f15e3f553785a4db8a211f0b0773cff
+      Supertype: raSDK1_DialogBoxFPBase
+      ReferenceType: HasComponent
+      Children:
+      - Name: raSDK1_DialogBox
+        Type: Alias
+        DataType: NodeId
+        Children:
+        - Name: Kind
+          Type: PropertyType
+          DataType: NodeId
+      - Name: Canvas
+        Type: Screen
+        Children:
+        - Name: VerticalLayout
+          Type: ColumnLayout
+          Children:
+          - Name: Header
+            Type: Rectangle
+            Children:
+            - Name: HorizontalLayout
+              Type: RowLayout
+              Children:
+              - Name: Title
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: StringFormatter1
+                    Type: StringFormatter
+                    Children:
+                    - Name: Source0
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag@BrowseName"
+                    - Name: Source1
+                      Type: BaseDataVariableType
+                      DataType: BaseDataType
+                      ReferenceType: HasSource
+                      Children:
+                      - Name: DynamicLink
+                        Type: DynamicLink
+                        DataType: NodePath
+                        Value: "{raSDK1_DialogBox}/Ref_Tag@Description"
+              - Name: MoveTarget
+                Type: NodePointer
+                DataType: NodeId
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: nav_Help
+                Type: Button
+                Children:
+                - Name: MouseClickEventHandler1
+                  Type: EventHandler
+                  Children:
+                  - Name: ListenEventType
+                    Type: PropertyType
+                    DataType: NodeId
+                    Value: "/Types/EventTypes/BaseEventType/MouseEvent/MouseClickEvent"
+                  - Name: MethodsToCall
+                    Type: BaseObjectType
+                    Children:
+                    - Name: MethodContainer1
+                      Type: BaseObjectType
+                      Children:
+                      - Name: ObjectPointer
+                        Type: NodePointer
+                        DataType: NodeId
+                        Value: "/Objects/Commands/VariableCommands"
+                        Children:
+                        - Name: Kind
+                          Type: PropertyType
+                          DataType: NodeId
+                          Value: "/Types/ObjectTypes/BaseObjectType"
+                      - Name: Method
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: "Set"
+                      - Name: InputArguments
+                        Type: BaseObjectType
+                        Children:
+                        - Name: VariableToModify
+                          Type: BaseDataVariableType
+                          DataType: VariablePointer
+                          Children:
+                          - Name: DynamicLink
+                            Type: DynamicLink
+                            DataType: NodePath
+                            Value: "../../../../../../../../../../HelpScreen/Visible@NodeId"
+                        - Name: Value
+                          Type: BaseDataVariableType
+                          DataType: Boolean
+                          Value: true
+                        - Name: ArrayIndex
+                          Type: BaseDataVariableType
+                          DataType: UInt32
+                          ValueRank: ScalarOrOneDimension
+                  - Name: EventArguments
+                    Type: MouseClickEvent
+                    Children:
+                    - Name: EventId
+                      Type: PropertyType
+                      DataType: ByteString
+                    - Name: EventType
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceNode
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceName
+                      Type: PropertyType
+                      DataType: String
+                    - Name: Time
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: ReceiveTime
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: Message
+                      Type: PropertyType
+                      DataType: LocalizedText
+                    - Name: Severity
+                      Type: PropertyType
+                      DataType: UInt16
+                - Name: Visible
+                  Type: BaseDataVariableType
+                  DataType: Boolean
+                  ModellingRule: Optional
+                  Value: true
+              - Name: nav_Close
+                Type: Button
+                Children:
+                - Name: MouseClickEventHandler1
+                  Type: EventHandler
+                  Children:
+                  - Name: ListenEventType
+                    Type: PropertyType
+                    DataType: NodeId
+                    Value: "/Types/EventTypes/BaseEventType/MouseEvent/MouseClickEvent"
+                  - Name: MethodsToCall
+                    Type: BaseObjectType
+                    Children:
+                    - Name: MethodContainer1
+                      Type: BaseObjectType
+                      Children:
+                      - Name: ObjectPointer
+                        Type: NodePointer
+                        DataType: NodeId
+                        Children:
+                        - Name: Kind
+                          Type: PropertyType
+                          DataType: NodeId
+                          Value: "/Types/ObjectTypes/BaseObjectType"
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../../../../..@NodeId"
+                      - Name: Method
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: "Close"
+                  - Name: EventArguments
+                    Type: MouseClickEvent
+                    Children:
+                    - Name: EventId
+                      Type: PropertyType
+                      DataType: ByteString
+                    - Name: EventType
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceNode
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceName
+                      Type: PropertyType
+                      DataType: String
+                    - Name: Time
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: ReceiveTime
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: Message
+                      Type: PropertyType
+                      DataType: LocalizedText
+                    - Name: Severity
+                      Type: PropertyType
+                      DataType: UInt16
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#afafaf"
+            - Name: MoveTarget
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../..@NodeId"
+          - Name: DisplayPanel
+            Type: Panel
+            Children:
+            - Name: NavigationPanel
+              Type: NavigationPanel
+              Children:
+              - Name: Panels
+                Type: BaseObjectType
+                Children:
+                - Name: 'Real-Time Power Quality '
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEM_UI/raC_4_01_raC_Dvc_PM5000_PQEM_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_RealTimePowerQuality"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Oper.svg"
+                  - Name: Visible
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ModellingRule: Optional
+                    Value: true
+                - Name: Live energy dashboard
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEM_UI/raC_4_01_raC_Dvc_PM5000_PQEM_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_LiveEnergyDashboard"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_VIF.svg"
+                  - Name: Visible
+                    Type: BaseDataVariableType
+                    DataType: Boolean
+                    ModellingRule: Optional
+                    Value: true
+                - Name: 'Harmonics '
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEM_UI/raC_4_01_raC_Dvc_PM5000_PQEM_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_Harmonics"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_BarG.svg"
+                - Name: Wiring Diagnostics
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEM_UI/raC_4_01_raC_Dvc_PM5000_PQEM_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_WiringDiagnostics"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Diag.svg"
+                - Name: Trend
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEM_UI/raC_4_01_raC_Dvc_PM5000_PQEM_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_Trend"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Trend2_shape.svg"
+                - Name: Power Quality Logs
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEM_UI/raC_4_01_raC_Dvc_PM5000_PQEM_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_PowerQualityLogs"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Report.svg"
+                - Name: Other Logs
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEM_UI/raC_4_01_raC_Dvc_PM5000_PQEM_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_OtherLogs"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Event.svg"
+                - Name: Config email
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEM_UI/raC_4_01_raC_Dvc_PM5000_PQEM_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_ConfigEmail"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Eng.svg"
+                - Name: Waveforms
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEM_UI/raC_4_01_raC_Dvc_PM5000_PQEM_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_WaveformViewer"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Nav_Sine.svg"
+                - Name: Alarms
+                  Type: NavigationPanelItem
+                  Children:
+                  - Name: Title
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                  - Name: Panel
+                    Type: NodePointer
+                    DataType: NodeId
+                    Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEM_UI/raC_4_01_raC_Dvc_PM5000_PQEM_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_Alarms"
+                    Children:
+                    - Name: Kind
+                      Type: PropertyType
+                      DataType: NodeId
+                      Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+                  - Name: ImagePath
+                    Type: BaseDataVariableType
+                    DataType: ResourceUri
+                    ModellingRule: Optional
+                    Value: "ns=4;%PROJECTDIR%/res/Bell_16.svg"
+              - Name: CurrentPanel
+                Type: NodePointer
+                DataType: NodeId
+                AccessLevel: Read
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item"
+              - Name: CurrentTabIndex
+                Type: BaseDataVariableType
+                DataType: Int32
+              - Class: Reference
+                Target: ns=7;i=1183
+                Direction: Forward
+              - Class: Reference
+                Target: ns=7;i=1181
+                Direction: Forward
+              - Name: Style
+                Type: BaseDataVariableType
+                DataType: String
+                ModellingRule: Optional
+                Value: "Default"
+              - Name: CurrentTabIndexChanged
+                Type: VariableChangedEventDispatcher
+                Children:
+                - Name: VariableNodePath
+                  Type: BaseVariableType
+                  DataType: NodePath
+                  Value: "../CurrentTabIndex"
+            - Name: MoveTarget
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../..@NodeId"
+      - Class: Reference
+        Target: ns=7;i=519
+        Direction: Forward
+      - Name: MoveTarget
+        Type: NodePointer
+        DataType: NodeId
+      - Name: Cfg_HelpPanel
+        Type: BaseDataVariableType
+        DataType: NodeId
+        Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEM_UI/raC_4_01_raC_Dvc_PM5000_PQEM_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_Help"
+      - Name: HelpScreen
+        Type: Screen
+        Children:
+        - Name: Border
+          Type: Rectangle
+        - Name: VerticalLayout1
+          Type: ColumnLayout
+          Children:
+          - Name: Header
+            Type: Rectangle
+            Children:
+            - Name: HorizontalLayout
+              Type: RowLayout
+              Children:
+              - Name: Title
+                Type: Label
+                Children:
+                - Name: Text
+                  Type: BaseDataVariableType
+                  DataType: LocalizedText
+                  Children:
+                  - Name: DynamicLink
+                    Type: DynamicLink
+                    DataType: NodePath
+                    Value: "../../../../../../Canvas/VerticalLayout/Header/HorizontalLayout/Title/Text"
+              - Name: MoveTarget
+                Type: NodePointer
+                DataType: NodeId
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: Close
+                Type: Button
+                Children:
+                - Name: MouseClickEventHandler1
+                  Type: EventHandler
+                  Children:
+                  - Name: ListenEventType
+                    Type: PropertyType
+                    DataType: NodeId
+                    Value: "/Types/EventTypes/BaseEventType/MouseEvent/MouseClickEvent"
+                  - Name: MethodsToCall
+                    Type: BaseObjectType
+                    Children:
+                    - Name: MethodContainer1
+                      Type: BaseObjectType
+                      Children:
+                      - Name: ObjectPointer
+                        Type: NodePointer
+                        DataType: NodeId
+                        Value: "/Objects/Commands/VariableCommands"
+                        Children:
+                        - Name: Kind
+                          Type: PropertyType
+                          DataType: NodeId
+                          Value: "/Types/ObjectTypes/BaseObjectType"
+                      - Name: Method
+                        Type: BaseDataVariableType
+                        DataType: String
+                        Value: "Set"
+                      - Name: InputArguments
+                        Type: BaseObjectType
+                        Children:
+                        - Name: VariableToModify
+                          Type: BaseDataVariableType
+                          DataType: VariablePointer
+                          Children:
+                          - Name: DynamicLink
+                            Type: DynamicLink
+                            DataType: NodePath
+                            Value: "../../../../../../../../../Visible@NodeId"
+                        - Name: Value
+                          Type: BaseDataVariableType
+                          DataType: Boolean
+                        - Name: ArrayIndex
+                          Type: BaseDataVariableType
+                          DataType: UInt32
+                          ValueRank: ScalarOrOneDimension
+                  - Name: EventArguments
+                    Type: MouseClickEvent
+                    Children:
+                    - Name: EventId
+                      Type: PropertyType
+                      DataType: ByteString
+                    - Name: EventType
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceNode
+                      Type: PropertyType
+                      DataType: NodeId
+                    - Name: SourceName
+                      Type: PropertyType
+                      DataType: String
+                    - Name: Time
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: ReceiveTime
+                      Type: PropertyType
+                      DataType: UtcTime
+                    - Name: Message
+                      Type: PropertyType
+                      DataType: LocalizedText
+                    - Name: Severity
+                      Type: PropertyType
+                      DataType: UInt16
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#afafaf"
+            - Name: MoveTarget
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../..@NodeId"
+          - Name: HelpPanelLoader
+            Type: PanelLoader
+            Children:
+            - Name: Panel
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: Kind
+                Type: PropertyType
+                DataType: NodeId
+                Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../../Cfg_HelpPanel"
+            - Name: CurrentPanel
+              Type: NodePointer
+              DataType: NodeId
+              AccessLevel: Read
+              Children:
+              - Name: Kind
+                Type: PropertyType
+                DataType: NodeId
+                Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item"
+            - Class: Reference
+              Target: ns=7;i=478
+              Direction: Forward
+          - Name: Footer
+            Type: Rectangle
+            Children:
+            - Name: FillColor
+              Type: BaseDataVariableType
+              DataType: Color
+              Value: "#afafaf"
+            - Name: MoveTarget
+              Type: NodePointer
+              DataType: NodeId
+              Children:
+              - Name: Kind
+                Type: PropertyType
+                DataType: NodeId
+                Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../..@NodeId"
+            - Name: Version
+              Type: RowLayout
+              Children:
+              - Name: VerticalLayout
+                Type: ColumnLayout
+                Children:
+                - Name: Description
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: DynamicLink
+                      Type: DynamicLink
+                      DataType: NodePath
+                      Value: "../../../../../../../Cfg_Description"
+                - Name: NameAndVersion
+                  Type: Label
+                  Children:
+                  - Name: Text
+                    Type: BaseDataVariableType
+                    DataType: LocalizedText
+                    Children:
+                    - Name: StringFormatter1
+                      Type: StringFormatter
+                      Children:
+                      - Name: Source0
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../../../../..@BrowseName"
+                      - Name: Source1
+                        Type: BaseDataVariableType
+                        DataType: BaseDataType
+                        ReferenceType: HasSource
+                        Children:
+                        - Name: DynamicLink
+                          Type: DynamicLink
+                          DataType: NodePath
+                          Value: "../../../../../../../../../Cfg_ObjectVersion"
+              - Name: VerticalLayout1
+                Type: ColumnLayout
+                Children:
+                - Name: Copyright
+                  Type: Label
+        - Name: Visible
+          Type: BaseDataVariableType
+          DataType: Boolean
+      - Name: Cfg_ObjectVersion
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "4.01.00"
+      - Name: Cfg_Description
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+        Value: {"LocaleId":"en-US","Text":"PowerMonitor™ 5000 Power Quality and Energy Monitoring Advanced Faceplates"}
+      - Name: Width
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 1280.0
+      - Name: Height
+        Type: BaseVariableType
+        DataType: Size
+        ModellingRule: Optional
+        Value: 800.0
+    - File: Graphic_Symbols/Graphic_Symbols.yaml
+    - File: _Private_Elements_/_Private_Elements_.yaml
+    - File: Widgets/Widgets.yaml
+  - Name: TypeDependencyLocations
+    Type: BaseVariableType
+    DataType: TypeLocation
+    ValueRank: OneDimension
+    ArrayDimensions: [0]
+    Value: [{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_DialogBoxFPBase","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","FaceplateComponents","DialogBox"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_DialogBoxBase","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","FaceplateComponents","DialogBox"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_NavExplicit","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","Navigate","NAvMethods"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_ND_LblValUnit_Stack","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","DataDisplay","Numeric"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_PanelBase","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","FaceplateComponents","FaceplatePanel"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_BSD_IndLbl","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","DataDisplay","Boolean"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_Tgl_LabelAndStateLabels_Inline","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","Control","Switches"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_SD_LblVal","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","DataDisplay","String"]}},{"TypeId":{"Id":77,"Namespace":3},"Body":{"nodeClass":8,"browseName":"raSDK1_SD_LblValHorizontal","browsePath":["UI","RockwellAutomationLibraries","CommonComponents","raSDK1","GraphicElements","DataDisplay","String"]}}]
+- Name: raC_4_01_raC_Dvc_PM5000_PQEMDashboard_Model
+  Type: ObjectLibraryItem
+  Description: {"LocaleId":"","Text":"Name: PowerMonitor™ 5000 Power Quality & Energy Monitoring Advanced Multi-Device Dashboard - Model\n\nVersion: 4.01\n\nPurpose: Data Model, Databases, NetLogic, Resources, Device Organization, Configurations\n\nUsage:\nDrag-and-drop the raC_4_01_raC_Dvc_PM5000_PQEMDashboard_Model object in the Model folder in your project\n\nUpdating Project References - This library solution leverages multiple NuGet packages for enhanced functionality. After importing the library objects, you will receive NetLogic errors stating that the solution has failed to build. To resolve these errors, follow the steps below.\n \nPrerequisites:\n- Internet connection required for the first build (to download NuGet packages)\n- It requires raC_4_00_raC_Dvc_PM5000_PQEM_Model to be already imported in your project\n\nTo resolve these errors take the following steps:\n1. Navigate to the project file folder. You can do this easily by clicking the folder button in the toolbar., then again clicking the folder button to open the path in Windows.\n\n2. Open the NetSolution folder, then find the file with the extension .csproj. This filename will match the name of your project. Open it in a simple text editor like Notepad. In this file, paste the following code directly before the final line (</Project>).\n\n<ItemGroup>\n  <PackageReference Include=\"Newtonsoft.Json\" Version=\"13.0.3\" />\n  <PackageReference Include=\"FluentFTP\" Version=\"49.0.2\" />\n  <PackageReference Include=\"QuestPDF\" Version=\"2024.3.0\" />\n  <PackageReference Include=\"Meta.Numerics\" Version=\"4.1.4\" />\n</ItemGroup>\n\n3. Navigate to the Model node, then locate and expand raC_4_01_raC_Dvc_PM5000_PQEM_Model. Right-click on raC_4_01_raC_Dvc_PM5000_PQEM_Setup and select \"Execute SetupInitialConfiguration\" to automatically configure all required objects.\n\n4.Creating PowerMonitor Organization Tree: \n- Browse to: Project Files > res > raC_4_01_raC_Dvc_PM5000_PQEM_Dashboard_Model_Template.csv\n- Add each PM5000 device with its IP address, device name, and organizational hierarchy. \n- Follow the exact column format specified in the template. Save and Close the csv file.\n- Navigate to Model > raC_4_01_raC_Dvc_PM5000_PQEMDashboard_Model > raC_4_01_raC_Dvc_PM5000_PQEMDashboard_DevicesImporter\n- Right-click and select \"Execute Import\"\n- Reads the CSV file and automatically creates the organizational tree structure\n- After execution completes, go to: Model > raC_4_01_raC_Dvc_PM5000_PQEMDashboard_Model > PM5000_PQEM_OrgModel. Confirm all devices appear under the correct organizational hierarchy & Confirm each device instance is configured correctly and each parameter matches the CSV input"}
+  Children:
+  - Name: LibraryItemGuid
+    Type: BaseDataVariableType
+    DataType: Guid
+    Value: "4258196e6ee1c061a1e069c749b3b1e3"
+  - Name: LibraryItemVersion
+    Type: BaseDataVariableType
+    DataType: UInt32
+    Value: 1
+  - Name: raC_4_01_raC_Dvc_PM5000_PQEMDashboard_Model
+    Type: FolderType
+    Children:
+    - Name: raC_4_01_raC_Dvc_PM5000_PQEMDashboard_ScheduleType
+      Id: g=6fd81df5c6bf992fbaae386fd4643029
+      Supertype: BaseObjectType
+      Children:
+      - Name: ScheduleId
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "0"
+      - Name: Frequency
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Daily"
+      - Name: DayOfWeek
+        Type: BaseDataVariableType
+        DataType: Int32
+        Value: 1
+      - Name: TimeOfDay
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "09:00"
+      - Name: ReportPeriod
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Last30Days"
+      - Name: FileNameTemplate
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Report_{Date}.pdf"
+      - Name: EmailTo
+        Type: BaseDataVariableType
+        DataType: String
+      - Name: IsActive
+        Type: BaseDataVariableType
+        DataType: Boolean
+      - Name: NextRun
+        Type: BaseDataVariableType
+        DataType: DateTime
+        Value: "2026-01-20T00:00:00.0000000"
+      - Name: LastRun
+        Type: BaseDataVariableType
+        DataType: DateTime
+      - Name: CreatedAt
+        Type: BaseDataVariableType
+        DataType: DateTime
+      - Name: CreatedBy
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "0"
+      - Name: LocationPath
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "0"
+      - Name: DayOfMonth
+        Type: BaseDataVariableType
+        DataType: Int32
+        Value: 31
+      - Name: ScheduleName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "0"
+    - Name: raC_4_01_raC_Dvc_PM5000_PQEMDashboard_OrgNodeType
+      Id: g=a62e1396d732a43a56b1c2041f3d84ab
+      Supertype: BaseObjectType
+      Children:
+      - Name: NodeLevel
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Enterprise"
+      - Name: NodePath
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "0"
+      - Name: ChildDeviceCount
+        Type: BaseDataVariableType
+        DataType: Int32
+    - Name: ReportGeneratorLogic
+      Type: NetLogic
+      Children:
+      - Class: Method
+        Name: GenerateManualReport
+        Children:
+        - Name: ns=0;InputArguments
+          Type: BaseVariableType
+          DataType: Argument
+          ReferenceType: HasProperty
+          ValueRank: OneDimension
+          ArrayDimensions: [0]
+          Value: [{"TypeId":{"Id":296},"Body":{"Name":"orgPath","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"reportPeriod","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+    - File: raC_4_01_raC_Dvc_PM5000_PQEMDashboard_ReportSchedules/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_ReportSchedules.yaml
+    - Name: raC_4_01_raC_Dvc_PM5000_PQEMDashboard_DevicesImporter
+      Type: NetLogic
+      Children:
+      - Name: BehaviourStartPriority
+        Type: BehaviourStartPriorityVariableType
+        DataType: Byte
+        Value: 180
+      - Class: Method
+        Name: Import
+      - Name: CSVPath
+        Type: BaseDataVariableType
+        DataType: ResourceUri
+        Value: "ns=4;%PROJECTDIR%/res/raC_4_01_raC_Dvc_PM5000_PQEM_Dashboard_Model_Template.csv"
+      - Name: DeviceType
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "raC_4_01_raC_Dvc_PM5000_PQEM"
+    - Name: Cfg_ReportsStoragePath
+      Type: BaseDataVariableType
+      DataType: String
+      Description: {"LocaleId":"en-US","Text":"Configure where Reports PDF files are stored. Use:\n- %APPLICATIONDIR% for panel internal memory (limited, ~2-5GB depending on model)\n- %USB1% for first USB drive (external storage, larger capacity)\n- %USB2% for second USB drive (if multiple USB ports available)\n- \\192.168.1.1\\Reports\\ – Network Shared Path (store reports on a shared folder accessible over the network)\nNote: If USB is unavailable at startup, system falls back to %APPLICATIONDIR% and Network path storage is currently supported on Desktop; not available on Optix Panel"}
+      Value: "%APPLICATIONDIR% "
+- Name: raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI
+  Type: ObjectLibraryItem
+  Description: {"LocaleId":"","Text":"Name: PowerMonitor™ 5000 Power Quality & Energy Monitoring Advanced Multi-Device Dashboard - UI\n \nVersion: 4.01\n \nDescription: \nThe PowerMonitor™ 5000 Power Quality & Energy Monitoring Advanced Multi-Device Dashboard provides a centralized, organization-level interface for monitoring multiple PM5000 devices across factories, facilities, and production areas. This dashboard object complements the existing standalone faceplates (raC_Dvc_PM5000_PQEM) by offering aggregated views and multi-device analytics.\n- Common Dashboard\n- Energy Dashboard\n- PQ Events Dashboard\n- ITI and SEMI F47 Chart Dashboard\n- Alarm Log Dashboard\n- Calendar Trends\n- Trend Viewer\n- Reports\n\nPrerequisites:\nIt requires raC_4_01_raC_Dvc_PM5000_PQEM_UI to be already imported in your project\n\nUsage:\nDrag-and-drop the raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI object in the UI folder in your project. We recommend creating a sub-folder for “RockwellAutomationLibraries” and you may also consider a sub-folder to organize each library like “raC_PowerDevice_4_lib”. Choose “Skip All” for any existing components."}
+  Children:
+  - Name: LibraryItemGuid
+    Type: BaseDataVariableType
+    DataType: Guid
+    Value: "062f8429600c4dea08cfff44b2d813b7"
+  - Name: LibraryItemVersion
+    Type: BaseDataVariableType
+    DataType: UInt32
+    Value: 1
+  - Name: raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI
+    Type: FolderType
+    DisplayName: {"LocaleId":"en-US","Text":"PM5000 PQEM Dashboard"}
+    Children:
+    - Name: raC_4_01_raC_Dvc_PM5000_PQEMDashboard
+      Id: g=4f4280b040823867453b4e062eabb05d
+      Supertype: Screen
+      ReferenceType: HasComponent
+      Children:
+      - Name: hl_Dashboard
+        Type: RowLayout
+        Children:
+        - Name: Width
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 50.0
+        - Name: Height
+          Type: BaseVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 50.0
+        - Name: HorizontalAlignment
+          Type: BaseVariableType
+          DataType: HorizontalAlignment
+          ModellingRule: Optional
+          Value: 3
+        - Name: VerticalAlignment
+          Type: BaseVariableType
+          DataType: VerticalAlignment
+          ModellingRule: Optional
+          Value: 3
+        - Name: treescroll
+          Type: ScrollView
+          Children:
+          - Name: VerticalAlignment
+            Type: BaseVariableType
+            DataType: VerticalAlignment
+            ModellingRule: Optional
+            Value: 3
+          - Name: LeftMargin
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+          - Name: left
+            Type: ColumnLayout
+            Children:
+            - Name: VerticalAlignment
+              Type: BaseVariableType
+              DataType: VerticalAlignment
+              ModellingRule: Optional
+            - Name: BottomMargin
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: 50.0
+            - Name: VerticalGap
+              Type: BaseDataVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: 5.0
+            - Name: LeftMargin
+              Type: BaseVariableType
+              DataType: Size
+              ModellingRule: Optional
+              Value: 10.0
+          - Name: Height
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 1000.0
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+          - Name: ContentWidth
+            Type: BaseDataVariableType
+            DataType: Size
+            AccessLevel: Read
+          - Name: ContentHeight
+            Type: BaseDataVariableType
+            DataType: Size
+            AccessLevel: Read
+          - Name: ViewWidth
+            Type: BaseDataVariableType
+            DataType: Size
+            AccessLevel: Read
+          - Name: ViewHeight
+            Type: BaseDataVariableType
+            DataType: Size
+            AccessLevel: Read
+          - Name: ContentX
+            Type: BaseDataVariableType
+            DataType: Size
+          - Name: ContentY
+            Type: BaseDataVariableType
+            DataType: Size
+          - Class: Reference
+            Target: ns=7;i=1394
+            Direction: Forward
+        - Name: HorizontalGap
+          Type: BaseDataVariableType
+          DataType: Size
+          ModellingRule: Optional
+          Value: 5.0
+        - Name: NavigationPanelright
+          Type: NavigationPanel
+          Children:
+          - Name: Panels
+            Type: BaseObjectType
+            Children:
+            - Name: Panel1
+              Type: NavigationPanelItem
+              Children:
+              - Name: Title
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Common Dashboard"}
+              - Name: Panel
+                Type: NodePointer
+                DataType: NodeId
+                Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_CommonDashboard"
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+            - Name: Panel2
+              Type: NavigationPanelItem
+              Children:
+              - Name: Title
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Energy Dashboard"}
+              - Name: Panel
+                Type: NodePointer
+                DataType: NodeId
+                Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_EnergyDashboard"
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+            - Name: Panel3
+              Type: NavigationPanelItem
+              Children:
+              - Name: Title
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"PQEvents Dashboard"}
+              - Name: Panel
+                Type: NodePointer
+                DataType: NodeId
+                Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_PQEventsDashboard"
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+            - Name: Panel4
+              Type: NavigationPanelItem
+              Children:
+              - Name: Title
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"ITIAndSEMIF47Chart Dashboard"}
+              - Name: Panel
+                Type: NodePointer
+                DataType: NodeId
+                Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_ITIAndSEMIF47ChartDashboard"
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+            - Name: Panel5
+              Type: NavigationPanelItem
+              Children:
+              - Name: Title
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Alarm Log Dashboard"}
+              - Name: Panel
+                Type: NodePointer
+                DataType: NodeId
+                Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_AlarmTypesDashboard"
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+            - Name: Panel6
+              Type: NavigationPanelItem
+              Children:
+              - Name: Title
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Calendar Trends"}
+              - Name: Panel
+                Type: NodePointer
+                DataType: NodeId
+                Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_CalendarTrendsDashboard"
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+            - Name: Panel8
+              Type: NavigationPanelItem
+              Children:
+              - Name: Title
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Trend Viewer"}
+              - Name: Panel
+                Type: NodePointer
+                DataType: NodeId
+                Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_TrendViewerDashboard"
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+            - Name: Panel7
+              Type: NavigationPanelItem
+              Children:
+              - Name: Title
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Reports"}
+              - Name: Panel
+                Type: NodePointer
+                DataType: NodeId
+                Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_ReportConfigurationDashboard"
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+            - Name: Panel9
+              Type: NavigationPanelItem
+              Children:
+              - Name: Title
+                Type: BaseDataVariableType
+                DataType: LocalizedText
+                Value: {"LocaleId":"en-US","Text":"Help"}
+              - Name: Panel
+                Type: NodePointer
+                DataType: NodeId
+                Value: "/Objects/raC_PowerDevice_4_lib/Items/PowerMonitor/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/raC_4_01_raC_Dvc_PM5000_PQEMDashboard_UI/<Private Elements&>/Panels/raC_4_01_raC_Dvc_PM5000_PQEM_HelpDashboard"
+                Children:
+                - Name: Kind
+                  Type: PropertyType
+                  DataType: NodeId
+                  Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item/Container"
+          - Name: CurrentPanel
+            Type: NodePointer
+            DataType: NodeId
+            AccessLevel: Read
+            Children:
+            - Name: Kind
+              Type: PropertyType
+              DataType: NodeId
+              Value: "/Types/ObjectTypes/BaseObjectType/BaseUIObject/Item"
+          - Name: CurrentTabIndex
+            Type: BaseDataVariableType
+            DataType: Int32
+          - Class: Reference
+            Target: ns=7;i=1181
+            Direction: Forward
+          - Class: Reference
+            Target: ns=7;i=1183
+            Direction: Forward
+          - Name: Width
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 300.0
+          - Name: Height
+            Type: BaseVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 300.0
+          - Name: HorizontalAlignment
+            Type: BaseVariableType
+            DataType: HorizontalAlignment
+            ModellingRule: Optional
+            Value: 3
+          - Name: VerticalAlignment
+            Type: BaseVariableType
+            DataType: VerticalAlignment
+            ModellingRule: Optional
+            Value: 3
+          - Name: TabHeight
+            Type: BaseDataVariableType
+            DataType: Size
+            ModellingRule: Optional
+            Value: 40.0
+          - Name: TabPosition
+            Type: BaseVariableType
+            DataType: NavigationPanelTabPositionEnum
+            ModellingRule: Optional
+            Value: 1
+          - Name: SelectedOrgNodePath
+            Type: BaseDataVariableType
+            DataType: String
+            Value: "0"
+          - Name: Style
+            Type: BaseDataVariableType
+            DataType: String
+            ModellingRule: Optional
+            Value: "Default"
+        - Name: Dashboard_TreeNavBuilder
+          Type: NetLogic
+      - Name: HorizontalAlignment
+        Type: BaseVariableType
+        DataType: HorizontalAlignment
+        ModellingRule: Optional
+        Value: 3
+      - Name: VerticalAlignment
+        Type: BaseVariableType
+        DataType: VerticalAlignment
+        ModellingRule: Optional
+        Value: 3
+      - Name: Cfg_ObjectVersion
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "4.01.00"
+    - File: Graphic_Symbols1/Graphic_Symbols1.yaml
+    - File: _Private_Elements_1/_Private_Elements_1.yaml

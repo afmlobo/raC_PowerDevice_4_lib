@@ -1,0 +1,546 @@
+Name: raC_4_01_raC_Dvc_PM5000_PQEM_DataStores
+Type: FolderType
+Children:
+- Name: raC_4_01_raC_Dvc_PM5000_PQEM_db_PowerQuality
+  Type: SQLiteStore
+  Children:
+  - Name: Tables
+    Type: BaseObjectType
+    Children:
+    - Name: PowerQualityLog_AllDevices
+      Type: SQLiteStoreTable
+      Children:
+      - Class: Reference
+        Target: ns=11;i=12
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=15
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=21
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=20
+        Direction: Forward
+      - Name: Columns
+        Type: BaseObjectType
+        Children:
+        - Name: DeviceName
+          Type: StoreColumn
+          DataType: String
+        - Name: Record_Identifier
+          Type: StoreColumn
+          DataType: Int32
+        - Name: Event_Type
+          Type: StoreColumn
+          DataType: String
+        - Name: Event_Code
+          Type: StoreColumn
+          DataType: Int32
+        - Name: Sub_Event_Code
+          Type: StoreColumn
+          DataType: Int32
+        - Name: Sub_Event
+          Type: StoreColumn
+          DataType: String
+        - Name: Local_Timestamp
+          Type: StoreColumn
+          DataType: DateTime
+        - Name: Event_Duration_mS
+          Type: StoreColumn
+          DataType: Float
+        - Name: Trip_Point
+          Type: StoreColumn
+          DataType: String
+        - Name: Min_or_Max
+          Type: StoreColumn
+          DataType: String
+        - Name: Association_Timestamp
+          Type: StoreColumn
+          DataType: DateTime
+      - Name: RecordLimit
+        Type: BaseDataVariableType
+        DataType: UInt32
+    - Name: AlarmLog_AllDevices
+      Type: SQLiteStoreTable
+      Children:
+      - Class: Reference
+        Target: ns=11;i=12
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=15
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=21
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=20
+        Direction: Forward
+      - Name: Columns
+        Type: BaseObjectType
+        Children:
+        - Name: DeviceName
+          Type: StoreColumn
+          DataType: String
+        - Name: Timestamp
+          Type: StoreColumn
+          DataType: DateTime
+        - Name: AlarmTypeCode
+          Type: StoreColumn
+          DataType: Int32
+        - Name: AlarmTypeDescription
+          Type: StoreColumn
+          DataType: String
+        - Name: AlarmCode
+          Type: StoreColumn
+          DataType: Int32
+        - Name: AlarmCodeDescription
+          Type: StoreColumn
+          DataType: String
+        - Name: Severity
+          Type: StoreColumn
+          DataType: String
+        - Name: CreatedAt
+          Type: StoreColumn
+          DataType: DateTime
+    - Name: EnergyLog_AllDevices
+      Type: SQLiteStoreTable
+      Children:
+      - Class: Reference
+        Target: ns=11;i=12
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=15
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=21
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=20
+        Direction: Forward
+      - Name: Columns
+        Type: BaseObjectType
+        Children:
+        - Name: ID
+          Type: StoreColumn
+          DataType: Int64
+        - Name: DeviceName
+          Type: StoreColumn
+          DataType: String
+        - Name: Timestamp
+          Type: StoreColumn
+          DataType: DateTime
+        - Name: RecordID
+          Type: StoreColumn
+          DataType: Int32
+        - Name: Status_1_Count_xM
+          Type: StoreColumn
+          DataType: Int32
+        - Name: Status_1_Count_x1
+          Type: StoreColumn
+          DataType: Int32
+        - Name: Status_2_Count_xM
+          Type: StoreColumn
+          DataType: Int32
+        - Name: Status_2_Count_x1
+          Type: StoreColumn
+          DataType: Int32
+        - Name: Status_3_Count_xM
+          Type: StoreColumn
+          DataType: Int32
+        - Name: Status_3_Count_x1
+          Type: StoreColumn
+          DataType: Int32
+        - Name: Status_4_Count_xM
+          Type: StoreColumn
+          DataType: Int32
+        - Name: Status_4_Count_x1
+          Type: StoreColumn
+          DataType: Int32
+        - Name: GWh_Fwd
+          Type: StoreColumn
+          DataType: Double
+        - Name: kWh_Fwd
+          Type: StoreColumn
+          DataType: Double
+        - Name: GWh_Rev
+          Type: StoreColumn
+          DataType: Double
+        - Name: kWh_Rev
+          Type: StoreColumn
+          DataType: Double
+        - Name: GWh_Net
+          Type: StoreColumn
+          DataType: Double
+        - Name: kWh_Net
+          Type: StoreColumn
+          DataType: Double
+        - Name: GVARh_Fwd
+          Type: StoreColumn
+          DataType: Double
+        - Name: kVARh_Fwd
+          Type: StoreColumn
+          DataType: Double
+        - Name: GVARh_Rev
+          Type: StoreColumn
+          DataType: Double
+        - Name: kVARh_Rev
+          Type: StoreColumn
+          DataType: Double
+        - Name: GVARh_Net
+          Type: StoreColumn
+          DataType: Double
+        - Name: kVARh_Net
+          Type: StoreColumn
+          DataType: Double
+        - Name: GVAh
+          Type: StoreColumn
+          DataType: Double
+        - Name: kVAh
+          Type: StoreColumn
+          DataType: Double
+        - Name: kW_Demand
+          Type: StoreColumn
+          DataType: Double
+        - Name: kVAR_Demand
+          Type: StoreColumn
+          DataType: Double
+        - Name: kVA_Demand
+          Type: StoreColumn
+          DataType: Double
+        - Name: Demand_PF
+          Type: StoreColumn
+          DataType: Double
+        - Name: Projected_kW_Demand
+          Type: StoreColumn
+          DataType: Double
+        - Name: Projected_kVAR_Demand
+          Type: StoreColumn
+          DataType: Double
+        - Name: Projected_kVA_Demand
+          Type: StoreColumn
+          DataType: Double
+        - Name: Total_kWh_Fwd
+          Type: StoreColumn
+          DataType: Double
+        - Name: Total_kWh_Rev
+          Type: StoreColumn
+          DataType: Double
+        - Name: Total_kWh_Net
+          Type: StoreColumn
+          DataType: Double
+        - Name: Total_kVARh_Fwd
+          Type: StoreColumn
+          DataType: Double
+        - Name: Total_kVARh_Rev
+          Type: StoreColumn
+          DataType: Double
+        - Name: Total_kVARh_Net
+          Type: StoreColumn
+          DataType: Double
+        - Name: Total_kVAh
+          Type: StoreColumn
+          DataType: Double
+        - Name: SourceFileName
+          Type: StoreColumn
+          DataType: String
+        - Name: CreatedAt
+          Type: StoreColumn
+          DataType: DateTime
+    - Name: EnergyLog_ProcessedFiles
+      Type: SQLiteStoreTable
+      Children:
+      - Class: Reference
+        Target: ns=11;i=12
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=15
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=21
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=20
+        Direction: Forward
+      - Name: Columns
+        Type: BaseObjectType
+        Children:
+        - Name: DeviceName
+          Type: StoreColumn
+          DataType: String
+        - Name: FileName
+          Type: StoreColumn
+          DataType: String
+        - Name: ProcessedTimestamp
+          Type: StoreColumn
+          DataType: DateTime
+        - Name: RowCount
+          Type: StoreColumn
+          DataType: Int32
+    - Name: DataLogger_AllDevices
+      Type: SQLiteStoreTable
+      Children:
+      - Class: Reference
+        Target: ns=11;i=12
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=15
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=21
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=20
+        Direction: Forward
+      - Name: Columns
+        Type: BaseObjectType
+        Children:
+        - Name: DeviceName
+          Type: StoreColumn
+          DataType: String
+        - Name: Timestamp
+          Type: StoreColumn
+          DataType: DateTime
+        - Name: SourceFile
+          Type: StoreColumn
+          DataType: String
+    - Name: DataLogger_ProcessedFiles
+      Type: SQLiteStoreTable
+      Children:
+      - Class: Reference
+        Target: ns=11;i=12
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=15
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=21
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=20
+        Direction: Forward
+      - Name: Columns
+        Type: BaseObjectType
+        Children:
+        - Name: DeviceName
+          Type: StoreColumn
+          DataType: String
+        - Name: FileName
+          Type: StoreColumn
+          DataType: String
+        - Name: ProcessedTimestamp
+          Type: StoreColumn
+          DataType: DateTime
+        - Name: RowCount
+          Type: StoreColumn
+          DataType: Int32
+  - Class: Reference
+    Target: ns=15;i=30
+    Direction: Forward
+  - Class: Reference
+    Target: ns=15;i=33
+    Direction: Forward
+  - Name: MaxColumnNameLength
+    Type: BaseDataVariableType
+    DataType: UInt32
+    AccessLevel: Read
+  - Name: MaxColumnCount
+    Type: BaseDataVariableType
+    DataType: UInt32
+    AccessLevel: Read
+  - Name: DataTypeCompatibilityMap
+    Type: BaseDataVariableType
+    DataType: NodeId
+    AccessLevel: Read
+    ValueRank: OneOrMoreDimensions
+    ArrayDimensions: [0,0]
+  - Name: Status
+    Type: PropertyType
+    DataType: StoreStatus
+    AccessLevel: Read
+    Value: 2
+  - Class: Reference
+    Target: ns=11;i=22
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=6
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=8
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=25
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=38
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=41
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=44
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=53
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=55
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=57
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=59
+    Direction: Forward
+  - Name: Filename
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "raC_Dvc_PM5000_PQEM_db_Logs"
+- Name: raC_4_01_raC_Dvc_PM5000_PQEM_rs_Users
+  Type: RetentivityStorage
+  Children:
+  - Name: Nodes
+    Type: BaseObjectType
+    Children:
+    - Name: users
+      Type: NodePointer
+      DataType: NodeId
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+      - Name: NodeClass
+        Type: PropertyType
+        DataType: NodePointerNodeClass
+        Value: 2
+    - Name: reportSchedules
+      Type: BaseDataVariableType
+      DataType: NodeId
+  - Name: WriteDelay
+    Type: BaseDataVariableType
+    DataType: Duration
+    ReferenceType: HasProperty
+  - Name: DeltaObserverEnabled
+    Type: BaseDataVariableType
+    DataType: Boolean
+    ReferenceType: HasProperty
+    Value: true
+- Name: raC_4_01_raC_Dvc_PM5000_PQEM_db_WaveformArchive
+  Type: SQLiteStore
+  Children:
+  - Name: Tables
+    Type: BaseObjectType
+    Children:
+    - Name: WaveformArchive
+      Type: SQLiteStoreTable
+      Children:
+      - Class: Reference
+        Target: ns=11;i=12
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=15
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=21
+        Direction: Forward
+      - Class: Reference
+        Target: ns=11;i=20
+        Direction: Forward
+      - Name: Columns
+        Type: BaseObjectType
+        Children:
+        - Name: Id
+          Type: StoreColumn
+          DataType: Int32
+        - Name: DeviceName
+          Type: StoreColumn
+          DataType: String
+        - Name: FileName
+          Type: StoreColumn
+          DataType: String
+        - Name: FilePath
+          Type: StoreColumn
+          DataType: String
+        - Name: FileSize
+          Type: StoreColumn
+          DataType: Int32
+        - Name: CaptureDateTime
+          Type: StoreColumn
+          DataType: DateTime
+        - Name: TotalCycles
+          Type: StoreColumn
+          DataType: Int32
+        - Name: MaxVoltage
+          Type: StoreColumn
+          DataType: Double
+        - Name: MaxCurrent
+          Type: StoreColumn
+          DataType: Double
+        - Name: EventType
+          Type: StoreColumn
+          DataType: String
+        - Name: CreatedAt
+          Type: StoreColumn
+          DataType: DateTime
+  - Class: Reference
+    Target: ns=15;i=30
+    Direction: Forward
+  - Class: Reference
+    Target: ns=15;i=33
+    Direction: Forward
+  - Name: MaxColumnNameLength
+    Type: BaseDataVariableType
+    DataType: UInt32
+    AccessLevel: Read
+  - Name: MaxColumnCount
+    Type: BaseDataVariableType
+    DataType: UInt32
+    AccessLevel: Read
+  - Name: DataTypeCompatibilityMap
+    Type: BaseDataVariableType
+    DataType: NodeId
+    AccessLevel: Read
+    ValueRank: OneOrMoreDimensions
+    ArrayDimensions: [0,0]
+  - Name: Status
+    Type: PropertyType
+    DataType: StoreStatus
+    AccessLevel: Read
+    Value: 2
+  - Class: Reference
+    Target: ns=11;i=22
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=6
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=8
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=25
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=38
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=41
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=44
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=53
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=55
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=57
+    Direction: Forward
+  - Class: Reference
+    Target: ns=11;i=59
+    Direction: Forward
+  - Name: Filename
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "raC_Dvc_PM5000_PQEM_db_WaveformArchive"
